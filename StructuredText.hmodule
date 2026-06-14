@@ -1,0 +1,172 @@
+// Structured Text Module
+
+typedef BOOL, b, circle-thin, circle, #FF0000, %, checkbox;
+
+typedef INT, i, circle-thin, circle, #457E58, %, number;
+typedef SINT, si, circle-thin, circle, #457E58, %, number;
+typedef DINT, di, circle-thin, circle, #457E58, %, number;
+typedef LINT, li, circle-thin, circle, #457E58, %, number;
+typedef USINT, usi, circle-thin, circle, #457E58, %, number;
+typedef UINT, ui, circle-thin, circle, #457E58, %, number;
+typedef LDINT, ldi, circle-thin, circle, #457E58, %, number;
+typedef ULINT, uli, circle-thin, circle, #457E58, %, number;
+
+typedef REAL, r, circle-thin, circle, #7CFC00, %, number;
+typedef LREAL, lr, circle-thin, circle, #7CFC00, %, number;
+
+typedef STRING, s, circle-thin, circle, #FF38D4, '%', text;
+
+typedef BYTE, by, circle-thin, circle, #457E58, %, number;
+typedef WORD, w, circle-thin, circle, #457E58, %, number;
+typedef DWORD, dw, circle-thin, circle, #457E58, %, number;
+typedef LWORD, lw, circle-thin, circle, #457E58, %, number;
+
+struct Settings
+{
+    doc-link=https://en.cppreference.com/
+    separator=;\n
+    extension=c
+    var-fmt=%name
+    var-decl=%name
+    var-sign=%name := %val
+    decl-sign=%type %name = %val
+    param-separator=, 
+    struct-new={%params}
+    array-separator=, 
+    bools=TRUE|FALSE
+}
+
+
+start exec Begin()
+{
+
+PROGRAM My_Program
+%o0
+END_PROGRAM;
+
+}
+
+_type5 exec True, exec False, exec Then If(exec _In, BOOL Condition)
+{
+    if (!False)
+    {
+        return "IF " + Condition + " THEN\n%o0\nEND_IF;\n%c2";
+    }
+    if (!True)
+    {
+        return "IF NOT " + Condition + " THEN\n%o1\nEND_IF;\n%c2";
+    }
+    return "IF " + Condition + " THEN\n%o0\nELSE\n%o1\nEND_IF;\n%c2";
+}
+
+
+
+custom For, 1, FOR %n := %1 TO %2 BY %3 DO\n%o0\nEND_FOR;\n%c2, e.;i.Start;i.End;p.1.i.Increment;o.;e.Loop;r.i.Current;e.Then;,
+
+exec Loop, exec Then While(exec _In, BOOL Condition)
+{
+
+WHILE Condition DO
+%o0
+END_WHILE;
+%c1
+
+}
+
+exec Loop, exec Then Repeat(exec _In, BOOL Condition)
+{
+
+REPEAT
+%o0
+UNTIL Condition
+END_REPEAT;
+%c1
+
+} // Repeat Until
+
+custom Exit, 1, EXIT;, e.;o.;,
+
+_type4 auto add(auto _a, auto _b)
+{
+    (a + b)
+} // Add (+)
+
+_type4 auto subtract(auto _a, auto _b)
+{
+    (a - b)
+} // Subtract (-)
+
+_type4 auto multiply(auto _a, auto _b)
+{
+    (a * b)
+} // Multiply (*)
+
+_type4 auto exponent(auto _a, auto _b)
+{
+    (a ** b)
+} // Power (**)
+
+_type4 auto divide(auto _a, auto _b)
+{
+    (a / b)
+} // Divide (/)
+
+_type2 auto Negate(auto _a)
+{
+    -a
+}
+
+_type4 auto modulo(auto _a, auto _b)
+{
+    (a MOD b)
+} // Modulo (MOD)
+
+_type4 BOOL equal(auto _a, auto _b)
+{
+    a = b
+} // Equal (=)
+
+_type4 BOOL neq(auto _a, auto _b)
+{
+    a <> b
+} // Not Equal (<>)
+
+_type4 BOOL less(auto _a, auto _b)
+{
+    a < b
+} // Less Than (<)
+
+_type4 BOOL greater(auto _a, auto _b)
+{
+    a > b
+} // Greater Than (>)
+
+_type4 BOOL leq(auto _a, auto _b)
+{
+    a <= b
+} // Less Than or Equal (<=)
+
+_type4 BOOL greq(auto _a, auto _b)
+{
+    a >= b
+} // Greater Than or Equal (>=)
+
+_type2 auto and(auto _a, auto _b)
+{
+    a AND b
+} // And
+
+_type2 auto or(auto _a, auto _b)
+{
+    a OR b
+} // Or
+
+_type2 auto xor(auto _a, auto _b)
+{
+    a XOR b
+} // Xor
+
+_type2 auto not(auto _a)
+{
+    NOT a
+} // Not

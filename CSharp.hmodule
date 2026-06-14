@@ -1,0 +1,327 @@
+// C# Module
+
+typedef bool, b, circle-thin, circle, #FF0000, %, checkbox;
+typedef bool[], ab, square-o, square, #FF0000, %, ;
+
+typedef sbyte, sb, circle-thin, circle, #457E58, %, number;
+typedef sbyte[], asb, square-o, square, #457E58, %, ;
+typedef byte, B, circle-thin, circle, #457E58, %, number;
+typedef byte[], aB, square-o, square, #457E58, %, ;
+typedef char, C, circle-thin, circle, #FF8A54, '%', text;
+typedef string, s, circle-thin, circle, #FF38D4, "%", text;
+typedef string[], as, square-o, square, #FF38D4, %, ;
+typedef short, h, circle-thin, circle, #457E58, %, number;
+typedef short[], ah, square-o, square, #457E58, %, ;
+typedef ushort, H, circle-thin, circle, #457E58, %, number;
+typedef ushort[], aH, square-o, square, #457E58, %, ;
+typedef int, i, circle-thin, circle, #457E58, %, number;
+typedef int[], ai, square-o, square, #457E58, %, ;
+typedef uint, I, circle-thin, circle, #457E58, %U, number;
+typedef uint[], aI, square-o, square, #457E58, %, ;
+typedef long, l, circle-thin, circle, #457E58, %l, number;
+typedef long[], al, square-o, square, #457E58, %, ;
+typedef ulong, L, circle-thin, circle, #457E58, %U, number;
+typedef ulong[], aL, square-o, square, #457E58, %, ;
+typedef float, f, circle-thin, circle, #7CFC00, %f, number;
+typedef float[], af, square-o, square, #7CFC00, %, ;
+typedef double, d, circle-thin, circle, #7CFC00, %, number;
+typedef double[], ad, square-o, square, #7CFC00, %, ;
+typedef void*, pv, circle-thin, circle, #888888, %, number;
+typedef void*[], ad, square-o, square, #888888, %, ;
+typedef Array, a, square-o, square, #0093F5, %, ;
+typedef Function, fn, circle-thin, circle, #4800FF, %, ;
+
+
+struct Settings
+{
+    doc-link=https://learn.microsoft.com/en-us/dotnet/api/
+    separator=;\n
+    extension=cs
+    var-fmt=%name
+    var-decl=%type %name
+    var-sign=%name = %val
+    decl-sign=%type %name = %val
+    param-separator=, 
+    param-decl=%type %name
+    param-format=%name
+    function-format=%return %name(%inputs)\n{\n%code\n}\n
+    function-call=%name(%inputs)
+    struct-new=new %name(%params)
+    array-separator=, 
+    bools=true|false
+};
+
+namespace string
+{
+    int getlength(string _x) { %0.Length } // Get Length (string)
+    bool Contains(string _x, string value) { %0.Contains(%1) } // Contains (string)
+};
+
+
+start custom Begin, 5, let output = "%functions\nstatic void Main("; if (args) { output += "string[] args"; } return output + ")\n{\n%o0\n}";, o.;e.;v.args.as.args;, 
+
+
+void MakeStatement(auto _Statement)
+{
+    Statement
+} // Make Statement
+
+custom Custom, 3, %, i.s.;o.;g.;,
+
+void SetByRef(auto Ref, auto Value)
+{
+    Ref = Value
+} // Set By Reference
+
+// Type 5 nodes are programmable, they return the string to output
+_type5 exec True, exec False, exec Then If(exec _In, bool Condition)
+{
+    if (!False)
+    {
+        return "if (" + Condition + ")\n{\n%o0\n}\n%c2";
+    }
+
+    if (!True)
+    {
+        return "if (!" + Condition + ")\n{\n%o1\n}\n%c2";
+    }
+
+    return "if (" + Condition + ")\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2";
+}
+
+exec Preparation, exec Loop, exec Increment, exec Then For(exec _In, bool Condition)
+{
+
+for(%s0; Condition; %s2)
+{
+%o1
+}
+%c3
+
+}
+
+
+custom For Each, 1, foreach (var %nt in %1)\n{\n%o0\n}\n%c2, e.;a.;o.;e.Loop;r.g.Current;e.Then;,
+
+custom For (UE), 1, for (int %nt = %1; %n != %2; %n += %3)\n{\n%o0\n}\n%c2, e.;i.Start;i.End;p.1.i.Increment;o.;e.Loop;r.i.Current;e.Then;,
+
+exec Loop, exec Then While(exec _In, bool Condition)
+{
+
+while (Condition)
+{
+%o0
+}
+%c1
+
+}
+
+exec Loop, exec Then dowhile(exec _In, bool Condition)
+{
+
+do
+{
+%o0
+} while (Condition);
+%c1
+
+} // Do While
+
+exec Cases, exec Then Switch(exec _In, auto Input)
+{
+
+switch(Input)
+{
+%o0
+}
+%c1
+
+}
+
+exec, exec Next Case(exec _In, auto Value)
+{
+
+case Value:
+%o0
+%c1
+
+}
+
+exec True DefaultCase(exec _In)
+{
+
+default:
+%o0
+
+} // Default Case
+
+custom Break, 1, break;, e.;o.;,
+custom Continue, 1, continue;, e.;o.;,
+custom Return, 5, if (!Value) { return "return;"; } return "return %1;";, e.;p..g.Value;o.;,
+
+exec Try, exec Catches, exec Then Try(exec _In)
+{
+
+try {
+%o0
+}
+%c1
+%c2
+
+}
+
+exec On_Catch, exec Next Catch(exec _In, auto Exception_Type)
+{
+
+catch (%1)
+{
+%o0
+}
+%c1
+
+}
+
+auto Item getarray(Array Array, int Index)
+{
+    Array[Index]
+} // Get (Array)
+
+auto CastTo(auto Value, const diazo_type _Type)
+{
+    ((Type)Value)
+} // Cast To
+
+auto qmarkassign(auto Ref, auto New_Value)
+{
+    (Ref ??= New_Value)
+} // Assign If Null (??=)
+
+auto qmarkop(auto X, auto If_X_Is_Null)
+{
+    (X ?? If_X_Is_Null)
+} // Select If Null (??)
+
+_type4 auto Add(auto _a, auto _b)
+{
+    (a + b)
+} // Add (+)
+
+_type4 auto Subtract(auto _a, auto _b)
+{
+    (a - b)
+} // Subtract (-)
+
+_type4 auto Multiply(auto _a, auto _b)
+{
+    (a * b)
+} // Multiply (*)
+
+_type4 auto Divide(auto _a, auto _b)
+{
+    (a / b)
+} // Divide (/)
+
+_type4 auto Modulo(auto _a, auto _b)
+{
+    (a % b)
+} // Modulo (%)
+
+_type4 auto BitShiftLeft(auto _A, auto _ShiftAmount)
+{
+    (A << ShiftAmount)
+} // Shift Left (<<)
+
+_type4 auto BitShiftRight(auto _A, auto _ShiftAmount)
+{
+    (A >> ShiftAmount)
+} // Shift Right (>>)
+
+_type4 auto PreIncrement(auto _a)
+{
+    ++a
+} // Pre-Increment (++x)
+
+_type4 auto PostIncrement(auto _a)
+{
+    a++
+} // Post-Increment (x++)
+
+_type4 auto PreDecrement(auto _a)
+{
+    --a
+} // Pre-Decrement (--x)
+
+_type4 auto PostDecrement(auto _a)
+{
+    a--
+} // Post-Decrement (x--)
+
+_type2 auto Negate(auto _a)
+{
+    -a
+}
+
+_type4 bool Equal(auto _a, auto _b) {
+ (a == b)
+} // Equal (==)
+
+_type4 bool NotEqual(auto _a, auto _b) {
+    (a != b)
+} // Not Equal (!=)
+
+_type4 bool GreaterThan(auto _a, auto _b) {
+ (a > b)
+} // Greater Than (>)
+
+_type4 bool LessThan(auto _a, auto _b) {
+ (a < b)
+} // Less Than (<)
+
+_type4 bool GreaterThanOrEqual(auto _a, auto _b) {
+ (a >= b)
+} // Greater Than or Equal (>=)
+
+_type4 bool LessOrEqual(auto _a, auto _b) {
+ (a <= b)
+} // Less Than or Equal (<=)
+
+_type4 bool band(bool _a, bool _b) {
+    (a && b)
+} // And (&&)
+
+_type4 bool bor(bool _a, bool _b) {
+    (a || b)
+} // Or (||)
+
+_type4 bool bnot(bool _a) {
+    (!a)
+} // Not (!)
+
+_type4 auto iand(auto _a, auto _b) {
+    (a & b)
+} // And (&)
+
+_type4 auto ior(auto _a, auto _b) {
+    (a | b)
+} // Or (|)
+
+_type4 auto inot(auto _a) {
+    (~a)
+} // Not (~)
+
+_type4 auto ixor(auto _a, auto _b) {
+    (a ^ b)
+} // Xor (^)
+
+_type2 bool Is(auto _a, auto _b)
+{
+    (a is b)
+}
+
+auto Select(auto A, auto B, bool Pick_A)
+{
+    (Pick_A ? A : B)
+} // Select (?)
+
+string nameof(auto _x);
+int sizeof(auto _x);

@@ -1,0 +1,57 @@
+// threads (C Standard Library)
+
+typedef thrd_t, th, circle-thin, circle, #0093F5, %,;
+typedef thrd_t*, pth, circle-thin, circle, #888888, %, number;
+typedef thrd_start_t, thstt, circle-thin, circle, #4800FF, ,;
+typedef tss_t, tsst, circle-thin, circle, #0093F5, ,;
+typedef tss_t*, ptsst, circle-thin, circle, #888888, %, number;
+typedef tss_dtor_t, tssdtort, circle-thin, circle, #4800FF, ,;
+typedef cnd_t, cndt, circle-thin, circle, #FF0000, ,;
+typedef cnd_t*, pcndt, circle-thin, circle, #888888, %, number;
+typedef once_flag, onfl, circle-thin, circle, #457E58, ,;
+typedef once_flag*, ponfl, circle-thin, circle, #888888, %, number;
+typedef mtx_t, mtxt, circle-thin, circle, #457E58, ,;
+typedef mtx_t*, pmtxt, circle-thin, circle, #888888, %, number;
+
+typedef thread error status, thrderr, circle-thin, circle, #457E58, %, thrd_success|thrd_nomem|thrd_timedout|thrd_busy|thrd_error;
+
+
+struct Settings
+{
+    addon-decl=#include <threads.h>\n
+}
+
+
+void call_once(once_flag* flag, Function func);
+int cnd_broadcast(cnd_t* cond);
+void cnd_destroy(cnd_t* cond);
+int cnd_init(cnd_t* cond);
+int cnd_signal(cnd_t* cond);
+int cnd_timedwait(cnd_t* cond, mtx_t* mtx, timespec*  ts);
+int cnd_wait(cnd_t* cond, mtx_t* mtx);
+
+void mtx_destroy(mtx_t* mtx);
+int mtx_init(mtx_t* mtx, int type);
+int mtx_lock(mtx_t* mtx);
+int mtx_timedlock(mtx_t* mtx, timespec* ts);
+int mtx_trylock(mtx_t* mtx);
+int mtx_unlock(mtx_t* mtx);
+
+int thrd_create(thrd_t* thr, thrd_start_t func, void* arg); // link=w/c/thread/thrd_create.html
+thrd_t thrd_current(); // link=w/c/thread/thrd_current.html
+int thrd_detach(thrd_t thr); // link=w/c/thread/thrd_detach.html
+int thrd_equal(thrd_t lhs, thrd_t rhs); // link=w/c/thread/thrd_equal.html
+void thrd_exit(int res); // link=w/c/thread/thrd_exit.html
+int thrd_join(thrd_t thr, int* res); // link=w/c/thread/thrd_join.html
+int thrd_sleep(timespec* duration, timespec* remaining); // link=w/c/thread/thrd_sleep.html
+void thrd_yield(); // link=w/c/thread/thrd_yield.html
+
+int tss_create(tss_t* key, tss_dtor_t dtor);
+void tss_delete(tss_t key);
+void* tss_get(tss_t key);
+int tss_set(tss_t key, void* val);
+
+once_flag once_flag_init()
+{
+    ONCE_FLAG_INIT
+} // Get ONCE_FLAG_INIT

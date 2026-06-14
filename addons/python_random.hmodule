@@ -1,0 +1,26 @@
+// random
+
+const class random
+{
+    colour = #0093F5;
+
+    float betavariate(float Alpha, float Beta);
+    float binomialvariate(int N=1, float P=0.5);
+    auto choice(list _l);
+    list choices(list Sequence, list Weights);
+    float expovariate(float Lambd=1, float Beta);
+    float getstate();
+    int getrandbits(int Size);
+    float random();
+    void seed(int _x, int Version=2);
+    void setstate(float _x);
+    void shuffle(list _x);
+    list sample(list Sequence, int K);
+    float triangular(float Low, float High);
+    float uniform(float Min, float Max);
+}
+
+struct Settings
+{
+    addon-decl=import random\n
+}

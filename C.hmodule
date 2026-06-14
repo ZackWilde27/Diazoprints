@@ -1,0 +1,355 @@
+typedef bool, b, circle-thin, circle, #FF0000, %, checkbox;
+typedef bool*, pb, circle-thin, circle, #888888, %, number;
+typedef char, c, circle-thin, circle, #FF8A54, '%', text;
+typedef char*, s, circle-thin, circle, #FF38D4, "%", text;
+typedef unsigned char, C, circle-thin, circle, #457E58, %, number;
+typedef unsigned char*, pC, circle-thin, circle, #888888, %, number;
+typedef short, h, circle-thin, circle, #457E58, %, number;
+typedef short*, ph, circle-thin, circle, #888888, %, number;
+typedef unsigned short, H, circle-thin, circle, #457E58, %, number;
+typedef unsigned short*, pH, circle-thin, circle, #888888, %, number;
+typedef int, i, circle-thin, circle, #457E58, %, number;
+typedef int*, pi, circle-thin, circle, #888888, %, number;
+typedef unsigned int, I, circle-thin, circle, #457E58, %U, number;
+typedef unsigned int*, pI, circle-thin, circle, #888888, %, number;
+typedef long, l, circle-thin, circle, #457E58, %l, number;
+typedef long*, pl, circle-thin, circle, #888888, %, number;
+typedef unsigned long, L, circle-thin, circle, #457E58, %U, number;
+typedef unsigned long*, pL, circle-thin, circle, #888888, %, number;
+typedef long long, ll, circle-thin, circle, #457E58, %ll, number;
+typedef long long*, pll, circle-thin, circle, #888888, %, number;
+typedef unsigned long long, LL, circle-thin, circle, #457E58, %U, number;
+typedef unsigned long long*, pLL, circle-thin, circle, #888888, %, number;
+typedef float, f, circle-thin, circle, #7CFC00, %f, number;
+typedef float*, pf, circle-thin, circle, #888888, %, number;
+typedef double, d, circle-thin, circle, #7CFC00, %, number;
+typedef double*, pd, circle-thin, circle, #888888, %, number;
+typedef long double, ld, circle-thin, circle, #7CFC00, %, number;
+typedef long double*, pld, circle-thin, circle, #888888, %, number;
+typedef void*, pv, circle-thin, circle, #888888, %, number;
+typedef void**, ppv, circle-thin, circle, #888888, %, number;
+typedef size_t, st, circle-thin, circle, #457E58, %, number;
+typedef size_t*, pst, circle-thin, circle, #888888, %, number;
+
+typedef bool[], ab, square-o, square, #FF0000, %, ;
+typedef bool*[], apb, square-o, square, #888888, %, ;
+typedef char[], ac, square-o, square, #FF38D4, %, ;
+typedef char*[], as, square-o, square, #FF38D4, %, ;
+
+typedef errno_t, er, circle-thin, circle, #457E58, %, number;
+typedef errno_t*, per, circle-thin, circle, #888888, %, number;
+typedef rsize_t, rs, circle-thin, circle, #457E58, %, number;
+typedef rsize_t*, prs, circle-thin, circle, #888888, %, number;
+
+typedef va_list, vs, circle-thin, circle, #888888, %,;
+typedef va_list*, pvs, circle-thin, circle, #888888, %, number;
+
+typedef char**, ps, circle-thin, circle, #888888, %,;
+
+typedef Array, a, square-o, square, #0093F5, [%], ;
+
+typedef Function, fn, circle-thin, circle, #4800FF, %, ;
+
+typedef customstring, customstring, , , #FF38D4, %, ;
+
+struct Settings
+{
+    doc-link=https://en.cppreference.com/
+    separator=;\n
+    extension=c
+    var-fmt=%name
+    var-decl=%type %name
+    var-sign=%name = %val
+    decl-sign=%type %name = %val
+    param-separator=, 
+    param-decl=%type %name
+    param-format=%name
+    function-format=%return %name(%inputs)\n{\n%code\n}\n
+    function-call=%name(%inputs)
+    struct-new={%params}
+    array-separator=, 
+    bools=true|false
+}
+
+
+start custom Main, 5, let out = "%functions\nint main("; if (argc || argv) { out = out + "int argc, char* argv[]"; } return out + ")\n{\n%o0\n}\n";, o.;e.;v.argc.i.argc;v.argv.as.argv;,
+start custom Main Return, 1, return %1;\n, e.;i.Error Code;o.;,
+
+void MakeStatement(auto _Statement)
+{
+    Statement
+} // Make Statement
+
+_type3 auto Custom(const customstring _expr)
+{
+    %
+}
+
+void SetByRef(auto Ref, auto Value)
+{
+    Ref = Value
+} // Set By Reference
+
+
+exec addlabel(exec _In, const customstring Name)
+{
+
+Name:
+%c0
+
+} // Add Label
+
+custom Goto Label, 1, goto %1;, e.;i.customstring.Name;o.;, 
+
+// programmable nodes use Node Language to determine the output
+// You can either use programmable or _type5
+programmable exec True, exec False, exec Then If(exec _In, bool Condition)
+{
+    if (!False)
+    {
+        return "if (Condition)\n{\n%o0\n}\n%c2";
+    }
+
+    if (!True)
+    {
+        return "if (!" + Condition + ")\n{\n%o1\n}\n%c2";
+    }
+
+    return "if (" + Condition + ")\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2";
+}
+
+exec Preparation, exec Loop, exec Increment, exec Then For(exec _In, bool Condition)
+{
+
+for (%s0; Condition; %s2)
+{
+%o1
+}
+%c3
+
+}
+
+custom For (UE), 1, for (int %nt = %1; %n != %2; %n += %3)\n{\n%o0\n}\n%c2, e.;i.Start;i.End;p.1.i.Increment;o.;e.Loop Body;r.i.Current;e.Then;,
+
+exec Loop, exec Completed While(exec _In, bool Condition)
+{
+
+while (Condition)
+{
+%o0
+}
+%c1
+
+}
+
+exec Loop, exec Completed dowhile(exec _In, bool Condition)
+{
+
+do
+{
+%o0
+} while (Condition)
+%c1
+
+} // Do While
+
+exec Cases, exec Then Switch(exec _In, auto Input)
+{
+
+switch (Input)
+{
+%o0
+}
+%c1
+
+}
+
+exec, exec Next Case(exec _In, auto Value)
+{
+
+case Value:
+%o0
+%c1
+
+}
+
+exec True DefaultCase(exec _In)
+{
+
+default:
+%o0
+
+} // Default Case
+
+custom Break, 1, break;\n, e.;o.;,
+custom Continue, 1, continue;\n, e.;o.;,
+custom Return, 5, if (!Value) { return "return;"; } return "return %1;";, e.;p..g.Value;o.;,
+
+auto GetArray(Array Array, int Index)
+{
+    Array[Index]
+} // Get (Array)
+
+// Type 4 nodes are small nodes, their name will be shortened to the symbol within the parenthasis when spawned, if the user has that enabled
+_type4 void* AddressOf(auto _a)
+{
+    (&a)
+} // Address Of (&x)
+
+_type4 auto Dereference(void* _ptr)
+{
+    (*ptr)
+} // De-Reference (*x)
+
+
+_type4 auto Add(auto _a, auto _b)
+{
+    (a + b)
+} // Add (+)
+
+_type4 auto Subtract(auto _a, auto _b)
+{
+    (a - b)
+} // Subtract (-)
+
+_type4 auto Multiply(auto _a, auto _b)
+{
+    (a * b)
+} // Multiply (*)
+
+_type4 auto Divide(auto _a, auto _b)
+{
+    (a / b)
+} // Divide (/)
+
+_type4 auto Modulo(auto _a, auto _b)
+{
+    (a % b)
+} // Modulo (%)
+
+_type4 auto BitShiftLeft(auto _A, auto _ShiftAmount)
+{
+    (A << ShiftAmount)
+} // Shift Left (<<)
+
+_type4 auto BitShiftRight(auto _A, auto _ShiftAmount)
+{
+    (A >> ShiftAmount)
+} // Shift Right (>>)
+
+_type4 auto PreIncrement(auto _a)
+{
+    ++a
+} // Pre-Increment (++x)
+
+_type4 auto PostIncrement(auto _a)
+{
+    a++
+} // Post-Increment (x++)
+
+_type4 auto PreDecrement(auto _a)
+{
+    --a
+} // Pre-Decrement (--x)
+
+_type4 auto PostDecrement(auto _a)
+{
+    a--
+} // Post-Decrement (x--)
+
+// Type 2 nodes are just type 4 nodes except it uses the full name
+_type2 auto Negate(auto _a)
+{
+    -a
+}
+
+_type4 bool Equal(auto _a, auto _b) {
+    (a == b)
+} // Equal (==)
+
+_type4 bool NotEqual(auto _a, auto _b) {
+    (a != b)
+} // Not Equal (!=)
+
+_type4 bool GreaterThan(auto _a, auto _b) {
+    (a > b)
+} // Greater Than (>)
+
+_type4 bool LessThan(auto _a, auto _b) {
+    (a < b)
+} // Less Than (<)
+
+_type4 bool GreaterThanOrEqual(auto _a, auto _b) {
+    (a >= b)
+} // Greater Than or Equal (>=)
+
+_type4 bool LessOrEqual(auto _a, auto _b) {
+    (a <= b)
+} // Less Than or Equal (<=)
+
+_type4 bool band(bool _a, bool _b) {
+    (a && b)
+} // And (&&)
+
+_type4 bool bor(bool _a, bool _b) {
+    (a || b)
+} // Or (||)
+
+_type4 bool bnot(bool _a) {
+    (!a)
+} // Not (!)
+
+_type4 auto iand(auto _a, auto _b) {
+    (a & b)
+} // And (&)
+
+_type4 auto ior(auto _a, auto _b) {
+    (a | b)
+} // Or (|)
+
+_type4 auto inot(auto _a) {
+    (~a)
+} // Not (~)
+
+_type4 auto ixor(auto _a, auto _b) {
+    (a ^ b)
+} // Xor (^)
+
+_type2 bool notzero(auto _a)
+{
+    a
+} // Is Not Zero
+
+_type2 bool iszero(auto _a)
+{
+    !a
+} // Is Zero
+
+_type2 bool notnull(void* _a)
+{
+    a
+} // Is Not NULL
+
+_type2 bool isnull(void* _a)
+{
+    !a
+} // Is NULL
+
+auto Select(auto A, auto B, bool Pick_A)
+{
+    (Pick_A ? A : B)
+} // Select (?)
+
+auto CastTo(auto Value, const customstring Type)
+{
+    ((Type)Value)
+} // Cast To
+
+Array MakeArray(...)
+{
+    { %0 }
+} // Make Array
+
+void* GetNULL() { NULL } // Get NULL
+
+size_t sizeof(const customstring Type);

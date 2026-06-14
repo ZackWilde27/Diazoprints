@@ -1,0 +1,540 @@
+typedef bool, b, circle-thin, circle, #FF0000, %, checkbox;
+typedef int, i, circle-thin, circle, #457E58, %, number;
+typedef float, f, circle-thin, circle, #7CFC00, %, number;
+typedef string, s, circle-thin, circle, #FF38D4, '%', text;
+typedef array, a, square-o, square, #0093F5, [%], color;
+typedef object, ob, circle-thin, circle, #0093F5, [%], color;
+typedef resource, r, circle-thin, circle, #CBFFFE, [%], color;
+typedef never, n, circle-thin, circle, #A33D3D, , ;
+typedef void, v, circle-thin, circle, #555555, , ;
+typedef callable, fn, circle-thin, circle, #6200E2, [%], color;
+typedef null, nl, circle-thin, circle, #555555, , ;
+
+// Types with no icons indicate that they aren't 'real' types, and shouldn't show up in the UI.
+// They are used to create an input tag for certain situations
+typedef customstring, cs, , , #FF38D4, %, text;
+typedef casemode, cm, , , #FF38D4, %, CASE_UPPER|CASE_LOWER;
+typedef sortmode, sm, , , #FF38D4, %, SORT_REGULAR|SORT_NUMERIC|SORT_STRING|SORT_LOCALE_STRING|SORT_NATURAL|SORT_FLAG_CASE;
+typedef sortorderflags, sof, , , #FF38D4, %, SORT_ASC|SORT_DESC;
+typedef arrayfilterflags, aff, , , #FF38D4, %, ARRAY_FILTER_USE_KEY|ARRAY_FILTER_USE_BOTH;
+typedef countflags, cf, , , #FF38D4, %, COUNT_NORMAL|COUNT_RECURSIVE;
+typedef extrflags, ef, , , #FF38D4, %, EXTR_OVERWRITE|EXTR_SKIP|EXTR_PREFIX_SAME|EXTR_PREFIX_ALL|EXTR_PREFIX_INVALID|EXTR_PREFIX_IF_EXISTS|EXTR_IF_EXISTS|EXTR_REFS;
+
+struct Settings
+{
+    doc-link=https://www.php.net/manual/en/
+    separator=;\n
+    extension=php
+    var-fmt=$%name
+    var-decl=%name
+    var-sign=%name = %val
+    decl-sign=%name = %val
+    param-separator=, 
+    param-decl=%name
+    param-format=$%name
+    function-format=function %name(%inputs)\n{\n%code\n}\n
+    function-call=%name(%inputs)
+    struct-new=new %name(%params)
+    array-separator=, 
+    bools=true|false
+}
+
+start exec Begin()
+{
+<?php
+%functions
+%c0
+?>
+}
+
+void makestatement(auto _a)
+{
+    a
+} // Make Statement
+
+custom Custom, 3, %, i.s.;o.;g.;,
+
+void SetByRef(auto Ref, auto Value)
+{
+    Ref = Value
+} // Set By Reference
+
+// Type 5 nodes are programmable, it returns the final format
+_type5 exec True, exec False, exec Then If(exec _In, bool Condition)
+{
+    if (!False)
+    {
+        return "if (" + Condition + ")\n{\n%o0\n}\n%c2";
+    }
+
+    if (!True)
+    {
+        return "if (!" + Condition + ")\n{\n%o1\n}\n%c2";
+    }
+
+    return "if(Condition)\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2";
+} // If link=control-structures.if.php
+
+exec Preparation, exec Loop_Body, exec Increment, exec Completed For(exec _In, bool Condition)
+{
+
+for(%s0; Condition; %s2)
+{
+%o1
+}
+%c3
+
+} // For link=control-structures.for.php
+
+custom For (UE), 1, for (%n = %1; %n != %2; %n += %3)\n{\n%o0\n}\n%c2, e.;i.Start;i.End;p.1.i.Increment;o.;e.Loop Body;r.i.Current;e.Then;,
+
+custom For Each, 1, foreach (%1 as $editor_reserved_key => $editor_reserved_value)\n{\n%o0\n}\n%c3, e.;a.;o.;e.Loop;v.$editor_reserved_key.g.Key;v.$editor_reserved_value.g.Value;e.Then;, control-structures.foreach.php
+
+exec Loop, exec Completed While(exec _In, bool Condition)
+{
+while (Condition)
+{
+%o0
+}
+%c1
+} // While link=control-structures.while.php
+
+exec Loop, exec Then DoWhile(exec _In, bool Condition)
+{
+do
+{
+%o0
+} while (Condition);
+%c1
+} // Do While link=control-structures.do.while.php
+
+
+custom Break, 1, break;\n, e.;o.;,
+custom Continue, 1, continue;\n, e.;o.;,
+custom Return, 5, if (!Value) { return "return;"; } return "return %1;";, e.;p..g.Value;o.;,
+
+exec AddLabel(exec _In, const customstring Name)
+{
+Name:
+%c0
+} // Add Label link=control-structures.goto.php
+
+custom Goto Label, 1, goto %1;, e.;i.cs.Name;o.;, control-structures.goto.php
+
+_type4 auto add(auto _a, auto _b)
+{
+    (a + b)
+} // Add (+)
+
+_type4 auto subtract(auto _a, auto _b)
+{
+    (a - b)
+} // Subtract (-)
+
+_type4 auto mul(auto _a, auto _b)
+{
+    (a * b)
+} // Multiply (*)
+
+_type4 auto div(auto _a, auto _b)
+{
+    (a / b)
+} // Divide (/)
+
+_type4 auto mod(auto _a, auto _b)
+{
+    (a % b)
+} // Modulo (%)
+
+_type4 auto power(auto _a, auto _b)
+{
+    (a ** b)
+} // Power (**)
+
+_type4 auto identity(auto _x)
+{
+    +x
+} // Identity (+x)
+
+_type2 auto negate(auto _x)
+{
+    -x
+} // Negate
+
+_type4 auto preinc(auto _x)
+{
+    ++x
+} // Pre-Increment (++x)
+
+_type4 auto postinc(auto _x)
+{
+    x++
+} // Post-Increment (x++)
+
+_type4 auto preinc(auto _x)
+{
+    --x
+} // Pre-Decrement (--x)
+
+_type4 auto postinc(auto _x)
+{
+    x--
+} // Post-Decrement (x--)
+
+_type4 bool eq(auto _a, auto _b)
+{
+    (a == b)
+} // Equal (==)
+
+_type4 bool neq(auto _a, auto _b)
+{
+    (a != b)
+} // Not Equal (!=)
+
+_type4 bool neq2(auto _a, auto _b)
+{
+    (a <> b)
+} // Not Equal (<>)
+
+_type4 bool seq(auto _a, auto _b)
+{
+    (a === b)
+} // Strictly Equal (===)
+
+_type4 bool seq(auto _a, auto _b)
+{
+    (a === b)
+} // Strictly Not Equal (!==)
+
+_type4 bool lt(auto _a, auto _b)
+{
+    (a < b)
+} // Less Than (<)
+
+_type4 bool gt(auto _a, auto _b)
+{
+    (a > b)
+} // Greater Than (>)
+
+_type4 bool lte(auto _a, auto _b)
+{
+    (a <= b)
+} // Less Than or Equal (<=)
+
+_type4 bool gte(auto _a, auto _b)
+{
+    (a >= b)
+} // Greater Than or Equal (>=)
+
+_type4 int spaceship(auto _a, auto _b)
+{
+    (a <=> b)
+} // Spaceship (<=>)
+
+_type2 bool band(bool _x, bool _y)
+{
+    (x and y)
+} // And
+
+_type2 bool bor(bool _a, bool _b)
+{
+    (a or b)
+} // Or
+
+_type4 bool band2(bool _a, bool _b)
+{
+    (a && b)
+} // And (&&)
+
+_type4 bool bor2(bool _a, bool _b)
+{
+    (a || b)
+} // Or (||)
+
+_type2 bool xor(bool _a, bool _b)
+{
+    (a xor b)
+} // Xor
+
+_type4 bool bnot(bool _a)
+{
+    (!a)
+} // Not (!)
+
+_type4 int iand(int _a, int _b)
+{
+    (a & b)
+} // And (&)
+
+_type4 int ior(int _a, int _b)
+{
+    (a | b)
+} // Or (|)
+
+_type4 int ixor(int _a, int _b)
+{
+    (a ^ b)
+} // Xor (^)
+
+_type4 int inot(int _a)
+{
+    (~a)
+} // Not (~)
+
+_type4 string append(string _a, string _b)
+{
+    (a . b)
+} // Concatenate (.)
+
+auto Select(auto A, auto B, bool Pick_A)
+{
+    (Pick_A ? A : B)
+} // Select (?)
+
+auto Item getarray(array _obj, int index)
+{
+    obj[index]
+} // Get (Array)
+
+auto Property GetProperty(object _obj, string name)
+{
+    obj[name]
+} // Get (Object)
+
+array makearray(...)
+{
+    array(%0)
+} // Make Array
+
+void echo(string _X)
+{
+    echo X
+}
+void print(string _x)
+{
+    print x
+}
+void die(string error_message);
+void var_dump(auto _x); // link=function.var-dump.php
+string var_export(auto value, bool return=false); // link=function.var-export.php
+
+auto getvariable(string name)
+{
+    $_GET[name]
+} // $_GET Variable
+
+auto postvariable(string name)
+{
+    $_POST[name]
+} // $_POST Variable
+
+auto cookievariable(string name)
+{
+    $_COOKIE[name]
+} // $_COOKIE Variable
+
+int getargc()
+{
+    $argc
+} // Get $argc
+
+array getargv()
+{
+    $argv
+} // Get $argv
+
+bool array_all(array array, callable callback); // link=function.array-all.php
+bool array_any(array array, callable callback); // link=function.array-any.php
+array array_combine(array keys, array values); // link=function.array-combine.php
+array array_count_values(array _array); // link=function.array-count-values.php
+array array_diff(array array, ...); // link=function.array-diff.php
+array array_fill(int start_index, int count, auto value); // link=function.array-fill.php
+array array_filter(array array, callable callback=null, int mode=0); // link=function.array-filter.php
+array array_flip(array _array); // link=function.array-flip.php
+bool array_is_list(array _array); // link=function.array-is-list.php
+array array_intersect(array array, ...); // link=function.array-intersect.php
+array array_pad(array array, int length, auto value); // link=function.array-pad.php
+auto array_pop(array _array); // link=function.array-pop.php
+auto array_product(array array); // link=function.array-product.php
+int array_push(array array, ...); // link=function.array-push.php
+auto array_rand(array array, int num=1); // link=function.array-rand.php
+array array_reverse(array array, bool preserve_keys=false); // link=function.array-reverse.php
+array array_replace(array array, array replacements); // link=function.array-replace.php
+auto array_search(auto needle, array haystack, bool strict=false); // link=function.array-search.php
+auto array_shift(array array); // link=function.array-shift.php
+array array_slice(array array, int offset, int length=null, bool preserve_keys=false); // link=function.array-slice.php
+array array_splice(array array, int offset, int length=null, auto replacement=[]); // link=function.array-splice.php
+auto array_sum(array array); // link=function.array-sum.php
+int count(array value, const countflags mode); // link=function.count.php
+auto current(array array); // link=function.current.php
+auto end(array array); // link=function.end.php
+array explode(string separator, string string, int limit=PHP_INT_MAX); // link=function.explode.php
+int extract(array array, const extrflags flags, string prefix=""); // link=function.extract.php
+string implode(string separator, array array); // link=function.implode.php
+bool in_array(auto needle, array haystack, bool strict=false); // link=function.in-array.php
+array list(...); // link=function.list.php
+void ksort(array array, const sortmode flags); // link=function.ksort.php
+void krsort(array array, const sortmode flags);
+
+void natcasesort(array array); // link=function.natcasesort.php
+void natsort(array array); // link=function.natsort.php
+auto next(array array); // link=function.next.php
+auto pos(array array); // link=function.pos.php
+auto prev(array array); // link=function.prev.php
+array range(int start, int end, int step); // range (int) link=function.range.php
+array range(float start, float end, float step); // range (float) link=function.range.php
+array range(string start, string end, int step); // range (string) link=function.range.php
+auto reset(array array); // link=function.reset.php
+void rsort(array array, const sortmode flags); // link=function.rsort.php
+void shuffle(array array); // link=function.shuffle.php
+int sizeof(array value, const countflags mode); // link=function.sizeof.php
+void sort(array array, const sortmode flags); // link=function.sort.php
+
+
+
+string addcslashes(string string, string characters); // link=function.addcslashes.php
+string addslashes(string string); // link=function.addslashes.php
+string bin2hex(string string); // link=function.bin2hex.php
+string chop(string string, string characters); // link=function.chop.php
+string chr(int codepoint); // link=function.chr.php
+string chunk_split(string string, int length, string separator); // link=function.chunk-split.php
+string convert_uudecode(string string); // link=function.convert-uudecode.php
+string convert_uuencode(string string); // link=function.convert-uuencode.php
+auto count_chars(string string, int mode=0); // link=function.count-chars.php
+int crc32(string string); // link=function.crc32.php
+string crypt(string string, string salt); // link=function.crypt.php
+void header(string header); // link=function.header.php
+string hebrev(string string, int max_chars_per_line=0); // link=function.hebrev.php
+string hex2bin(string string); // link=function.hex2bin.php
+string htmlentities(string string, int flags=ENT_QUOTES|ENT_SUBSTITUTE|ENT_HTML401, string encoding=null, bool double_encode=true); // link=function.htmlentities.php
+string html_entity_decode(string string, int flags=ENT_QUOTES|ENT_SUBSITUTE|ENT_HTML401, string encoding=null); // link=function.html-entity-decode.php
+string join(string separator, array array); // link=function.join.php
+string md5(string string, bool binary=false); // link=function.md5.php
+string md5_file(string filename, bool binary=false); // link=function.md5-file.php
+string metaphone(string string, int max_phonemes=0); // link=function.metaphone.php
+string nl2br(string string, bool use_xhtml=true); // link=function.nl2br.php
+int ord(string character); // link=function.ord.php
+void parse_str(string string, array result); // link=function.parse-str.php
+auto pathinfo(string path, int flags=PATHINFO_ALL); // link=function.pathinfo.php
+string rtrim(string string, string characters); // link=function.rtrim.php
+int similar_text(string string1, string string2, float percent=null); // link=function.similar-text.php
+string sha1(string string, bool binary=false); // link=function.sha1.php
+string sha1_file(string filename, bool binary=false); // link=function.sha1-file.php
+int strlen(string string); // link=function.strlen.php
+int strpos(string haystack, string needle, int offset=0); // link=function.strpos.php
+string str_pad(string string, int length, string pad_string, int pad_type); // link=function.str-pad.php
+int strcmp(string string1, string string2); // link=function.strcmp.php
+int strcoll(string string1, string string2); // link=function.strcoll.php
+int strcspn(string string, string characters, int offset=0, int length=null); // link=function.strcspn.php
+string str_increment(string string); // link=function.str-increment.php
+string str_decrement(string string); // link=function.str-decrement.php
+string strstr(string haystack, string needle, bool before_needle); // link=function.strstr.php
+bool str_contains(string haystack, string needle); // link=function.str-contains.php
+string str_replace(string search, string replace, string subject, int count); // link=function.str-replace.php
+string substr(string string, int offset, int length=null); // link=function.substr.php
+array str_replace(array search, array replace, array subject, int count); // str_replace (array)
+string strtolower(string string); // link=function.strtolower.php
+string trim(string string, string characters); // link=function.trim.php
+
+string basename(string path);
+bool copy(string from, string to, resource context=null);
+bool delete(string filename, resource context=null);
+float disk_free_space(string directory);
+float disk_total_space(string directory);
+bool is_dir(string filename);
+bool is_executable(string filename);
+bool is_file(string filename);
+void fclose(resource stream);
+bool feof(resource stream);
+bool fflush(resource stream);
+string fgetc(resource stream);
+int filesize(string filename);
+bool file_exists(string filename);
+string file_get_contents(string filename);
+int file_put_contents(string filename, auto data, int flags=0, resource context=null);
+resource fopen(string filename, string mode);
+int fprintf(resource stream, string format, ...);
+int fseek(resource stream, int offset, int whence=SEEK_SET);
+void fwrite(resource stream, string data);
+void mkdir(string directory);
+bool rename(string from, string to, resource context=null);
+bool rmdir(string directory, resource context=null);
+bool unlink(string filename, resource context=null);
+
+bool boolval(auto value); // link=function.boolval.php
+float floatval(auto value); // link=function.floatval.php
+float doubleval(auto value); // link=function.doubleval.php
+int intval(auto value); // link=function.intval.php
+string strval(auto value); // link=function.strval.php
+
+
+bool is_array(auto _x); // link=function.is-array.php
+bool is_bool(auto _x); // link=function.is-bool.php
+bool is_callable(auto value, bool syntax_only=false, string callable_name=null); // link=function.is-callable.php
+bool is_countable(auto _x); // link=function.is-countable.php
+bool is_double(auto _x); // link=function.is-double.php
+bool is_float(auto _x); // link=function.is-float.php
+bool is_int(auto _x); // link=function.is-int.php
+bool is_iterable(auto _x); // link=function.is-iterable.php
+bool is_long(auto _x); // link=function.is-long.php
+bool is_null(auto _x); // link=function.is-null.php
+bool is_numeric(auto _x); // link=function.is-numeric.php
+bool is_object(auto _x); // link=function.is-object.php
+bool is_real(auto _x); // link=function.is-real.php
+bool is_resource(auto _x); // link=function.is-resource.php
+bool is_scalar(auto _x); // link=function.is-scalar.php
+bool is_string(auto _x); // link=function.is-string.php
+bool isset(auto _x); // link=function.isset.php
+
+void unset(...); // link=function.unset.php
+
+auto unserialize(string data, array options=[]); // link=function.unserialize.php
+
+int rand(int min, int max);
+
+bool function_exists(string function); // link=function.function-exists.php
+
+int getline()
+{
+    __LINE__
+} // Get __LINE__
+
+string getfile()
+{
+    __FILE__
+} // Get __FILE__
+
+string getdir()
+{
+    __DIR__
+} // Get __DIR__
+
+string getfunc()
+{
+    __FUNCTION__
+} // Get __FUNCTION__
+
+string getclass()
+{
+    __CLASS__
+} // Get __CLASS__
+
+string gettrait()
+{
+    __TRAIT__
+} // Get __TRAIT__
+
+string getmethod()
+{
+    __METHOD__
+} // Get __METHOD__
+
+string getproperty()
+{
+    __PROPERTY__
+} // Get __PROPERTY__
+
+string getnamespace()
+{
+    __NAMESPACE__
+} // Get __NAMESPACE__

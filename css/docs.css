@@ -1,0 +1,122 @@
+:root{
+    --grStr: 5px;
+    --grStrN: -5px;
+}
+
+body{
+    background-color:black;
+    color:white;
+    font-family: 'PT Sans Narrow', sans-serif;
+    text-align:center;
+    font-size:24px;
+}
+
+
+h1, h2, h3, h4{
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+pre {
+    overflow:scroll;
+    text-align:left;
+    background-color:#333;
+    color:white;
+    padding:2%;
+    border-radius:15px;
+}
+
+.bg-darker{
+    background-color:#303035;
+}
+
+.display-8{
+    font-size:64px;
+}
+
+.width-75 {
+    width:75%;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px 0;
+    z-index:5;
+}
+
+.menu > li > a {
+    font: inherit;
+    border: 0;
+    padding: 10px 30px 10px 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: unset;
+    color: #000;
+    font-weight: 500;
+    transition: 0.5s linear;
+    -webkit-transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -ms-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+}
+
+.menu > li > a:hover {
+    background:#f1f3f7;
+    color: #4b00ff;
+}
+
+.menu > li > a > i {
+    padding-right: 10px;
+}
+
+.menu > li.trash > a:hover {
+    color: red;
+}
+
+/* ToolTips */
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+  
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+@keyframes zwBlink{
+    0% {
+        color:black;
+    }
+    50%{
+        color:rgb(105, 153, 255);
+    }
+    100%{
+        color:black;
+    }
+}

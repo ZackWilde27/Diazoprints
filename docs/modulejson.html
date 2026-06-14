@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>JSON Module Documentation</title>
+         <!-- Latest compiled and minified CSS
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="../bootstrap.css">
+
+        <!-- jQuery library
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script> -->
+        <script src="../jquery-slim.js"></script>
+
+        <!-- Popper JS
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+        <script src="../popper.js"></script>
+
+        <!-- Latest compiled JavaScript
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+        <script src="../bootstrap.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/docs.css" type="text/css">
+    </head>
+    <body class="text-left">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-1">JSON Module Docs</h1>
+                    <p>JSON serves as the middle ground between header files and module files. It has just as much control as a module file, while being easier to read</p>
+<pre>{
+    "settings": {
+        //...
+    },
+    "types": {
+        //...
+    },
+    "structs": {
+        //...
+    },
+    "start": {
+        //...
+    },
+    "nodes": {
+        //...
+    }
+}</pre>
+                    <h1 class="mt-5 pt-5 display-4">Settings</h1>
+                    <p>The settings area contains settings about the language that can be changed, such as separator, and the main documentation link</p>
+<pre>"settings": {
+    "doc-link": "https://link-to-documentation-root",
+    "separator": ";\n",
+    ...
+}</pre>
+                    <p>See the module file docs for more info on the settings</p>
+
+                    <h1 class="mt-5 pt-5 display-4">Types</h1>
+                    <p>These are the building-block types, stuff like int, and bool</p>
+<pre>"types": {
+    "bool": {
+        "letter": "b",
+        "icon": "circle-thin",
+        "connect-icon": "circle",
+        "colour": "#FF0000",
+        "format": "%",
+        "tag": "checkbox"
+    },
+    "float": {
+        "letter": "f",
+        "icon": "circle-thin",
+        "connect-icon": "circle",
+        "colour": "#00FF00",
+        "format": "%f",
+        "tag": "number"
+    },
+    ...
+}</pre>
+                    <h2>Name</h2>
+                    <p>Name of the type</p>
+                    <h2>Letter</h2>
+                    <p>The id that the editor uses to build nodes, it can be anything but I'd recommend using a letter</p>
+                    <h2>Icon</h2>
+                    <p>The <a href="https://fontawesome.com/v4/icons/" target="_blank">Font Awesome 4 Icon</a> to use on unconnected nubs</p>
+                    <h2>Connect-Icon</h2>
+                    <p>The <a href="https://fontawesome.com/v4/icons/" target="_blank">Font Awesome 4 Icon</a> to use on connected nubs</p>
+                    <h2>Colour</h2>
+                    <p>Colour that represents that type, it will influence the icon, gradients, and lines connecting nubs</p>
+                    <h2>Format</h2>
+                    <p>The format for the input value, where % will be replaced. To make a string type you would put in "%"</p>
+                    <h2>Tag</h2>
+                    <p>Type attribute for the input tag to make values</p>
+
+                    <h1 class="mt-5 pt-5 display-4">Structs</h1>
+<pre>"structs": {
+    "Vector": {
+        "colour": "#0000FF",
+        "static": false,
+        "properties": {
+            "x": {
+                "type": "float",
+                "permissions": "rw",
+                "link": "placeholder"
+            },
+            "y": {
+                "type": "float",
+                "permissions": "rw",
+                "link": "placeholder"
+            },
+            "z": {
+                "type": "float",
+                "permissions": "rw",
+                "link": "placeholder"
+            }
+        },
+        "methods": {
+            "GetLength": {
+                "io": {
+                    "inputs": {},
+                    "outputs": {
+                        "": "float"
+                    }
+                },
+                "link": "placeholder"
+            }
+        },
+        "link": "placeholder"
+    }
+}
+</pre>
+
+                    <h2>Name</h2>
+                    <p>Name of the struct</p>
+                    <h2>Colour</h2>
+                    <p>Colour to represent the struct</p>
+                    <h2>Static</h2>
+                    <p>If true, the editor will make a Get node for the struct's name, If false, the editor will create New and Break nodes</p>
+                    <h2>Properties</h2>
+                    <p>Array of properties, check the module file docs for more info on them</p>
+                    <h2>Methods</h2>
+                    <p>Array of methods, Check the nodes section for more info on the IO</p>
+                    <h2>Link</h2>
+                    <p>Documentation link for the struct, to be appended to the link in the settings</p>
+
+                    <h1 class="mt-5 pt-5 display-4">Nodes</h1>
+                    <p>Because there are bound to be a ton of nodes, There are many ways to write them and you can choose speed vs readability.</p>
+                    <p>So, it's very free-form, you can insert things in either JSON format or module file format via string.</p>
+<pre>"nodes": {
+    // First way: 100% JSON
+    "If": {
+        "type": "1",
+        "format": "if (%0)\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2",
+        "io": {
+            "inputs": {
+                "": "exec",
+                "Condition": "bool"
+            },
+            "outputs": {
+                "True": "exec",
+                "False": "exec",
+                "Then": "exec"
+            },
+        },
+        "link": "placeholder"
+    },
+
+    // Second way: The IO can be given in the module file format
+    "If": {
+        "type": "1",
+        "format": "if (%0)\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2",
+        "io": "e.;b.Condition;o.;e.True;e.False;e.Then;",
+        "link": "placeholder"
+    },
+
+    // Third way: The whole node can be given in the module file format, either through a string or array
+    "If": [
+        "1",
+        "if (%0)\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2",
+        "e.;b.Condition;o.;e.True;e.False;e.Then;",
+        "placeholder"
+    ],
+
+    "If": "1, if (%0)\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2, e.;b.Condition;o.;e.True;e.False;e.Then;, placeholder"
+}</pre>
+
+                    <h2>Name</h2>
+                    <p>Name of the node</p>
+                    <h2>Type</h2>
+                    <p>Number defining the type.</p>
+                    <ul>
+                            <li>- 0: Execution Node<br>The first input and output are execution nubs. The first input is not included and the first output continues the code.</li>
+                            <li>- 1: Normal Node<br>All inputs are included, but it also doesn't automatically continue</li>
+                            <li>- 3: Input Node<br>Type 3 means there's an input tag somewhere on the node, and that's where the output comes from</li>
+                    </ul>
+                    <h2>Output</h2>
+                    <p>The output of the node, where %0 will be replaced with the first parameter, %1 with the second, and so on.</p>
+                    <p>%o0 is the first output, %o1 is the second output and so on.</p>
+                    <p>%c is the same as %o except it doesn't indent.</p>
+                    <p>%s is the same as %c except it stops after the first node, and there's no separator</p>
+                    <h2>IO</h2>
+                    <p>The syntax for each nub is type.name;</p>
+                    <p>Type is the letter code given in the types section</p>
+                    <p>o.; splits the inputs and outputs, so to create a node with one execution input and a boolean output, it would be&#58;</p>
+                    <p>e.NameOfExec; o.; b.NameOfBool;</p>
+                    <p>But you can't have spaces between nubs so it would be squished together like</p>
+                    <p>e.NameOfExec;o.;b.NameOfBool;</p>
+                    <p>The name can be left empty, in which case it would just be type.;</p>
+                    <p class="mt-5">Nubs can have modifiers put at the beginning to change the nub</p>
+                    <pre>n.e.ExecNub;</pre>
+                    <ul>
+                            <li>- n: Means that the nub will contribute to the lighting and gradient, but won't appear on the node</li>
+                            <li>- i: The nub will be replaced with the input tag for that type</li>
+                            <li>- c: Only the nub's name will appear, so you can put a custom nub in there</li>
+                            <li>- p: Denotes an optional nub, it needs a default value so it looks like p.3.f.Number;</li>
+                            <li>- a: Array. The nub accepts more than one input, so it will have a + button to add more nubs (I'm still working on that feature)</li>
+                    </ul>
+                    <h2>Doc-Link</h2>
+                    <p>The doc-link is appended onto the main link provided in the settings section to get the full documentation link about the node</p>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

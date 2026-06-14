@@ -1,0 +1,88 @@
+// time (C Standard Library)
+
+typedef time_t, tt, circle-thin, circle, #457E58, %, number;
+typedef time_t*, ptt, circle-thin, circle, #888888, %, number;
+typedef clock_t, ct, circle-thin, circle, #457E58, %, number;
+typedef clock_t*, pct, circle-thin, circle, #888888, %, number;
+
+struct Settings
+{
+    addon-decl=#include <time.h>\n
+}
+
+struct timespec
+{
+    colour = #0093F5;
+    time_t tv_sec;
+    long tv_nsec;
+
+    timespec(time_t tv_sec, long tv_nsec);
+}
+
+struct timespec*
+{
+    propfmt = %this->%name;
+    funcfmt = %this->%name(%params);
+    colour = #888888;
+
+    time_t tv_sec;
+    long tv_nsec;
+}
+
+struct tm
+{
+    colour = #0093F5;
+    int tm_sec;
+    int tm_min;
+    int tm_hour;
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    int tm_wday;
+    int tm_yday;
+    int tm_isdst;
+
+    tm(int tm_sec, int tm_min, int tm_hour, int tm_mday, int tm_mon, int tm_year, int tm_wday, int tm_yday, int tm_isdst);
+}
+
+struct tm*
+{
+    propfmt = %this->%name;
+    funcfmt = %this->%name(%params);
+    colour = #888888;
+
+    int tm_sec;
+    int tm_min;
+    int tm_hour;
+    int tm_mday;
+    int tm_mon;
+    int tm_year;
+    int tm_wday;
+    int tm_yday;
+    int tm_isdst;
+}
+
+double difftime(time_t time_end, time_t time_beg);
+time_t time(time_t* arg);
+clock_t clock();
+int timespec_get(timespec* ts, int base=TIME_UTC);
+int timespec_getres(timespec* ts, int base=TIME_UTC);
+char* asctime(tm* time_ptr);
+errno_t asctime_s(char* buf, rsize_t bufsz, tm* time_ptr);
+char* ctime(time_t* timer);
+errno_t ctime_s(char* buf, rsize_t bufsz, time_t* timer);
+size_t strftime(char* str, size_t count, char* format, tm* tp);
+size_t wcsftime(wchar_t* str, size_t count, wchar_t* format, tm* time);
+tm* gmtime(time_t* timer);
+tm* gmtime_r(time_t* timer, tm* buf);
+tm* gmtime_s(time_t* timer, tm* buf);
+tm* localtime(time_t* timer);
+tm* localtime_r(time_t* timer, tm* buf);
+tm* localtime_s(time_t* timer, tm* buf);
+time_t mktime(tm* arg);
+
+
+int GetTIME_UTC()
+{
+    TIME_UTC
+} // Get TIME_UTC

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HModule Documentation</title>
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="../css/docs.css" type="text/css">
+    </head>
+    <body class="text-left">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-1">Header File Docs</h1>
+                    <p>To make module development as easy as possible, Modules can be written like a C header file, or at least as close as it could be</p>
+                    <h1 class="mt-5 pt-5 display-4">Types</h1>
+                    <p>Types are the least C-like, just because it needs a lot more information than a typical C declaration provides.</p>
+                    <pre>// Syntax is as follows:
+//typedef [name], [letter id], [unconnected icon], [connected icon], [colour], [output], [input tag type];
+typedef bool, b, circle-thin, circle, #FF0000, %, checkbox;</pre>
+                    <p>The names auto and exec are already taken, as well as the letters ids g and e</p>
+                    <h2>Name</h2>
+                    <p>The name of the type</p>
+                    <h2>Letter ID</h2>
+                    <p>The id that the editor uses to build the nodes, can be anything but I'd recommend using a letter</p>
+                    <h2>Unconnected Icon</h2>
+                    <p>The <a href="https://fontawesome.com/v4/icons/" target="_blank">Font Awesome 4 Icon</a> to use on unconnected nubs</p>
+                    <h2>Connected Icon</h2>
+                    <p>The <a href="https://fontawesome.com/v4/icons/" target="_blank">Font Awesome 4 Icon</a> to use on connected nubs</p>
+                    <h2>Colour</h2>
+                    <p>Colour that represents that type, it will influence the icon, gradients, and lines connecting nubs</p>
+                    <h2>Output</h2>
+                    <p>The format for values, where % will be replaced. This is for situations where the language uses symbols to distinguish the type, such as putting 0x before a number to indicate it's a hex number, or putting "" around letters to indicate it's a string.</p>
+                    <h2>Input Tag Type</h2>
+                    <p>Type attribute for the input tag, to prompt users for a constant.</p>
+                    <p>You can create an enum type by using | to separate the options, like Yes|No|Maybe</p>
+
+                    <h1 class="mt-5 pt-5 display-4">Nodes</h1>
+                    <p>The easiest type of node to add is an in-language function, where you just declare the function like so</p>
+                    <pre>FILE* fopen(char* filename, char* mode);
+void rewind(FILE* stream);</pre>
+
+                    <p>If the function is defined, everything inside the brackets will be the node's output</p>
+                    <p>The parameter names can be put in to insert its code wherever needed.</p>
+                    <pre>// auto means to use a generic nub that accepts any type
+bool Equal(auto a, auto b)
+{
+    (a == b)
+}
+// The code inside is trim()'d so the white-space around it won't affect things</pre>
+
+                    <p class="mt-5">Declarations can be put before the function definition to change the type of node</p>
+                    <p>- programmable</p>
+                    <pre>// Programmable nodes will first run the code inside and output whatever's returned
+// This can be used to check if certain nubs are connected and change the output accordingly
+programmable bool ThatFunction(bool A)
+{
+    if (!A)
+    {
+        return "The A input is not connected";
+    }
+
+    return "The A input is connected";
+}</pre>
+                    <p><a href="nodelanguage.html">Here's</a> the documentation for the node language</p>
+
+                    <p>- _type[n]</p>
+                    <pre>// _type can be used to manually define the type of the node
+// In this case I want my Add node to be treated as a type 4/macro node, used for operators
+_type4 auto Add(auto _a, auto _b)
+{
+    (a + b)
+} // Add (+)
+// The (+) in the name is very important, macro nodes will use the symbol inside the parenthesis as the node's name</pre>
+                    <p><a href="modulefile.html#node-types">Here's</a> a link to an explanation of the different node types</p>
+
+                    <p class="mt-5">Parameter modifiers can be applied to change the nub</p>
+                    <pre>void CalculateStringLength(string _input, const bool include_velocity, float probability_of_blue_screen=0.5);</pre>
+                    <h2>_Name</h2>
+                    <p>Adding _ to the start of the variable name means that the name will be blank on the node, but can still be referenced without the _ when writing the node's output.</p>
+                    <pre>bool Equal(auto _a, auto _b)
+{
+    (a == b)
+}</pre>
+                    <h2>const</h2>
+                    <p>const means that the nub will be replaced with the input tag for that type</p>
+                    <h2>=value</h2>
+                    <p>adding = to the end of the parameter name creates an optional nub, and what comes after = is the default value.</p>
+                    <p>Also, they can be combined, but some might not work with others</p>
+
+                    <p class="mt-5">If a comment is put at the end of the function, it will replace the name. With this you can include any character in the name</p>
+                    <pre>bool BoolOr(bool a, bool b)
+{
+    (a || b)
+} // Or (||)
+
+int IntOr(int a, int b)
+{
+    (a | b)
+} // Or (|)</pre>
+
+		    <p>Multiple named outputs can be added as well, though it's not very C</p>
+<pre>float out_float, bool out_bool ThatFunction(float in_float, bool in_bool); 
+</pre>
+
+		    <p class="mt-5">If the function has the <a >start</a> keyword, then it will spawn when a new document is created.</p>
+<pre>start exec Begin()
+{
+	%c0
+}
+</pre>
+
+
+
+                    <p class="mt-5">If you need to, the <a class="bg-dark text-white p-2 rounded-lg">custom</a> keyword can be used to insert a node in the module-file format</p>
+                    <pre>custom If, 1, if (%0)\n{\n%o0\n}\nelse\n{\n%o1}\n%c2, e.;b.Condition;o.;e.True;e.False;e.Then;, jsref_if.asp</pre>
+                    <p>See the <a href="modulefile.html">module-file docs</a> for more info on this format</p>
+
+                    <h1 class="mt-5 pt-5 display-4">Structs/Classes</h1>
+                    <p>'struct' and 'class' mean the same thing here, it creates a structure that can contain properties and methods.</p>
+                    <pre>
+// Properties will have Get and Set nodes automatically created
+// But if you don't want a Set node created, use the 'const' keyword
+struct Vector
+{
+    float x;
+    float y;
+    const float z;
+    float GetLength();
+};</pre>
+                    <p>Properties used by the editor don't have a type to distinguish them from actual properties</p>
+<pre>struct MyStruct
+{
+    float theFloat;
+    bool theBool;
+
+    colour = #FF0000;
+    prop-fmt = %this->%name;
+    func-fmt = %this->%name(%params);
+};</pre>
+                    <h2>prop-fmt</h2>
+                    <p>The format for accessing properties on this struct, where '%this' is replaced with the reference, and '%name' with the property name</p>
+                    <h2>func-fmt</h2>
+                    <p>The format for calling methods on this struct, where '%this' is replaced with the reference, '%name' with the method's name, and '%params' with the parameters</p>
+
+                    <p>The struct itself can have the 'const' keyword, which means it won't create break and make nodes, just a Get node for the struct's name.</p>
+                    <pre>// This is useful for languages with built-in classes, like JavaScript and C#
+const struct console
+{
+    void log(auto Value);
+    void clear();
+};</pre>
+
+		    <p>If the struct's name is Settings, it will be treated like the settings area in the module file format</p>
+<pre>struct Settings
+{
+	doc-link=https://link-to-documentation
+	separator=;\n
+	...
+};</pre>
+
+                    <p>Check out the <a href="../C.hmodule">C</a> or <a href="../PHP.hmodule">PHP</a> module as an example</p>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,592 @@
+:root{
+    --grStr: 5px;
+    --grStrN: -5px;
+    --header-font: 'Bebas Neue';
+    --paragraph-font: 'PT Sans Narrow';
+    --sidepanel-bg: #222;
+    --node-bg: black;
+    --bg-topic: #181818;
+    --bg-comment: rgba(0, 0, 0, 0.5;)
+    --bp-bg-blue: rgb(10, 23, 40);
+    --bp-bg-black: black;
+    --text-colour: white;
+    --node-title-col: white;
+    --tab-btn-bg: #333;
+    --node-top-bg: black;
+    --node-border-rad: 30px;
+    --input-bg: #303035;
+    --ctx-header-bg: #111;
+}
+
+body{
+    background-color:black;
+    color:var(--text-colour);
+    font-family: var(--paragraph-font), sans-serif;
+    text-align:center;
+}
+
+.custom_modal {
+    z-index:9000;
+    background-color:var(--bg-topic);
+    position:absolute;
+    top: 15px;
+    margin-left:35%;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0px 10px 15px 15px #00000044, inset -7px -7px 7px 7px #000, inset 1px 1px 2px 2px white;
+}
+
+.bg-blur {
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.bg-input {
+    background-color: var(--input-bg);
+    color: var(--text-colour);
+}
+
+.z-1
+{
+    z-index:1;
+}
+
+.z-2
+{
+    z-index:2;
+}
+
+.z-3
+{
+    z-index:3;
+}
+
+.z-4
+{
+    z-index:4;
+}
+
+.z-5
+{
+    z-index:5;
+}
+
+.z-6
+{
+    z-index:6;
+}
+
+@keyframes showingerror {
+    0% {
+        border-color: red;
+    }
+    50% {
+        border-color: red;
+    }
+    100% {
+        border-color:red;
+    }
+}
+
+.showerror
+{
+    border: dotted red;
+    animation-name: showingerror;
+    animation-duration: 3s;
+}
+
+.vh-40 {
+    height:40vh;
+}
+
+nodetitle {
+    font-family: var(--header-font), sans-serif;
+    font-size:36px;
+    color: var(--node-title-col);
+}
+
+#nodecodeoutput {
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.sidepanel {
+    background-color: var(--sidepanel-bg);
+    box-shadow:inset -10px -10px 10px 10px black, inset 1px 1px 1px 1px;
+}
+
+.cmdBtn {
+    color: var(--text-colour);
+    transition-duration: 0.3s;
+}
+
+.cmdBtn:hover {
+    background-color:var(--bg-topic);
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+.cmdDrop {
+    background-color:var(--bg-topic);
+}
+
+.text-themed, .text-themed:hover {
+    color:var(--text-colour);
+}
+
+
+.noedit {
+    cursor: default;
+}
+
+
+h1, h2, h3, h4{
+    font-family: var(--header-font), sans-serif;
+}
+
+input {
+    background-color:var(--input-bg);
+    color:var(--text-colour);
+    border-radius:5px;
+}
+
+pre {
+    overflow-y:scroll;
+    text-align:left;
+    max-height:300px;
+}
+
+#Graph{
+    background-image:linear-gradient(var(--bp-bg-blue), var(--bp-bg-blue),var(--bp-bg-black));
+}
+
+#blueLines {
+    position:fixed;
+    background:none;
+    top:0;
+    left:0;
+    z-index:1;
+    pointer-events:none;
+}
+
+.mh-300 {
+    max-height:300px;
+    overflow-y: scroll;
+}
+
+.diazo-comment {
+    position:absolute;
+    background-color:rgba(0, 0, 0, 0.4);
+    min-width:300px;
+    width:auto;
+    height:auto;
+}
+/*
+.diazo-comment-header {
+}
+*/
+.diazo-comment-content {
+    padding-top:2em;
+    padding-bottom:2em;
+}
+
+.diazo-comment-input {
+    background-color:rgba(0, 0, 0, 0.4);
+    border:none;
+}
+
+#zLegend {
+    max-height:300px;
+    overflow-y:scroll;
+}
+
+.editor_dropbtn {
+    background-color:var(--sidepanel-bg);
+    color:var(--text-colour);
+}
+
+.typedropdown {
+    border-radius:0.5rem;
+    max-height:400px;
+    overflow-y:scroll;
+}
+
+a:hover {
+    text-decoration-line:none;
+}
+
+.editor_dropbtn:hover {
+    background-color:white;
+    color:#222;
+    cursor:default;
+}
+
+.editor_ltype {
+    cursor:default;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    border:thin black;
+
+    box-shadow:inset -5px -5px 5px black, inset 1px 1px 2px white;
+    border-radius:.25rem;
+    transition-duration:0.3s;
+}
+
+.editor_ltype:hover {
+    border:solid white;
+    transition-duration:0.1s;
+}
+
+.editor_ltype:active {
+    border:solid thick blue;
+}
+
+.stuck {
+    position:fixed;
+}
+
+#allLines {
+    position:fixed;
+    background:none;
+    top:0;
+    left:0;
+    z-index:2;
+    pointer-events:none;
+}
+
+.bg-darker{
+    background-color:#303035;
+}
+
+.bg-topic {
+    background-color:var(--bg-topic);
+}
+
+.display-8{
+    font-size:64px;
+}
+
+.zwAdd{
+    color:white;
+    background-color:slategrey;
+    padding:15px;
+    border-radius:15px;
+}
+
+.zw-Node{
+    background-color:var(--node-bg);
+    border-radius:var(--node-border-rad);
+    border:solid rgba(0, 0, 0, 0.0) thin;
+    position:absolute;
+    z-index:1;
+    width:300px;
+    will-change: transform;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.fa {
+    box-sizing: content-box;
+}
+
+.editorbtns {
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+.zwBlinker{
+    animation-name:zwBlink;
+    animation-duration:1s;
+    animation-iteration-count: infinite;
+}
+
+.nub {
+    border:none;
+    background:none;
+}
+
+.nubIcon {
+    transition-duration:0.3s;
+    z-index:3;
+}
+
+.nubIcon:hover {
+    color:#FFF;
+    transition-duration:0.1s;
+}
+
+.editorNodeTop {
+    cursor: grab;
+    background-color:var(--node-top-bg);
+    border-top-left-radius:var(--node-border-rad);
+    border-top-right-radius:var(--node-border-rad);
+    box-shadow:inset 1px 1px 1px 1px var(--text-colour);
+}
+
+.grabbable {
+    cursor: grab;
+}
+
+.grabbable:active {
+    cursor: grabbing;
+}
+
+.btn-shaded {
+    background-color:var(--sidepanel-bg);
+    color:var(--text-colour);
+    box-shadow:inset 1px 1px 1px 1px white, inset -1px -1px 2px 2px black;
+}
+
+.btn-shaded:hover {
+    background-color:var(--bg-topic);
+    color:var(--text-colour);
+    box-shadow:inset 1px 1px 1px 1px black, inset -1px -1px 2px 2px black;
+}
+
+.btn-bloop, .btn-bloop:active {
+    background-color:var(--node-bg);
+    box-shadow:inset 2px 2px 20px blue;
+    border:solid white thin;
+    color:var(--text-colour);
+    transition-duration:0.3s;
+    z-index:2;
+}
+
+.width-75 {
+    width:75%;
+}
+
+.w-225 {
+    width: auto;
+    min-width: 170px;
+    max-width: 225px;
+}
+
+.pb-8
+{
+    padding-bottom:7rem;
+}
+
+.macronode {
+    width:fit-content;
+    min-width:160px;
+    max-width:200px;
+}
+
+
+.btn-bloop:hover {
+    background-color: white;
+    box-shadow:inset -2px -2px 20px darkblue;
+    border:solid black thin;
+    color:black;
+    transition-duration:0.1s;
+}
+
+.p-none {
+    padding:0;
+}
+
+.btn-zdanger {
+    background-color:var(--node-bg);
+    box-shadow:inset 2px 2px 20px red;
+    border:solid white thin;
+    color:var(--text-colour);
+    transition-duration:0.3s;
+    z-index:2;
+}
+
+.btn-zdanger:hover {
+    background-color:white;
+    box-shadow:inset -2px -2px 20px darkred;
+    border:solid black thin;
+    color:black;
+    transition-duration:0.1s;
+}
+
+.btn-tab {
+    background-color: var(--tab-btn-bg);
+    color: var(--text-colour);
+    border:none;
+    box-shadow:inset -5px -5px 5px black, inset 1px 1px 1px white, 5px 5px 5px black;
+}
+
+.btn-tab:active {
+    background-color: var(--bg-topic);
+    color: var(--text-colour);
+    box-shadow:inset -1px -1px 5px 5px black;
+}
+
+.btn-tab:focus, .btn-tab:hover {
+    background-color: var(--tab-btn-bg);
+    color: var(--text-colour);
+    text-shadow: 0px 0px 5px var(--text-colour);
+    box-shadow:inset -5px -5px 5px black, inset 1px 1px 1px white, 5px 5px 5px black, 0px 0px 5px var(--text-colour);
+}
+
+/*
+.btn-tab:active {
+    background-color: var(--tab-btn-bg);
+    color: black;
+    box-shadow:inset 1px 1px 5px 5px black;
+}
+    */
+
+ul {
+    list-style: none;
+}
+
+.bg-none {
+    background:none;
+}
+  
+.context-menu { 
+    position: absolute;
+    z-index:5;
+    width:auto;
+    height:auto;
+    max-width:500px;
+    max-height:500px;
+    overflow-y: scroll;
+}
+
+.w-500px {
+    width:500px;
+}
+
+
+
+#editor_currentModuleText {
+    background-color:#CCC;
+    color:black;
+    box-shadow:inset 0px -5px 5px black, inset 0px 2px 4px white;
+}
+
+#hintPopup {
+    position: absolute;
+    background-color:var(--sidepanel-bg);
+    color:var(--text-colour);
+    z-index:6;
+    width:auto;
+    box-shadow:inset 1px 1px 2px white, inset -4px -4px 4px black, 5px 5px 25px black;
+}
+
+#commandBar {
+    overflow-y:scroll;
+}
+
+#contextMenu {
+    z-index:5;
+    background-color:var(--sidepanel-bg);
+    color:var(--text-colour);
+    box-shadow: inset -5px -5px 5px black;
+}
+
+#contextTop {
+    background-color:var(--ctx-header-bg);
+    box-shadow: inset -5px -5px 5px black, inset 1px 1px 2px white;
+}
+
+#contextSearch {
+    border:none;
+}
+
+.contextItem {
+    border:none;
+    box-shadow: inset -5px -5px 5px black, inset 1px 1px 2px grey;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.editor_selected {
+    border:dashed white thin;
+    z-index:4;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px 0;
+    z-index:5;
+}
+
+.menu > li > a {
+    font: inherit;
+    border: 0;
+    padding: 10px 30px 10px 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: unset;
+    color: #000;
+    font-weight: 500;
+    transition: 0.5s linear;
+    -webkit-transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -ms-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+}
+
+.menu > li > a:hover {
+    background:#f1f3f7;
+    color: #4b00ff;
+}
+
+.menu > li > a > i {
+    padding-right: 10px;
+}
+
+.menu > li.trash > a:hover {
+    color: red;
+}
+
+/* ToolTips */
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+  
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+@keyframes zwBlink{
+    0% {
+        color:black;
+    }
+    50%{
+        color:rgb(105, 153, 255);
+    }
+    100%{
+        color:black;
+    }
+}

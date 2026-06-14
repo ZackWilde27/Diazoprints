@@ -1,0 +1,63 @@
+// math
+
+const class math
+{
+    colour = #0093F5;
+
+    const float pi;
+
+    float acos(float _x);
+    float acosh(float _x);
+    float asin(float _x);
+    float asinh(float _x);
+    float atan(float _x);
+    float atan2(float _x, float _y);
+    float atanh(float _x);
+    int ceil(float _x);
+    int comb(int N, int K);
+    float copysign(float _x, float _y);
+    float cos(float Radians);
+    float cosh(float _x);
+    float degrees(float Radians);
+    float dist(list _x, list _y);
+    float erf(float _x);
+    float erfc(float _x);
+    float exp(float _x);
+    float expm1(float _x);
+    float fabs(float _x);
+    int factorial(int _x);
+    int floor(float _x);
+    float fmod(float _x, float _y);
+    tuple frexp(float _x);
+    float fsum(list Array-Like);
+    float gamma(float _x);
+    int gcd(int _x, int _y);
+    float hypot(...);
+    bool isclose(float _x, float _y);
+    bool isfinite(float _x);
+    bool isinf(float _x);
+    bool isnan(auto _x);
+    int isqrt(float _x);
+    float ldexp(float X, float I);
+    float lgamma(float _x);
+    float log(float _x, float Base=e);
+    float log10(float _x);
+    float log1p(float _x);
+    float log2(float _x);
+    int perm(int N, int K);
+    float pow(float _x, float _y);
+    float prod(list Iterable, int Start=1);
+    float radians(float _x);
+    float remainder(float X, float Y);
+    float sin(float _x);
+    float sinh(float _x);
+    float sqrt(float _x);
+    float tan(float _x);
+    float tanh(float _x);
+    int trunc(float _x);
+}
+
+struct Settings
+{
+    addon-decl=import math\n
+}

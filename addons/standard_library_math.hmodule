@@ -1,0 +1,216 @@
+// math (C Standard Library)
+
+typedef float_t, ft, circle-thin, circle, #7CFC00, %, number;
+typedef double_t, dt, circle-thin, circle, #7CFC00, %, number;
+typedef intmax_t, imt, circle-thin, circle, #457E58, %, number;
+
+struct Settings
+{
+    addon-decl=#include <math.h>\n
+};
+
+struct div_t
+{
+    int quot;
+    int rem;
+};
+
+struct ldiv_t
+{
+    long quot;
+    long rem;
+};
+
+struct lldiv_t
+{
+    long long quot;
+    long long rem;
+};
+
+struct imaxdiv_t
+{
+    intmax_t quot;
+    intmax_t rem;
+};
+
+div_t div(int x, int y); // link=w/c/numeric/math/div
+ldiv_t ldiv(long x, long y); // link=w/c/numeric/math/div
+lldiv_t lldiv(long long x, long long y); // link=w/c/numeric/math/div
+imaxdiv_t imaxdiv(intmax_t x, intmax_t y); // link=w/c/numeric/math/div
+
+float acosf(float arg); // link=w/c/numeric/math/acos
+double acos(double arg); // link=w/c/numeric/math/acos
+long double acosl(long double arg); // link=w/c/numeric/math/acos
+
+float asinf(float arg); // link=w/c/numeric/math/asin
+double asin(double arg); // link=w/c/numeric/math/asin
+long double asinl(long double arg); // link=w/c/numeric/math/asin
+
+float atanf(float arg); // link=w/c/numeric/math/atan
+double atan(double arg); // link=w/c/numeric/math/atan
+long double atanl(long double arg); // link=w/c/numeric/math/atan
+
+float acoshf(float arg); // link=w/c/numeric/math/acosh
+double acosh(double arg); // link=w/c/numeric/math/acosh
+long double acoshl(long double arg); // link=w/c/numeric/math/acosh
+
+float asinhf(float arg); // link=w/c/numeric/math/asinh
+double asinh(double arg); // link=w/c/numeric/math/asinh
+long double asinhl(long double arg); // link=w/c/numeric/math/asinh
+
+float atanhf(float arg); // link=w/c/numeric/math/atanh
+double atanh(double arg); // link=w/c/numeric/math/atanh
+long double atanhl(long double arg); // link=w/c/numeric/math/atanh
+
+float atan2f(float arg); // link=w/c/numeric/math/atan2
+double atan2(double arg); // link=w/c/numeric/math/atan2
+long double atan2l(long double arg); // link=w/c/numeric/math/atan2
+
+float cbrtf(float arg); // link=w/c/numeric/math/cbrt
+double cbrt(double arg); // link=w/c/numeric/math/cbrt
+long double cbrtl(long double arg); // link=w/c/numeric/math/cbrt
+
+float ceilf(float arg); // link=w/c/numeric/math/ceil
+double ceil(double arg); // link=w/c/numeric/math/ceil
+long double ceill(long double arg); // link=w/c/numeric/math/ceil
+
+float copysignf(float x, float y); // link=w/c/numeric/math/copysign
+double copysign(double x, double y); // link=w/c/numeric/math/copysign
+long double copysignl(long double x, long double y); // link=w/c/numeric/math/copysign
+
+float cosf(float arg); // link=w/c/numeric/math/cos
+double cos(double arg); // link=w/c/numeric/math/cos
+long double cosl(long double arg); // link=w/c/numeric/math/cos
+
+float coshf(float arg); // link=w/c/numeric/math/cos
+double cosh(double arg); // link=w/c/numeric/math/cos
+long double coshl(long double arg); // link=w/c/numeric/math/cos
+
+float expf(float arg); // link=w/c/numeric/math/exp
+double exp(double arg); // link=w/c/numeric/math/exp
+long double expl(long double arg); // link=w/c/numeric/math/exp
+
+float exp2f(float arg); // link=w/c/numeric/math/exp2
+double exp2(double arg); // link=w/c/numeric/math/exp2
+long double exp2l(long double arg); // link=w/c/numeric/math/exp2
+
+float expm1f(float arg); // link=w/c/numeric/math/expm1
+double expm1(double arg); // link=w/c/numeric/math/expm1
+long double expm1l(long double arg); // link=w/c/numeric/math/expm1
+
+float fabsf(float arg); // link=w/c/numeric/math/fabs
+double fabs(double arg); // link=w/c/numeric/math/fabs
+long double fabsl(long double arg); // link=w/c/numeric/math/fabs
+
+float fdimf(float x, float y); // link=w/c/numeric/math/fdim
+double fdim(double x, double y); // link=w/c/numeric/math/fdim
+long double fdiml(long double x, long double y); // link=w/c/numeric/math/fdim
+
+float fmodf(float x, float y); // link=w/c/numeric/math/fmod
+double fmod(double x, double y); // link=w/c/numeric/math/fmod
+long double fmodl(long double x, long double y); // link=w/c/numeric/math/fmod
+
+float fmaxf(float x, float y); // link=w/c/numeric/math/fmax
+double fmax(double x, double y); // link=w/c/numeric/math/fmax
+long double fmaxl(long double x, long double y); // link=w/c/numeric/math/fmax
+
+float fminf(float x, float y); // link=w/c/numeric/math/fmin
+double fmin(double x, double y); // link=w/c/numeric/math/fmin
+long double fminl(long double x, long double y); // link=w/c/numeric/math/fmin
+
+float fmaf(float x, float y, float z); // link=w/c/numeric/math/fma
+double fma(double x, double y, double z); // link=w/c/numeric/math/fma
+long double fmal(long double x, long double y, long double z); // link=w/c/numeric/math/fma
+
+float FP_FAST_FMAF(float x, float y, float z); // link=w/c/numeric/math/fma
+double FP_FAST_FMA(double x, double y, double z); // link=w/c/numeric/math/fma
+long double FP_FAST_FMAL(long double x, long double y, long double z); // link=w/c/numeric/math/fma
+
+int FP_ILOGB0(double arg); // link=w/c/numeric/math/ilogb
+int FP_ILOGBNAN(double arg); // link=w/c/numeric/math/ilogb
+
+float hypotf(float x, float y); // link=w/c/numeric/math/hypot
+double hypot(double x, double y); // link=w/c/numeric/math/hypot
+long double hypotl(long double x, long double y); // link=w/c/numeric/math/hypot
+
+int isgreater(double x, double y); // link=w/c/numeric/math/isgreater
+int isless(double x, double y); // link=w/c/numeric/math/isless
+
+int isnan(double arg); // link=w/c/numeric/math/isnan
+
+int ilogbf(float arg); // link=w/c/numeric/math/ilogb
+int ilogb(double arg); // link=w/c/numeric/math/ilogb
+int ilogbl(long double arg); // link=w/c/numeric/math/ilogb
+
+float logf(float arg); // link=w/c/numeric/math/log
+double log(double arg); // link=w/c/numeric/math/log
+long double logl(long double arg); // link=w/c/numeric/math/log
+
+float log10f(float arg); // link=w/c/numeric/math/log10
+double log10(double arg); // link=w/c/numeric/math/log10
+long double log10l(long double arg); // link=w/c/numeric/math/log10
+
+float log2f(float arg); // link=w/c/numeric/math/log2
+double log2(double arg); // link=w/c/numeric/math/log2
+long double log2l(long double arg); // link=w/c/numeric/math/log2
+
+float log1pf(float arg); // link=w/c/numeric/math/log1p
+double log1p(double arg); // link=w/c/numeric/math/log1p
+long double log1pl(long double arg); // link=w/c/numeric/math/log1p
+
+float nanf(char* arg); // link=w/c/numeric/math/nan
+double nan(char* arg); // link=w/c/numeric/math/nan
+long double nanl(char* arg); // link=w/c/numeric/math/nan
+
+float logp1f(float arg); // link=w/c/numeric/math/logp1
+double logp1(double arg); // link=w/c/numeric/math/logp1
+long double logp1l(long double arg); // link=w/c/numeric/math/logp1
+
+float powf(float base, float exponent); // link=w/c/numeric/math/pow
+double pow(double base, double exponent); // link=w/c/numeric/math/pow
+long double powl(long double base, long double exponent); // link=w/c/numeric/math/pow
+
+float remainderf(float x, float y); // link=w/c/numeric/math/remainder
+double remainder(double x, double y); // link=w/c/numeric/math/remainder
+long double remainderl(long double x, long double y); // link=w/c/numeric/math/remainder
+
+float remquof(float x, float y, int* quo); // link=w/c/numeric/math/remquo
+double remquo(double x, double y, int* quo); // link=w/c/numeric/math/remquo
+long double remquol(long double x, long double y, int* quo); // link=w/c/numeric/math/remquo
+
+int signbit(float arg); // link=w/c/numeric/math/signbit
+
+float sinf(float arg); // link=w/c/numeric/math/sin
+double sin(double arg); // link=w/c/numeric/math/sin
+long double sinl(long double arg); // link=w/c/numeric/math/sin
+
+float sinhf(float arg); // link=w/c/numeric/math/sinh
+double sinh(double arg); // link=w/c/numeric/math/sinh
+long double sinhl(long double arg); // link=w/c/numeric/math/sinh
+
+float sqrtf(float arg); // link=w/c/numeric/math/sqrt
+double sqrt(double arg); // link=w/c/numeric/math/sqrt
+long double sqrtl(long double arg); // link=w/c/numeric/math/sqrt
+
+float tanf(float arg); // link=w/c/numeric/math/tan
+double tan(double arg); // link=w/c/numeric/math/tan
+long double tanl(long double arg); // link=w/c/numeric/math/tan
+
+float tanhf(float arg); // link=w/c/numeric/math/tanh
+double tanh(double arg); // link=w/c/numeric/math/tanh
+long double tanhl(long double arg); // link=w/c/numeric/math/tanh
+
+
+int GetFLT_EVAL_METHOD() { FLT_EVAL_METHOD } // Get FLT_EVAL_METHOD
+
+float GetHUGE_VALF() { HUGE_VALF } // Get HUGE_VALF link=w/c/numeric/math/HUGE_VAL
+double GetHUGE_VAL() { HUGE_VAL } // Get HUGE_VAL link=w/c/numeric/math/HUGE_VAL
+long double GetHUGE_VALL() { HUGE_VALL } // Get HUGE_VALL link=w/c/numeric/math/HUGE_VAL
+
+float GetINFINITY() { INFINITY } // Get INFINITY link=w/c/numeric/math/INFINITY
+
+float GetNAN() { NAN } // Get NAN link=w/c/numeric/math/NAN
+
+int getmatherrno() { MATH_ERRNO } // Get MATH_ERRNO link=w/c/numeric/math/math_errhandling
+int getmatherrexpt() { MATH_ERREXCEPT } // Get MATH_ERREXCEPT link=w/c/numeric/math/math_errhandling
+int getmatherrhand() { math_errhandling } // Get math_errhandling link=w/c/numeric/math/math_errhandling

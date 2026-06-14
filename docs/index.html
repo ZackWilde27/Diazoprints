@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Documentation</title>
+        <meta name="description" content="Node-based editor for writing code, inspired by Unreal Engine\'s Blueprints">
+         <!-- Latest compiled and minified CSS
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="../bootstrap.css">
+
+        <!-- jQuery library
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script> -->
+        <script src="../jquery-slim.js"></script>
+
+        <!-- Popper JS
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+        <script src="../popper.js"></script>
+
+        <!-- Latest compiled JavaScript
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+        <script src="../bootstrap.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/this.css" type="text/css">
+        <link rel="stylesheet" href="../css/docs.css" type="text/css">
+    </head>
+    <body class="text-left">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-1">Diazo Prints</h1>
+                    <p>Diazo Prints is a node-based editor for writing code, inspired by Unreal Engine's Blueprints, that can be expanded to support as many languages and their libraries as possible</p>
+                    <p>It's got support for C, C#, JavaScript, PHP, Python, and Structured Text, with the ability to import custom modules.</p>
+
+                    <h1 class="mt-5 pt-5">Terminology</h1>
+                    <p>There are some things I should clear up first</p>
+                    <p>Node: Refers to the entire thing</p>
+                    <div class="container zw-Node text-center" id="equal1" style="box-shadow: 50px 50px 100px #80000032, -50px 50px 100px #004a7b32, inset var(--grStrN) 0px 15px #ff0000ff, inset var(--grStr) 0px 15px #0093f5ff, inset 0px var(--grStrN) 5px #7fc9faff;"><div class="row editorNodeTop" id="equal1top"><div class="col-1"></div><div class="col-11"><nodetitle>Equal (==)</nodetitle></div><div class="col-1 m-auto"></div></div><div class="row py-4"><div class="col-6 text-left"><button class="nub" style="color: #0093F5"><i id="equal1-in0" z-val="" zw-type="g" style="font-size:1.5em;" class="nubIcon fa fa-circle-thin"></i></button><a></a><br><button class="nub" style="color: #0093F5"><i id="equal1-in1" z-val="" zw-type="g" style="font-size:1.5em;" class="nubIcon fa fa-2x fa-circle-thin"></i></button><a></a><br></div><div class="col-6 text-right my-auto"><a></a><button class="nub" style="color: #FF0000"><i id="equal1-out0" z-val="" zw-type="b" style="font-size:1.5em;" class="nubIcon fa fa-2x fa-circle-thin"></i></button></div></div></div>
+                    <br><br><br><br><br><br><br>
+                    <span class="py-5 my-5"><span class="py-5 my-5">Nub: Refers to the icons that connect nodes together (Unreal Engine calls them pins)</span></span><br>
+                    <button class="nub" style="color: #FF0000"><i id="equal1-out1" z-val="" zw-type="b" style="font-size:1.5em;" class="nubIcon fa fa-2x fa-circle-thin"></i></button>
+
+                    <h1 class="mt-5 pt-5">How To Use (Desktop)</h1>
+
+                    <p>Most of the common shortcuts are supported: CTRL+C to copy, CTRL+X to cut, CTRL+V to paste, DEL to delete</p>
+
+                    <h3>Adding Nodes</h3>
+                    <p>Add new nodes by right clicking on an empty spot to bring up the commands menu, you can then browse the available options or search for the desired node.</p>
+
+                    <h3>Connecting Nodes</h3>
+                    <p>Connect nodes by clicking and dragging from one nub to another</p>
+                    <p>Right-side nubs can only be connected to left-side nubs, and vise-versa</p>
+                    <p>To disconnect, click on the nub</p>
+                    <p>If you drag out a nub to an empty area, it'll bring up the commands menu and automatically connect the new node, if it has a nub of the same type</p>
+
+                    <p>You can adjust the zoom level in your browser, the shortcut on desktop is usually CTRL + Scroll Wheel</p>
+
+                    <h3>Panning</h3>
+                    <p>You can pan the view in 3 ways:</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <h4>Unreal Engine Style</h4>
+                                <p>Hold right-click while moving the mouse to pan around</p>
+                            </div>
+                            <div class="col-4">
+                                <h4>Blender Style</h4>
+                                <p>Hold middle-click while moving the mouse to pan around</p>
+                            </div>
+                            <div class="col-4">
+                                <h4>Adobe Style</h4>
+                                <p>Hold space and left-click while moving the mouse to pan around</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1 class="mt-5 pt-5" id="creating-modules">Creating Modules</h1>
+                    <p>There are 3 ways to make modules: Header file style (.hmodule), JSON (.json), or Base Module files (.module)</p>
+                    <p>The Header file format mimics how you'd define the functions in the real language, but it has limitations. Meanwhile the base module files use my own custom format, but they offer more control.</p>
+                    <p>JSON is the middle ground, much easier to read, while having as much control as a module file. I'll admit though it's a bit tedious to write</p>
+                    <a href="moduleheader.html">Header file docs</a> | <a href="modulejson.html">JSON file docs</a> | <a href="modulefile.html">Module file docs</a>
+
+                    <br><br>
+                    <b>Examples</b>
+                    <p>Module File:</p>
+                    <ul>
+                        <li><a href="../JavaScript.module">JavaScript.module</a></li>
+                    </ul>
+
+                    <p>Header File:</p>
+                    <ul>
+                        <li><a href="../C.hmodule">C.hmodule</a></li>
+                        <li><a href="../CSharp.hmodule">CSharp.hmodule</a></li>
+                        <li><a href="../PHP.hmodule">PHP.hmodule</a></li>
+                        <li><a href="../StructuredText.hmodule">StructuredText.hmodule</a></li>
+                    </ul>
+
+                    <p>JSON File:</p>
+                    <ul>
+                        <li><a href="../Python.json">Python.json</a></li>
+                    </ul>
+
+                    <h1 class="mt-5 pt-5">Creating Addons</h1>
+                    <p>Addons must be made using the header file format</p>
+                    <p>The addon documentation can be found <a href="moduleaddon.html">here</a></p>
+                    <br>
+                    <b>Examples</b>
+                    <p>C:</p>
+                    <ul>
+                        <li><a href="../addons/standard_library_math.hmodule">math</a></li>
+                        <li><a href="../addons/standard_library_stdint.hmodule">stdint</a></li>
+                        <li><a href="../addons/standard_library_stdio.hmodule">stdio</a></li>
+                        <li><a href="../addons/standard_library_stdlib.hmodule">stdlib</a></li>
+                        <li><a href="../addons/standard_library_string.hmodule">string</a></li>
+                        <li><a href="../addons/standard_library_threads.hmodule">threads</a></li>
+                        <li><a href="../addons/standard_library_time.hmodule">time</a></li>
+                        <li><a href="../addons/standard_library_wctype.hmodule">wctype</a></li>
+                    </ul>
+                    <p>C#:</p>
+                    <ul>
+                        <li><a href="../addons/dotnet_api_system.hmodule">System</a></li>
+                        <li><a href="../addons/dotnet_api_system_text.hmodule">System.Text</a></li>
+                    </ul>
+
+                    <p>Python:</p>
+                    <ul>
+                        <li><a href="../addons/python_math.hmodule">math</a></li>
+                        <li><a href="../addons/python_random.hmodule">random</a></li>
+                    </ul>
+
+                    <h1 class="mt-5 pt-5" id="changes">V1.1 Changes</h1>
+                    <b class="mt-2">Export / Preview</b>
+                    <p>- Fixed a bug with Export Selected and Preview Selected where '%functions' would be included in the text if you had the Begin node selected</p>
+                    <p>- Export Selected/Preview Selected will now act like Export All/Preview All if you have the Begin node selected</p>
+                    <p>- Export/Preview Selected will now output '- No node is selected -' instead of producing an error when no node is selected</p>
+
+                    <b class="mt-2">Commands Menu</b>
+                    <p>- The context sensitive toggle on the commands menu now remembers which state it was in, and it defaults to off at first</p>
+                    <p>- Search has been improved, it will now rank <b>all</b> nodes relative to each-other, so operator nodes can now be ranked above types, and so can class methods/properties. It's not as organized as it was before but you won't have to scroll down as far to find the node you were looking for</p>
+
+                    <b class="mt-2">Nodes</b>
+                    <p>- Added all of the optional parameters to Python's 'open' node</p>
+                    <p>- Fixed a bug with for loops in all languages missing iterator names and causing converter errors</p>
+
+                    <b class="mt-2">Docs</b>
+                    <p>- Finally updated the module documentation after forgetting to do that for a while</p>
+
+                    <b class="mt-2">Misc.</b>
+                    <p>The node editor will now open a JavaScript example the first time you visit the page</p>
+
+                    <h1 class="mt-5 pt-5">V1.0 Changes</h1>
+                    <p>- Fixed performance issues on Chromium-based browsers</p>
+                    <p>- Changed the 'context sensitive' toggle to 'strict context sensitive', denoted with == vs ===, if using '===' then auto types will not be included</p>
+                    <p>- Fixed Python's functions missing parameters</p>
+                    <p>- Added the 'Drawn' line style</p>
+                    <p>- Variables and functions can now be deleted</p>
+                    <p>- Added a custom theme feature</p>
+                    <p>- Fixed copy and pasting within text boxes and the like</p>
+                    <p>- Changed the variable reserving system for things like for loops, it now uses the standard iterator names (i, j, k, and so on) and is determined during compiling, so it'll re-use iterator names when it can</p>
+                    <p>- Fixed almost every bug with mobile support, though there are some features that couldn't be ported to touch controls, and there's a strange issue with nodes bunching up on the sides.</p>
+                    <p>- The page doesn't need to refresh to update libraries anymore</p>
+                    <p>- Libraries now put inclusion statements (#include, import, using, etc.) in the code automatically</p>
+                    <p>- You can now double-click on a nub to quickly create a constant of that type</p>
+                    <p>- The 'Function' type isn't built-in anymore, but the editor still expects it to be there, so each module can choose its name, colour, etc. The letter id has to be 'fn'</p>
+                    <p>- Fixed the dropdown menu's bottom margin</p>
+                    <p>- Fixed adding nubs after the new containerized system broke it, I'm still deciding what the size of the + button should be</p>
+                    <p>- The Functions and Variables tab will be hidden if the module does not support the feature</p>
+                    <p>- User functions will show the correct nubs in the commands menu</p>
+                    <p>- Modules can now create tabs without making a class</p>
+                    <p>- Documentation links can now be added to nodes in the header format, to go along with that I've gone through and added a lot of documentation links to each module</p>
+                    <p>- Added 'Get'-ing user functions</p>
+                    <p>- Settings in the panel that use text have a reset button to set it back to default</p>
+                    <p>- Nodes have velocity now</p>
+
+                    <h1 class="mt-5 pt-5">V0.99 Changes</h1>
+                    <p>- Fixed the 'TouchEvent is undefined' error on linux.</p>
+                    <p>- Added 2 languages: C#, and Structured Text</p>
+                    <p>- Added the Libraries feature. It allows you to add more modules to the current language, so existing languages can be extended, and you can choose which libraries to include. To start off I've added libraries for C, C#, and Python</p>
+                    <p>- Added 2 new node types: compact nodes, and programmable nodes with a JavaScript-style Node Language</p>
+                    <p>- Added a Node Language module, so you don't need to know JavaScript to use programmable nodes</p>
+                    <p>- If compilation fails, the view will pan over to the node responsible and give it a red outline</p>
+                    <p>- The page will alert with an error when a module fails to load</p>
+                    <p>- Added Set By Reference nodes to all the modules, so you can still assign to things that don't have a Set node</p>
+                    <p>- All of the modules have been updated with nodes like 'Is Empty' and 'Is Not Zero' to make truthiness more intuitive</p>
+                    <p>- Comments can now be added to the graph</p>
+                    <p>- Added the Make Variable option to the commands menu, that will take the selected type and create a variable from it</p>
+
+                    <p>- The 'this' parameter on constant structs are now optional</p>
+                    <p>- Changed the icon for optional nubs to a question mark</p>
+                    <p>- Auto nubs that have been given a type will change back when disconnected</p>
+                    <p>- Also, when auto nubs change their type, the gradient and lighting on the node will update to match</p>
+                    <p>- Added support for enum-like types, which will create a drop-down menu instead of an input tag</p>
+                    <p>- Structs now have propfmt and funcfmt properties, to tell the editor how properties and functions are accessed from a struct</p>
+                    <p>- Properties used by the editor don't use a type to distinguish them from actual properties</p>
+                    <p>- Changed the Break and New terminology to Break and Make, to make it more intuitive for people who have used blueprints</p>
+                    <p>- Added more options to the settings panel</p>
+                    <p>- Fixed a bug causing 'ghost nodes' once and for all</p>
+                    <p>- Custom nodes in the header format can now have keywords like static or start put beforehand</p>
+                    <p>- Small UI tweaks, such as the headers being slightly smaller, nubs being organized into containers so things align better, stuff like that.</p>
+                    <p>- Tons of optimization</p>
+
+                    <h1 class="mt-5 pt-5">V0.95 Changes</h1>
+                    <p>- The commands menu is now sorted by relevance to the search</p>
+                    <p>- You can now check a nub's type by hovering over it</p>
+                    <p>- Added the Make Statement node to all the modules, for functions that have a return value but can be used like a void function</p>
+                    <p>- Module files can now be written in JSON, the Python module was re-written as an example</p>
+                    <p>- Added features to the header format to make it more customizable</p>
+                    <p>- The C and Python modules have been updated with more nodes</p>
+                    <p>- Finalized the look of the commands menu</p>
+                    <p>- Now works on mobile, though it's not the optimal way to use it, especially on a phone-sized screen</p>
+                    <p>- Quite a few UI features are now finished, such as nubs with multiple inputs, break and make nodes, input tags as nubs</p>
+                    <p>- Added a settings section to the side panel</p>
+                    <p>- Fixed instances of nodes spawning at the top of the screen when they shouldn't</p>
+                    <p>- The linking system is more robust, it will overwrite a connection when a nub can only accept one</p>
+                    <p>- Variables reserved for things like for loops have a more complex name to prevent them from accidentally sharing a name with your variables</p>
+                    <p>- New functions can be created with a C declaration (same syntax as header file modules) for the most customizability while I'm working on the UI for it</p>
+                    
+                    <h1 class="mt-5 pt-5">V0.9 Changes</h1>
+                    <p>- You can now search special characters</p>
+                    <p>- Auto types will still show up when context sensitive is turned on</p>
+                    <p>- Updated the header format to support multiple named outputs</p>
+                    <p>- Header files can now specify the colour of structs</p>
+                    <p>- Updated the modules with more nodes and fixes</p>
+                    <p>- The default value on the optional nodes are working now</p>
+                    <p>There were a lot more bugs than I thought</p>
+                    <p>- Modules made with header files have no documentation links instead of broken ones, I'm still figuring that out</p>
+                    <p>- Documentation links on nodes need to include the file extension now</p>
+                    <p>- Fixed a bug where 2 nodes would share the same id, causing things to break.</p>
+                    <p>- Fixed freezing when using For with type 0 nodes</p>
+                    <p>- Fixed exponential indenting</p>
+                    <p>- Fixed bug where the Then and Completed nodes on If and For would stop after the first node</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

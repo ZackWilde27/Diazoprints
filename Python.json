@@ -1,0 +1,1084 @@
+{
+    "settings": {
+        "doc-link": "https://docs.python.org/3/",
+        "separator": "\\n",
+        "extension": "py",
+        "var-fmt": "%name",
+        "var-decl": "%name",
+        "var-sign": "%name = %val",
+        "decl-sign": "%name = %val",
+        "array-separator": ", ",
+        "param-decl": "%name",
+        "param-separator": ", ",
+        "param-format": "%name",
+        "function-format": "def %name(%inputs):\\n%code\\n\\n",
+        "function-call": "%name(%inputs)",
+        "bools": "True|False"
+    },
+    "types": {
+        "bool": {
+            "letter": "b",
+            "icon": "circle-thin",
+            "connect-icon": "circle",
+            "colour": "#FF0000",
+            "format": "%",
+            "tag": "checkbox"
+        },
+        "float": {
+            "letter": "f",
+            "icon": "circle-thin",
+            "connect-icon": "circle",
+            "colour": "#00FF00",
+            "format": "%",
+            "tag": "number"
+        },
+        "int": {
+            "letter": "i",
+            "icon": "circle-thin",
+            "connect-icon": "circle",
+            "colour": "#456B50",
+            "format": "%",
+            "tag": "number"
+        },
+        "complex": {
+            "letter": "cmplx",
+            "icon": "circle-thin",
+            "connect-icon": "circle",
+            "colour": "#91C47F",
+            "format": "%",
+            "tag": "text"
+        },
+        "str": {
+            "letter": "s",
+            "icon": "square-o",
+            "connect-icon": "square",
+            "colour": "#FF38D4",
+            "format": "\"%\"",
+            "tag": "text"
+        },
+        "list": {
+            "letter": "l",
+            "icon": "square-o",
+            "connect-icon": "square",
+            "colour": "#0093F5",
+            "format": "'%'",
+            "tag": ""
+        },
+        "tuple": {
+            "letter": "t",
+            "icon": "square-o",
+            "connect-icon": "square",
+            "colour": "#0093F5",
+            "format": "'%'",
+            "tag": ""
+        },
+        "range": {
+            "letter": "r",
+            "icon": "square-o",
+            "connect-icon": "square",
+            "colour": "#0093F5",
+            "format": "'%'",
+            "tag": ""
+        },
+        "Function": {
+            "letter": "fn",
+            "icon": "circle-thin",
+            "connect-icon": "circle",
+            "colour": "#4800FF",
+            "format": "%",
+            "tag": ""
+        },
+        "customstring": {
+            "letter": "customstring",
+            "icon": "",
+            "connect-icon": "",
+            "colour": "#FF38D4",
+            "format": "%",
+            "tag": "text"
+        }
+    },
+    "structs": {
+        "type": {
+            "colour": "#CBFFFE",
+            "static": "false",
+            "propfmt": "%this.%name",
+            "funcfmt": "%this.%name(%params)",
+            "properties": {
+                "_CHUNK_SIZE": {
+                    "type": "int",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__class__": {
+                    "type": "type",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__del__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__delattr__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                }
+            },
+            "methods": {
+                "close": {
+                    "io": "e.;o.;e.;",
+                    "link": ""
+                },
+                "flush": {
+                    "io": "e.;o.;e.;",
+                    "link": ""
+                },
+                "write": {
+                    "io": "e.;s.;o.;e.;",
+                    "link": ""
+                }
+            },
+            "link": "placeholder"
+        },
+        "builtin_function_or_method": {
+            "colour": "#CBFFFE",
+            "static": "false",
+            "propfmt": "%this.%name",
+            "funcfmt": "%this.%name(%params)",
+            "properties": {
+                "__call__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__class__": {
+                    "type": "type",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__delattr__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__dir__": {
+                    "type": "builtin_function_or_method",
+                    "permissions": "r",
+                    "link": ""
+                }
+            },
+            "methods": {
+            },
+            "link": "placeholder"
+        },
+        "method-wrapper": {
+            "colour": "#CBFFFE",
+            "static": "false",
+            "propfmt": "%this.%name",
+            "funcfmt": "%this.%name(%params)",
+            "properties": {
+                "__call__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__class__": {
+                    "type": "type",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__delattr__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__dir__": {
+                    "type": "builtin_function_or_method",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__doc__": {
+                    "type": "str",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__eq__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__format__": {
+                    "type": "builtin_function_or_method",
+                    "permissions": "r",
+                    "link": ""
+                }
+            },
+            "methods": {},
+            "link": "placeholder"
+        },
+        "file": {
+            "colour": "#CBFFFE",
+            "static": "false",
+            "propfmt": "%this.%name",
+            "funcfmt": "%this.%name(%params)",
+            "properties": {
+                "_CHUNK_SIZE": {
+                    "type": "int",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__class__": {
+                    "type": "type",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__del__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                },
+                "__delattr__": {
+                    "type": "method-wrapper",
+                    "permissions": "r",
+                    "link": ""
+                }
+            },
+            "methods": {
+                "close": {
+                    "io": "e.;o.;e.;",
+                    "link": ""
+                },
+                "detach": {
+                    "io": "o.;g.;",
+                    "link": ""
+                },
+                "fileno": {
+                    "io": "o.;i.;",
+                    "link": ""
+                },
+                "flush": {
+                    "io": "e.;o.;e.;",
+                    "link": ""
+                },
+                "isatty": {
+                    "io": "o.;b.;",
+                    "link": ""
+                },
+                "read": {
+                    "io": "o.;s.;",
+                    "link": ""
+                },
+                "readline": {
+                    "io": "o.;s.;",
+                    "link": ""
+                },
+                "readlines": {
+                    "io": "o.;l.;",
+                    "link": ""
+                },
+                "readable": {
+                    "io": "o.;b.;",
+                    "link": ""
+                },
+                "seek": {
+                    "io": "e.;i.New Position;o.;e.;",
+                    "link": ""
+                },
+                "seekable": {
+                    "io": "o.;b.;",
+                    "link": ""
+                },
+                "tell": {
+                    "io": "o.;i.Position;",
+                    "link": ""
+                },
+                "truncate": {
+                    "io": "e.;i.Size;o.;e.;",
+                    "link": ""
+                },
+                "write": {
+                    "io": "e.;g.;o.;e.;",
+                    "link": ""
+                },
+                "writeable": {
+                    "io": "o.;b.;",
+                    "link": ""
+                },
+                "writelines": {
+                    "io": "e.;l.Lines;o.;e.;",
+                    "link": ""
+                }
+            },
+            "link": "placeholder"
+        }
+    },
+    "start": {
+        "Begin": {
+            "type": "1",
+            "format": "%functions\n%c0",
+            "io": "o.;e.;",
+            "link": ""
+        }
+    },
+    "nodes": {
+        "Make Statement": {
+            "type": "0",
+            "format": "%0",
+            "io": "e.;g.;o.;e.;",
+            "link": ""
+        },
+        "Custom": {
+            "type": "3",
+            "format": "%",
+            "io": "i.s.;o.;g.;",
+            "link": ""
+        },
+        "Set By Reference": {
+            "type": "0",
+            "format": "%0 = %1",
+            "io": "e.;g.Ref;g.Value;o.;e.;",
+            "link": ""
+        },
+        "If": {
+            "type": "5",
+            "format": "if (!False){ return \"if %1:\n%o0\n%c2\"; } if (!True){ return \"if not %1:\n%o1\n%c2\"; } return \"if %1:\n%o0\nelse:\n%o1\n%c2\";",
+            "io": {
+                "inputs": {
+                    "": "exec",
+                    "Condition": "bool"
+                },
+                "outputs": {
+                    "True": "exec",
+                    "False": "exec",
+                    "Then": "exec"
+                }
+            },
+            "link": "compound_stmts.html#the-if-statement"
+        },
+        "For": {
+            "type": "1",
+            "format": "for %n in %1:\n%o0\n%c2",
+            "io": "e.;l.Array Like;o.;e.Loop;r.g.Item;e.Then;",
+            "link": "compound_stmts.html#the-for-statement"
+        },
+        "For (Enumerate)": {
+            "type": "1",
+            "format": "for editor_reserved_index, editor_reserved_item in enumerate(%1):\n%o0\n%c3",
+            "io": "e.;l.Array Like;o.;e.Loop;v.editor_reserved_item.g.Item;v.editor_reserved_index.i.Index;e.Then;",
+            "link": ""
+        },
+        "For (Zip)": {
+            "type": "1",
+            "format": "for editor_reserved_item1, editor_reserved_item2 in zip(%1, %2):\n%o0\n%c3",
+            "io": "e.;l.Array Like;l.Array Like;o.;e.Loop;v.editor_reserved_item1.g.Item1;v.editor_reserved_item1.g.Item2;e.Then;",
+            "link": ""
+        },
+        "For (UE)": { 
+            "type": "1",
+            "format": "for %n in range(%1, %2, %3)):\n%o0\n%c2",
+            "io": "e.;i.Start;i.End;p.1.i.Increment;o.;e.Loop Body;r.i.Current;e.Then;",
+            "link": "" 
+        },
+        "While": {
+            "type": "1",
+            "format": "while %1:\n%o0\n%c1",
+            "io": "e.;b.Condition;o.;e.Loop;e.Then;",
+            "link": ""
+        },
+        "Break": {
+            "type": "1",
+            "format": "break",
+            "io": "e.;o.;",
+            "link": ""
+        },
+        "Continue": {
+            "type": "1",
+            "format": "continue",
+            "io": "e.;o.;",
+            "link": ""
+        },
+        "Pass": {
+            "type": "1",
+            "format": "pass",
+            "io": "e.;o.;",
+            "link": ""
+        },
+        "Return": {
+            "type": "5",
+            "format": "if (!Value) { return \"return\"; } return \"return %1\";",
+            "io": "e.;p..g.Value;o.;",
+            "link": ""
+        },
+        "Try": {
+            "type": "1",
+            "format": "try:\n%o0\nexcept %1:\n%o1\n%c2",
+            "io": "e.;i.s.Error;o.;e.;e.On Catch;e.Then;",
+            "link": ""
+        },
+        "Add (+)": {
+            "type": "4",
+            "format": "(%0 + %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": ""
+        },
+        "Subtract (-)": {
+            "type": "4",
+            "format": "(%0 - %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": ""
+        },
+        "Multiply (*)": {
+            "type": "4",
+            "format": "(%0 * %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": ""
+        },
+        "Divide (/)": {
+            "type": "4",
+            "format": "(%0 / %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": ""
+        },
+        "Modulo (%)": {
+            "type": "4",
+            "format": "(%0 % %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": ""
+        },
+        "Power (**)": {
+            "type": "4",
+            "format": "(%0 ** %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": ""
+        },
+        "Negate": {
+            "type": "2",
+            "format": "-%0",
+            "io": "g.;o.;g.;",
+            "link": ""
+        },
+        "Equal (==)": {
+            "type": "4",
+            "format": "(%0 == %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Not Equal (!=)": {
+            "type": "4",
+            "format": "(%0 == %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Is": {
+            "type": "2",
+            "format": "(%0 is %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Is Not": {
+            "type": "2",
+            "format": "(%0 is not %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Greater Than (>)": {
+            "type": "4",
+            "format": "(%0 > %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Greater Than Or Equal (>=)": {
+            "type": "4",
+            "format": "(%0 >= %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Less Than (<)": {
+            "type": "4",
+            "format": "(%0 < %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Less Than Or Equal (<=)": {
+            "type": "4",
+            "format": "(%0 <= %1)",
+            "io": "g.;g.;o.;b.;",
+            "link": ""
+        },
+        "Is Not Empty": {
+            "type": "2",
+            "format": "%0",
+            "io": "l.;o.;b.;",
+            "link": ""
+        },
+        "Is Empty": {
+            "type": "2",
+            "format": "not %0",
+            "io": "l.;o.;b.;",
+            "link": ""
+        },
+        "Is Not Zero": {
+            "type": "2",
+            "format": "%0",
+            "io": "g.;o.;b.;",
+            "link": ""
+        },
+        "Is Zero": {
+            "type": "2",
+            "format": "not %0",
+            "io": "g.;o.;b.;",
+            "link": ""
+        },
+        "In": {
+            "type": "2",
+            "format": "%0 in %1",
+            "io": "g.;l.;o.;b.;",
+            "link": ""
+        },
+        "Not In": {
+            "type": "2",
+            "format": "%0 not in %1",
+            "io": "g.;l.;o.;b.;",
+            "link": ""
+        },
+        "Select": {
+            "type": "1",
+            "format": "(%0 if %2 else %1)",
+            "io": "g.A;g.B;b.Pick A;o.;g.;",
+            "link": ""
+        },
+        "And": {
+            "type": "2",
+            "format": "(%0 and %1)",
+            "io": "b.;b.;o.;b.;",
+            "link": ""
+        },
+        "Or": {
+            "type": "2",
+            "format": "(%0 or %1)",
+            "io": "b.;b.;o.;b.;",
+            "link": ""
+        },
+        "Not": {
+            "type": "2",
+            "format": "(not %0)",
+            "io": "b.;o.;b.;",
+            "link": ""
+        },
+        "And (&)": {
+            "type": "4",
+            "format": "(%0 & %1)",
+            "io": "i.;i.;o.;i.;",
+            "link": ""
+        },
+        "Or (|)": {
+            "type": "4",
+            "format": "(%0 | %1)",
+            "io": "i.;i.;o.;i.;",
+            "link": ""
+        },
+        "Xor (^)": {
+            "type": "4",
+            "format": "(%0 ^ %1)",
+            "io": "i.;i.;o.;i.;",
+            "link": ""
+        },
+        "Bit-shift Right (>>)": {
+            "type": "4",
+            "format": "(%0 >> %1)",
+            "io": "i.;i.;o.;i.;",
+            "link": ""
+        },
+        "Bit-shift Left (<<)": {
+            "type": "4",
+            "format": "(%0 << %1)",
+            "io": "i.;i.;o.;i.;",
+            "link": ""
+        },
+        "Walrus (:=)": {
+            "type": "4",
+            "format": "(%0 := %1)",
+            "io": "g.Ref;g.New Value;o.;g.;",
+            "link": ""
+        },
+        "Make List": {
+            "type": "1",
+            "format": "[%0]",
+            "io": "a.g.;o.;l.;",
+            "link": ""
+        },
+        "Make Range": {
+            "type": "5",
+            "format": "if (!Start) { return \"range(%1)\"; } if (!Increment) { return \"range(%0, %1)\"; } return \"range(%0, %1, %2)\";",
+            "io": "p.0.i.Start;i.End;p.1.i.Step;o.;r.;",
+            "link": "library/functions.html#func-range"
+        },
+        "Make Tuple": {
+            "type": "1",
+            "format": "(%0)",
+            "io": "a.g.;o.;t.;",
+            "link": ""
+        },
+        "Format String": {
+            "type": "1",
+            "format": "f\"%0{%1}%2\"",
+            "io": "i.customstring.Prefix;g.Value;i.customstring.Suffix;o.;s.;",
+            "link": ""
+        },
+        "dir": {
+            "type": "1",
+            "format": "dir(%0)",
+            "io": "g.;o.;l.List Of Properties;",
+            "link": "library/functions.html#dir"
+        },
+        "type": {
+            "type": "1",
+            "format": "type(%0)",
+            "io": "g.;o.;s.Type Name;",
+            "link": "library/functions.html#type"
+        },
+        "abs": {
+            "type": "1",
+            "format": "abs(%0)",
+            "io": "g.;o.;g.;",
+            "link": "library/functions.html#abs"
+        },
+        "pow": {
+            "type": "1",
+            "format": "pow(%0, %1)",
+            "io": "g.;g.;o.;g.;",
+            "link": "library/functions.html#pow"
+        },
+        "round": {
+            "type": "1",
+            "format": "round(%0, %1)",
+            "io": "g.Number;p.None.i.N Digits;o.;g.;",
+            "link": "library/functions.html#round"
+        },
+        "sum": {
+            "type": "1",
+            "format": "sum(%0)",
+            "io": "a.g.;o.;g.;",
+            "link": "library/functions.html#sum"
+        },
+        "min": {
+            "type": "1",
+            "format": "min(%0)",
+            "io": "a.g.;o.;g.;",
+            "link": "library/functions.html#min"
+        },
+        "max": {
+            "type": "1",
+            "format": "max(%0)",
+            "io": "a.g.;o.;g.;",
+            "link": "library/functions.html#max"
+        },
+        "input": {
+            "type": "1",
+            "format": "input(%0)",
+            "io": "s.Prompt;o.;s.;",
+            "link": "library/functions.html#input"
+        },
+        "print": {
+            "type": "0",
+            "format": "print(%0)",
+            "io": "e.;g.;o.;e.;",
+            "link": "library/functions.html#print"
+        },
+        "eval": {
+            "type": "1",
+            "format": "eval(%0, %1, %2)",
+            "io": "s.Source;p.None.g.Globals;p.None.g.Locals;o.;g.;",
+            "link": "library/functions.html#eval"
+        },
+        "exec": {
+            "type": "0",
+            "format": "exec(%0)",
+            "io": "e.;s.Source;p.None.g.Globals;p.None.g.Locals;o.;e.;",
+            "link": "library/functions.html#exec"
+        },
+        "ascii": {
+            "type": "1",
+            "format": "ascii(%0)",
+            "io": "g.;o.;s.;",
+            "link": "library/functions.html#ascii"
+        },
+        "bin": {
+            "type": "1",
+            "format": "bin(%0)",
+            "io": "g.;o.;s.;",
+            "link": "library/functions.html#bin"
+        },
+        "hex": {
+            "type": "1",
+            "format": "hex(%0)",
+            "io": "i.;o.;s.;",
+            "link": "library/functions.html#hex"
+        },
+        "chr": {
+            "type": "1",
+            "format": "chr(%0)",
+            "io": "i.I;o.;s.;",
+            "link": "library/functions.html#chr"
+        },
+        "ord": {
+            "type": "1",
+            "format": "ord(%0)",
+            "io": "s.C;o.;i.;",
+            "link": "library/functions.html#ord"
+        },
+        "int(x)": {
+            "type": "1",
+            "format": "int(%0)",
+            "io": "g.;o.;i.;",
+            "link": "library/functions.html#int"
+        },
+        "float(x)": {
+            "type": "1",
+            "format": "float(%0)",
+            "io": "g.;o.;f.;",
+            "link": "library/functions.html#float"
+        },
+        "str(x)": {
+            "type": "1",
+            "format": "str(%0)",
+            "io": "g.;o.;s.;",
+            "link": "library/functions.html#str"
+        },
+        "bool(x)": {
+            "type": "1",
+            "format": "bool(%0)",
+            "io": "g.;o.;b.;",
+            "link": "library/functions.html#bool"
+        },
+        "list(x)": {
+            "type": "1",
+            "format": "list(%0)",
+            "io": "g.;o.;l.;",
+            "link": "library/functions.html#list"
+        },
+        "tuple(x)": {
+            "type": "1",
+            "format": "tuple(%0)",
+            "io": "g.;o.;t.;",
+            "link": "library/functions.html#func-tuple"
+        },
+        "Get Item": {
+            "type": "1",
+            "format": "%0[%1]",
+            "io": "l.Array-Like;i.Index;o.;g.;",
+            "link": ""
+        },
+        "Slice": {
+            "type": "5",
+            "format": "if (Step) { return \"%0[%1:%2:%3]\"; } if (!Start) { return \"%0[:%2]\"; } if (!End) { return \"%0[%1:]\"; } return \"%0[%1:%2]\"",
+            "io": "l.Array-Like;i.Start;i.End;p.1.i.Step;o.;l.;",
+            "link": ""
+        },
+        "any": {
+            "type": "1",
+            "format": "any(%0)",
+            "io": "l.Array-Like;o.;b.;",
+            "link": "library/functions.html#any"
+        },
+        "all": {
+            "type": "1",
+            "format": "all(%0)",
+            "io": "l.Array-Like;o.;b.;",
+            "link": "library/functions.html#all"
+        },
+        "len": {
+            "type": "1",
+            "format": "len(%0)",
+            "io": "l.Array-Like;o.;i.;",
+            "link": "library/functions.html#len"
+        },
+        "enumerate": {
+            "type": "1",
+            "format": "enumerate(%0)",
+            "io": "l.Array-Like;o.;l.;",
+            "link": "library/functions.html#enumerate"
+        },
+        "zip": {
+            "type": "1",
+            "format": "zip(%0)",
+            "io": "a.l.;o.;l.;",
+            "link": "library/functions.html#zip"
+        },
+        "capitalize (str)": {
+            "type": "1",
+            "format": "%0.capitalize()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.capitalize"
+        },
+        "casefold (str)": {
+            "type": "1",
+            "format": "%0.casefold()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.casefold"
+        },
+        "center (str)": {
+            "type": "1",
+            "format": "%0.center()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.center"
+        },
+        "count (str)": {
+            "type": "1",
+            "format": "%0.count(%1)",
+            "io": "s.;s.String To Find;o.;i.;",
+            "link": "library/stdtypes.html#str.count"
+        },
+        "compile": {
+            "type": "1",
+            "format": "compile(%0, %1, %2, %3, %4, %5)",
+            "io": "g.source;s.filename;i.i.mode;p.0.i.flags;p.False.b.dont_inherit;p.-1.i.optimize;o.;g.Code;",
+            "link": "library/functions.html#compile"
+        },
+        "encode (str)": {
+            "type": "1",
+            "format": "%0.encode()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.encode"
+        },
+        "endswith (str)": {
+            "type": "1",
+            "format": "%0.endswith(%1)",
+            "io": "s.;s.Value;o.;b.;",
+            "link": "library/stdtypes.html#str.endswith"
+        },
+        "expandtabs (str)": {
+            "type": "1",
+            "format": "%0.expandtabs(%1)",
+            "io": "s.;p.8.i.Tab Size;o.;s.;",
+            "link": "library/stdtypes.html#str.expandtabs"
+        },
+        "find (str)": {
+            "type": "1",
+            "format": "%0.find(%1)",
+            "io": "s.;s.Value;o.;i.;",
+            "link": "library/stdtypes.html#str.find"
+        },
+        "format": {
+            "type": "1",
+            "format": "%0.format(%1)",
+            "io": "s.;a.g.;o.;s.;",
+            "link": "library/stdtypes.html#str.format"
+        },
+        "index (str)": {
+            "type": "1",
+            "format": "%0.index(%1)",
+            "io": "s.;s.;o.;i.;",
+            "link": "library/stdtypes.html#str.index"
+        },
+        "isalnum (str)": {
+            "type": "1",
+            "format": "%0.isalnum()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isalnum"
+        },
+        "isalpha (str)": {
+            "type": "1",
+            "format": "%0.isalpha()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isalpha"
+        },
+        "isascii (str)": {
+            "type": "1",
+            "format": "%0.isascii()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isascii"
+        },
+        "isdecimal (str)": {
+            "type": "1",
+            "format": "%0.isdecimal()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isdecimal"
+        },
+        "isdigit (str)": {
+            "type": "1",
+            "format": "%0.isdigit()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isdigit"
+        },
+        "isidentifier (str)": {
+            "type": "1",
+            "format": "%0.isidentifier()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isidentifier"
+        },
+        "islower (str)": {
+            "type": "1",
+            "format": "%0.islower()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.islower"
+        },
+        "isnumeric (str)": {
+            "type": "1",
+            "format": "%0.isnumeric()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isnumeric"
+        },
+        "isprintable (str)": {
+            "type": "1",
+            "format": "%0.isprintable()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isprintable"
+        },
+        "isspace (str)": {
+            "type": "1",
+            "format": "%0.isspace()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isspace"
+        },
+        "istitle (str)": {
+            "type": "1",
+            "format": "%0.istitle()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.istitle"
+        },
+        "isupper (str)": {
+            "type": "1",
+            "format": "%0.isupper()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.isupper"
+        },
+        "join (str)": {
+            "type": "1",
+            "format": "%0.join(%1)",
+            "io": "s.Separator;l.Iterable;o.;s.;",
+            "link": "library/stdtypes.html#str.join"
+        },
+        "ljust (str)": {
+            "type": "1",
+            "format": "%0.ljust()",
+            "io": "s.;o.;b.;",
+            "link": "library/stdtypes.html#str.ljust"
+        },
+        "lower (str)": {
+            "type": "1",
+            "format": "%0.lower()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.lower"
+        },
+        "lstrip (str)": {
+            "type": "1",
+            "format": "%0.lstrip()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.lstrip"
+        },
+        "maketrans (str)": {
+            "type": "1",
+            "format": "%0.maketrans(%1, %2, %3)",
+            "io": "s.;s.X;s.Y;s.Z;o.;s.;",
+            "link": "library/stdtypes.html#str.maketrans"
+        },
+        "partition (str)": {
+            "type": "1",
+            "format": "%0.partition(%1)",
+            "io": "s.;s.;o.;t.;",
+            "link": "library/stdtypes.html#str.partition"
+        },
+        "replace (str)": {
+            "type": "1",
+            "format": "%0.replace(%1, %2)",
+            "io": "s.;s.Subject;s.Replacement;o.;s.;",
+            "link": "library/stdtypes.html#str.replace"
+        },
+        "rfind (str)": {
+            "type": "1",
+            "format": "%0.rfind(%1, %2)",
+            "io": "s.;s.Value;i.Start;o.;i.;",
+            "link": "library/stdtypes.html#str.rfind"
+        },
+        "rindex (str)": {
+            "type": "1",
+            "format": "%0.rindex(%1, %2)",
+            "io": "s.;s.Value;i.Start;o.;i.;",
+            "link": "library/stdtypes.html#str.rindex"
+        },
+        "rjust (str)": {
+            "type": "1",
+            "format": "%0.rjust(%1, %2)",
+            "io": "s.;i.Length;p.\" \".s.Character;o.;i.;",
+            "link": "library/stdtypes.html#str.rjust"
+        },
+
+        "rpartition (str)": {
+            "type": "1",
+            "format": "%0.rpartition(%1)",
+            "io": "s.;s.sep;o.;i.;",
+            "link": "library/stdtypes.html#str.rpartition"
+        },
+
+        "rsplit (str)": {
+            "type": "1",
+            "format": "%0.rsplit(%1, %2)",
+            "io": "s.;p.None.s.sep;p.-1.i.maxsplit;o.;i.;",
+            "link": "library/stdtypes.html#str.rsplit"
+        },
+
+        "upper (str)": {
+            "type": "1",
+            "format": "%0.upper()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.upper"
+        },
+
+        "strip (str)": {
+            "type": "1",
+            "format": "%0.strip()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.strip"
+        },
+
+        "split (str)": {
+            "type": "1",
+            "format": "%0.split(%1)",
+            "io": "s.;s.Split By;o.;s.;",
+            "link": "library/stdtypes.html#str.split"
+        },
+
+        "splitlines (str)": {
+            "type": "1",
+            "format": "%0.splitlines(%1)",
+            "io": "s.;p.False.b.keepends;o.;s.;",
+            "link": "library/stdtypes.html#str.split"
+        },
+
+        "zfill (str)": {
+            "type": "1",
+            "format": "%0.zfill(%1)",
+            "io": "s.;i.Len;o.;s.;",
+            "link": "library/stdtypes.html#str.zfill"
+        },
+        "swapcase (str)": {
+            "type": "1",
+            "format": "%0.swapcase()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.swapcase"
+        },
+
+        "title": {
+            "type": "1",
+            "format": "%0.title()",
+            "io": "s.;o.;s.;",
+            "link": "library/stdtypes.html#str.title"
+        },
+
+        "translate": {
+            "type": "1",
+            "format": "%0.translate(%1)",
+            "io": "s.;g.Dictionary;o.;s.;",
+            "link": "library/stdtypes.html#str.translate"
+        },
+
+        "open": {
+            "type": "1",
+            "format": "open(%0, %1, %2, %3, %4, %5, %6, %7)",
+            "io": "s.Filename;p.\"r\".s.Mode;p.-1.i.buffering;p.None.s.encoding;p.None.s.errors;p.None.s.newline;p.True.b.closefd;p.None.fn.opener;o.;file.File;",
+            "link": "library/functions.html#open"
+        }
+    }
+}

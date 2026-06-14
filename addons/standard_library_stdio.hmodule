@@ -1,0 +1,110 @@
+// stdio (C Standard Library)
+
+typedef FILE*, fl, circle-thin, circle, #CBFFFE, %,;
+typedef fpos_t, fp, circle-thin, circle, #457E58, %,;
+typedef fpos_t*, pfp, circle-thin, circle, #888888, %,;
+typedef wchar_t, wc, circle-thin, circle, #FF8A54, L'%', text;
+typedef wchar_t*, ws, circle-thin, circle, #FF38D4, L"%", text;
+typedef wint_t, wi, circle-thin, circle, #457E58, %, number;
+typedef wint_t*, pwi, circle-thin, circle, #888888, %, number;
+
+struct Settings
+{
+    addon-decl=#include <stdio.h>\n
+};
+
+FILE* fopen(char* filename, char* mode);
+FILE* fopen_s(char* filename, char* mode);
+FILE* freopen(char* filename, char* mode, FILE* stream);
+errno_t freopen_s(FILE* newstreamptr, char* filename, char* mode, FILE* stream);
+int fclose(FILE* stream);
+int fflush(FILE* stream);
+void setbuf(FILE* stream, char* buffer);
+int setvbuf(FILE* stream, char* buffer, int mode, size_t size);
+int fwide(FILE* stream, int mode);
+size_t fread(void* buffer, size_t size, size_t count, FILE* stream);
+size_t fwrite(void* buffer, size_t size, size_t count, FILE* stream);
+
+int fgetc(FILE* stream);
+int getc(FILE* stream);
+char* fgets(char* str, int count, FILE* stream);
+int fputc(int ch, FILE* stream);
+int putc(int ch, FILE* stream);
+int fputs(char* str, FILE* stream);
+int getchar();
+char* gets(char* str);
+char* get_s(char* str, rsize_t n);
+int putchar(int ch);
+int puts(char* str);
+int ungetc(int ch, FILE* stream);
+wint_t fgetwc(FILE* stream);
+wint_t getwc(FILE* stream);
+wchar_t* fgetws(wchar_t* str, int count, FILE* stream );
+wint_t fputwc(wchar_t ch, FILE* stream );
+wint_t putwc(wchar_t ch, FILE* stream );
+int fputws(wchar_t* str, FILE* stream );
+wint_t getwchar();
+wint_t putwchar(wchar_t ch);
+wint_t ungetwc(wint_t ch, FILE* stream);
+
+int scanf(char* format, ...);
+int fscanf(FILE* stream, char* format, ...);
+int sscanf(char* buffer, char* format, ...);
+int scanf_s(char* format, ...);
+int fscanf_s(FILE* stream, char* format);
+int sscanf_s(char* buffer, char* format);
+int vscanf(char* format, va_list vlist );
+int vsscanf(char* buffer, char* format);
+int vscanf_s(char* format, va_list vlist);
+int vfscanf_s(FILE* stream, char* format, va_list vlist);
+int vsscanf_s(char* buffer, char* format, va_list vlist);
+
+int printf(char* format, ...);
+int fprintf(FILE* stream, char* format, ...);
+int sprintf(char* buffer, char* format, ...);
+int snprintf(char* buffer, size_t bufsz, char* format);
+int printf_s(char* format, ...);
+int fprintf_s(FILE* stream, char* format, ...);
+int sprintf_s(char* buffer, rsize_t bufsz, char* format, ...);
+int snprintf_s(char* buffer, rsize_t bufsz, char* format, ...);
+
+int vprintf(char* format, va_list vlist);
+int vfprintf(FILE* stream, char* format, va_list vlist);
+int vsprintf(char* buffer, char* format, va_list vlist);
+int vsnprintf(char* buffer, size_t bufsz, char* format, va_list vlist);
+int vprintf_s(char* format, va_list vlist);
+int vfprintf_s(FILE* stream, char* format, va_list vlist);
+int vsprintf_s(char* buffer, rsize_t bufsz, char* format, va_list vlist);
+int vsnprintf_s(char* buffer, rsize_t bufsz, char* format, va_list vlist);
+
+long ftell(FILE* stream);
+int fgetpos(FILE* stream, fpos_t* pos);
+int fseek(FILE* stream, long offset, int origin);
+int fsetpos(FILE* stream, fpos_t* pos);
+void rewind(FILE* stream);
+void clearerr(FILE* stream);
+int feof(FILE* stream);
+int ferror(FILE* stream);
+void perror(char* s);
+int remove(char* pathname);
+int rename(char* old_filename, char* new_filename);
+FILE* tmpfile();
+errno_t tmpfile_s(FILE* streamptr);
+char* tmpnam(char* filename);
+errno_t tmpnam_s(char* filename_s, rsize_t maxsize);
+
+int GetEOF() { EOF } // Get EOF
+int GetFOPEN_MAX() { FOPEN_MAX } // Get FOPEN_MAX
+int GetFILENAME_MAX() { FILENAME_MAX } // Get FILENAME_MAX
+int GetBUFSIZ() { BUFSIZ } // Get BUFSIZ
+int Get_IOFBF() { _IOFBF } // Get _IOFBF
+int Get_IOLBF() { _IOLBF } // Get _IOLBF
+int Get_IONBF() { _IONBF } // Get _IONBF
+int GetSEEK_SET() { SEEK_SET } // Get SEEK_SET
+int GetSEEK_CUR() { SEEK_CUR } // Get SEEK_CUR
+int GetSEEK_END() { SEEK_END } // Get SEEK_END
+int GetTMP_MAX() { TMP_MAX } // Get TMP_MAX
+int GetTMP_MAX_S() { TMP_MAX_S } // Get TMP_MAX_S
+int GetL_tmpnam() { L_tmpnam } // Get L_tmpnam
+int GetL_tmpnam_s() { L_tmpnam_s } // Get L_tmpnam_s
+rsize_t GetRSIZE_MAX() { RSIZE_MAX } // Get RSIZE_MAX

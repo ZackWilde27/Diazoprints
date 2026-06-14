@@ -1,0 +1,57 @@
+// stdint (C Standard Library)
+
+typedef int8_t, i8t, circle-thin, circle, #457E58, %, number;
+typedef int16_t, i16t, circle-thin, circle, #457E58, %, number;
+typedef int32_t, i32t, circle-thin, circle, #457E58, %, number;
+typedef int64_t, i64t, circle-thin, circle, #457E58, %, number;
+typedef int_fast8_t, if8t, circle-thin, circle, #457E58, %, number;
+typedef int_fast16_t, if16t, circle-thin, circle, #457E58, %, number;
+typedef int_fast32_t, if32t, circle-thin, circle, #457E58, %, number;
+typedef int_fast64_t, if64t, circle-thin, circle, #457E58, %, number;
+typedef int_least8_t, il8t, circle-thin, circle, #457E58, %, number;
+typedef int_least16_t, il16t, circle-thin, circle, #457E58, %, number;
+typedef int_least32_t, il32t, circle-thin, circle, #457E58, %, number;
+typedef int_least64_t, il64t, circle-thin, circle, #457E58, %, number;
+typedef intmax_t, imt, circle-thin, circle, #457E58, %, number;
+typedef intptr_t, ipt, circle-thin, circle, #457E58, %, number;
+typedef uint8_t, ui8t, circle-thin, circle, #457E58, %, number;
+typedef uint16_t, ui16t, circle-thin, circle, #457E58, %, number;
+typedef uint32_t, ui32t, circle-thin, circle, #457E58, %, number;
+typedef uint64_t, ui64t, circle-thin, circle, #457E58, %, number;
+typedef uint_fast8_t, uif8t, circle-thin, circle, #457E58, %, number;
+typedef uint_fast16_t, uif16t, circle-thin, circle, #457E58, %, number;
+typedef uint_fast32_t, uif32t, circle-thin, circle, #457E58, %, number;
+typedef uint_fast64_t, uif64t, circle-thin, circle, #457E58, %, number;
+typedef uint_least8_t, uil8t, circle-thin, circle, #457E58, %, number;
+typedef uint_least16_t, uil16t, circle-thin, circle, #457E58, %, number;
+typedef uint_least32_t, uil32t, circle-thin, circle, #457E58, %, number;
+typedef uint_least64_t, uil64t, circle-thin, circle, #457E58, %, number;
+typedef uintmax_t, uimt, circle-thin, circle, #457E58, %, number;
+typedef uintptr_t, uipt, circle-thin, circle, #457E58, %, number;
+
+struct Settings
+{
+    addon-decl=#include <stdint.h>\n
+}
+
+custom llabs, 1, llabs(%0), ll.n;o.;ll.;,
+
+size_t getint8width()
+{
+    INT8_WIDTH
+} // Get INT8_WIDTH
+
+size_t getint16width()
+{
+    INT16_WIDTH
+} // Get INT16_WIDTH
+
+size_t getint32width()
+{
+    INT32_WIDTH
+} // Get INT32_WIDTH
+
+size_t getint64width()
+{
+    INT64_WIDTH
+} // Get INT64_WIDTH

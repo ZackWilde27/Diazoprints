@@ -1,0 +1,663 @@
+// System (.NET API)
+
+// Enums
+typedef ConsoleColor, cc, circle-thin, circle, #0093F5, ConsoleColor.%, Black|DarkBlue|DarkGreen|DarkCyan|DarkRed|DarkMagenta|DarkYellow|Gray|DarkGray|Blue|Green|Cyan|Red|Magenta|Yellow|White;
+typedef ConsoleModifiers, cm, circle-thin, circle, #0093F5, ConsoleModifiers.%, None|Alt|Shift|Control;
+typedef ConsoleKey, ck, circle-thin, circle, #0093F5, ConsoleKey.%, None|Backspace|Tab|Clear|Enter|Pause|Escape|Spacebar|PageUp|PageDown|End|Home|LeftArrow|UpArrow|RightArrow|DownArrow|Select|Print|Execute|PrintScreen|Insert|Delete|Help|D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|LeftWindows|RightWindows|Applications|Sleep|NumPad0|NumPad1|NumPad2|NumPad3|NumPad4|NumPad5|NumPad6|NumPad7|NumPad8|NumPad9|Multiply|Add|Separator|Subtract|Decimal|Divide|F1|F2|F3|F4|F5|F6|F7|F8|F9|F10|F11|F12|F13|F14|F15|F16|F17|F18|F19|F20|F21|F22|F23|F24|BrowserBack|BrowserForward|BrowserRefresh|BrowserStop|BrowserSearch|BrowserFavourites|BrowserHome|VolumeMute|VolumeDown|VolumeUp|MediaNext|MediaPrevious|MediaStop|MediaPlay|LaunchMail|LaunchMediaSelect|LaunchApp1|LaunchApp2|Oem1|OemPlus|OemComma|OemMinus|OemPeriod|Oem2|Oem3|Oem4|Oem5|Oem6|Oem7|Oem8|Oem102|Process|Attention|CrSel|ExSel|EraseEndOfFile|Play|Zoom|NoName|Pa1|OemClear;
+typedef ConsoleSpecialKey, csk, circle-thin, circle, #0093F5, ConsoleSpecialKey.%, ControlC|ControlBreak;
+typedef CallingConventions, ccnv, circle-thin, circle, #0093F5, CallingConventions.%, Standard|VarArgs|Any|HasThis|ExplicitThis;
+typedef AttributeTargets, at, circle-thin, circle, #0093F5, AttributeTargets.%, Assembly|Module|Class|Struct|Enum|Constructor|Method|Property|Field|Event|Interface|Parameter|Delegate|ReturnValue|GenericParameter|All;
+typedef DateTimeKind, dtk, circle-thin, circle, #0093F5, DateTimeKind.%, Unspecified|Utc|Local;
+typedef CalendarAlgorithmType, cat, circle-thin, circle, #0093F5, CalendarAlgorithmType.%, Unknown|SolarCalendar|LunarCalendar|LunisolarCalendar;
+typedef DayOfWeek, dow, circle-thin, circle, #0093F5, DayOfWeek.%, Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday;
+typedef Base64FormattingOptions, b64fo, circle-thin, circle, #0093F5, Base64FormattingOptions.%, None|InsertLineBreaks;
+typedef SpecialFolder, esf, circle-thin, circle, #0093F5, Environment.SpecialFolder.%, Desktop|Programs|MyDocuments|Personal|Favourites|Startup|Recent|SendTo|StartMenu|MyMusic|MyVideos|DesktopDirectory|MyComputer|NetworkShortcuts|Fonts|Templates|CommonStartMenu|CommonPrograms|CommonStartup|CommonDesktopDirectory|ApplicationData|PrinterShortcuts|LocalApplicationData|InternetCache|Cookies|History|CommonApplicationData|Windows|System|ProgramFiles|MyPictures|UserProfile|SystemX86|ProgramFilesX86|CommonProgramFiles|CommonProgramFilesX86|CommonTemplates|CommonDocuments|CommonAdminTools|AdminTools|CommonMusic|CommonPictures|CommonVideos|Resources|LocalizedResources|CommonOemLinks|CDBurning;
+typedef SpecialFolderOption, sfo, circle-thin, circle, #0093F5, Environment.SpecialFolderOption.%, None|DoNotVerify|Create;
+typedef EnvironmentVariableTarget, evt, circle-thin, circle, #0093F5, EnvironmentVariableTarget.%, Process|User|Machine;
+typedef GCCollectionMode, gccm, circle-thin, circle, #0093F5, GCCollectionMode.%, Default|Forced|Optimized|Aggresive;
+typedef GCKind, gck, circle-thin, circle, #0093F5, GCKind.%, Any|Ephemeral|FullBlocking|Background;
+typedef GCNotificationStatus, gcns, circle-thin, circle, #0093F5, GCNotificationStatus.%, Succeeded|Failed|Canceled|Timeout|NotApplicable;
+typedef GenericUriParserOptions, gupo, circle-thin, circle, #0093F5, GenericUriParserOptions.%, Default|GenericAuthority|AllowEmptyAuthority|NoUserInfo|NoPort|NoQuery|NoFragment|DontConvertPathBackslashes|DontCompressPath|DontUnescapePathDotsAndSlashes|Idn|IriParsing;
+typedef LoaderOptimization, lo, circle-thin, circle, #0093F5, LoaderOptimization.%, NotSpecified|SingleDomain|MultiDomain|DomainMask|MultiDomainHost|DisallowBindings;
+typedef MidpointRounding, mpr, circle-thin, circle, #0093F5, MidpointRounding.%, ToEven|AwayFromZero|ToZero|ToNegativeInfinity|ToPositiveInfinity;
+typedef PlatformID, pid, circle-thin, circle, #0093F5, PlatformID.%, Win32S|Win32Windows|Win32NT|WinCE|Unix|Xbox|MacOSX|Other;
+typedef StringComparison, sc, circle-thin, circle, #0093F5, StringComparison.%, CurrentCulture|CurrentCultureIgnoreCase|InvariantCulture|InvariantCultureIgnoreCase|Ordinal|OrdinalIgnoreCase;
+typedef StringSplitOptions, sso, circle-thin, circle, #0093F5, StringSplitOptions.%, None|RemoveEmptyEntries|TrimEntries;
+typedef TypeCode, tc, circle-thin, circle, #0093F5, TypeCode.%, Empty|Object|DBNull|Boolean|Char|SByte|Byte|Int16|UInt16|Int32|UInt32|Int64|UInt64|Single|Double|Decimal|DateTime|String;
+typedef UriComponents, uc, circle-thin, circle, #0093F5, UriComponents.%, SerializationInfoString|Scheme|UserInfo|Host|Port|SchemeAndServer|Path|Query|PathAndQuery|HttpRequestUrl|Fragment|AbsoluteUri|StrongPort|HostAndPort|StrongAuthority|NormalizedHost|KeepDelimiter;
+typedef UriFormat, uf, circle-thin, circle, #0093F5, UriFormat.%, UriEscaped|Unescaped|SafeUnescaped;
+typedef UriHostNameType, uhnt, circle-thin, circle, #0093F5, UriHostNameType.%, Unknown|Basic|Dns|IPv4|IPv6;
+
+
+struct Settings
+{
+    addon-decl=using System;\n
+};
+
+// I just realized how many built-in classes .NET has, I can try to do as much as I can but this is going to take absolutely forever on my own.
+
+class Type
+{
+    colour = #0093F5;
+};
+
+class Object
+{
+    colour = #0093F5;
+
+    int GetHashCode();
+    Type GetType();
+    Object MemberwiseClone();
+};
+
+const class Half
+{
+    colour = #7CFC00;
+
+    const Half E;
+    const Half Epsilon;
+    const Half MaxValue;
+    const Half MinValue;
+    const Half MultiplicativeIdentity;
+    const Half NaN;
+    const Half NegativeInfinity;
+    const Half NegativeOne;
+    const Half NegativeZero;
+    const Half One;
+    const Half Pi;
+    const Half PositiveInfinity;
+    const Half Tau;
+    const Half Zero;
+
+    Half Abs(Half value);
+    Half Acos(Half x);
+    Half Acosh(Half x);
+    Half AcosPi(Half x);
+    Half Asin(Half x);
+    Half Asinh(Half x);
+    Half AsinPi(Half x);
+    Half Atan(Half x);
+    Half Atan2(Half y, Half x);
+    Half Atan2Pi(Half y, Half x);
+    Half Atanh(Half x);
+    Half AtanPi(Half x);
+    Half BitDecrement(Half x);
+    Half BitIncrement(Half x);
+    Half Cbrt(Half x);
+    Half Ceiling(Half x);
+    Half Clamp(Half value, Half min, Half max);
+    int CompareTo(Half other);
+    Half CopySign(Half value, Half sign);
+    Half Cos(Half x);
+    Half Cosh(Half x);
+    Half CosPi(Half x);
+    Half DegreesToRadians(Half degrees);
+    bool Equals(Object other);
+    Half Exp(Half x);
+    Half Exp10(Half x);
+    Half Exp10M1(Half x);
+    Half Exp2(Half x);
+    Half Exp2M1(Half x);
+    Half ExpM1(Half x);
+    Half Floor(Half x);
+    Half FusedMultiplyAdd(Half left, Half right, Half addend);
+    int GetHashCode();
+    Half Hypot(Half x, Half y);
+    Half Ieee754Remainder(Half left, Half right);
+};
+
+const class CursorPositionTuple
+{
+    colour = #0093F5;
+
+    int Left;
+    int Top;
+};
+
+class ConsoleKeyInfo
+{
+    colour = #0093F5;
+
+    const ConsoleKey Key;
+    const char KeyChar;
+    const ConsoleModifiers Modifiers;
+};
+
+class TextWriter
+{
+    colour = #0093F5;
+
+    string NewLine;
+    void Close();
+    void Dispose();
+    void Flush();
+    void Write(auto _x);
+    void WriteLine(...);
+};
+
+class TextReader
+{
+    colour = #0093F5;
+
+    void Close();
+    void Dispose();
+    int Peek();
+    int Read();
+    string ReadLine();
+    string ReadToEnd();
+};
+
+
+class WaitHandle
+{
+    
+};
+
+class IAsyncResult
+{
+    colour = #0093F5;
+    const Object AsyncState;
+    const WaitHandle AsyncWaitHandle;
+};
+
+class Stream
+{
+    colour = #0093F5;
+    
+    const bool CanRead;
+    const bool CanSeek;
+    const bool CanTimeout;
+    const bool CanWrite;
+    const long Length;
+    const long Position;
+    int ReadTimeout;
+    int WriteTimeout;
+
+    void Close();
+    void CopyTo(Stream destination, int buffersize=81920);
+    void Dispose();
+    void Flush();
+    int Read(byte[] buffer, int offset, int count);
+
+    int EndRead(IAsyncResult asyncResult);
+};
+
+const class Console
+{
+    colour = #0093F5;
+
+    ConsoleColor BackgroundColor;
+    int BufferHeight;
+    int BufferWidth;
+    bool CapsLock;
+    int CursorLeft;
+    int CursorSize;
+    int CursorTop;
+    bool CursorVisible;
+    ConsoleColor ForegroundColor;
+    const TextReader In;
+    const bool IsErrorRedirected;
+    const bool IsInputRedirected;
+    const bool IsOutputRedirected;
+    const bool KeyAvailable;
+    const int LargestWindowHeight;
+    const int LargestWindowWidth;
+    const bool NumberLock;
+    const TextWriter Out;
+    string Title;
+    bool TreatControlCAsInput;
+    int WindowHeight;
+    int WindowLeft;
+    int WindowTop;
+    int WindowWidth;
+
+    void Beep(int frequency, int duration);
+
+    ConsoleKeyInfo ReadKey(bool Display_Key=);
+
+    int Read();
+    string ReadLine();
+    void Write(...);
+    void WriteLine(string _x);
+    void Clear();
+
+    void ResetColor();
+
+    void SetBufferSize(int width, int height);
+    void SetCursorPosition(int left, int top);
+    void SetError(TextWriter newError);
+    void SetIn(TextReader newIn);
+    void SetOut(TextWriter newOut);
+    void SetWindowPosition(int left, int top);
+    void SetWindowSize(int width, int height);
+};
+
+class ConsoleCancelEventArgs
+{
+    bool Cancel;
+    const ConsoleSpecialKey SpecialKey;
+};
+
+const class Math
+{
+    colour = #0093F5;
+    auto Abs(auto value);
+    double Acos(double d);
+    double Acosh(double d);
+    double Asin(double d);
+    double Asinh(double d);
+    double Atan(double d);
+    double Atan2(double y, double x);
+    double Atanh(double d);
+    auto BigMul(auto a, auto b);
+    double BitDecrement(double x);
+    double BitIncrement(double x);
+    double Cbrt(double d);
+    auto Ceiling(auto d);
+    auto Clamp(auto value, auto min, auto max);
+    double CopySign(double x, double y);
+    double Cos(double d);
+    double Cosh(double value);
+    double Exp(double d);
+    auto Floor(auto d);
+    double FusedMultiplyAdd(double x, double y, double z);
+    double IEEERemainder(double x, double y);
+    int ILogB(double x);
+    double Log(double a, double newBase=e);
+    double Log10(double d);
+    double Log2(double d);
+    auto Max(auto val1, auto val2);
+    double MaxMagnitude(double x, double y);
+    auto Min(auto val1, auto val2);
+    double Pow(double x, double y);
+    double ReciprocalEstimate(double d);
+    double ReciprocalSqrtEstimate(double d);
+    auto Round(auto _x);
+    double ScaleB(double x, int n);
+    int Sign(auto value);
+    double Sin(double a);
+    double Sinh(double value);
+    double Sqrt(double d);
+    double Tan(double a);
+    double Tanh(double value);
+    double Truncate(double d);
+};
+
+const class MathF
+{
+    colour = #0093F5;
+    float Abs(float value);
+    float Acos(float d);
+    float Acosh(float d);
+    float Asin(float d);
+    float Asinh(float d);
+    float Atan(float d);
+    float Atan2(float y, float x);
+    float Atanh(float d);
+    auto BigMul(auto a, auto b);
+    float BitDecrement(float x);
+    float BitIncrement(float x);
+    float Cbrt(float d);
+    auto Ceiling(auto d);
+    auto Clamp(auto value, auto min, auto max);
+    float CopySign(float x, float y);
+    float Cos(float d);
+    float Cosh(float value);
+    float Exp(float d);
+    auto Floor(auto d);
+    float FusedMultiplyAdd(float x, float y, float z);
+    float IEEERemainder(float x, float y);
+    int ILogB(float x);
+    float Log(float a, float newBase=e);
+    float Log10(float d);
+    float Log2(float d);
+    auto Max(auto val1, auto val2);
+    float MaxMagnitude(float x, float y);
+    auto Min(auto val1, auto val2);
+    float Pow(float x, float y);
+    float ReciprocalEstimate(float d);
+    float ReciprocalSqrtEstimate(float d);
+    auto Round(auto _x);
+    float ScaleB(float x, int n);
+    int Sign(auto value);
+    float Sin(float a);
+    float Sinh(float value);
+    float Sqrt(float d);
+    float Tan(float a);
+    float Tanh(float value);
+    float Truncate(float d);
+};
+
+class Random
+{
+    colour = #0093F5;
+
+    const Random Shared;
+    int Next(int minValue, int maxValue);
+    void NextBytes(byte[] buffer);
+    double NextDouble();
+    long NextInt64(long minValue, long maxValue);
+    float NextSingle();
+    double Sample();
+
+    Random();
+};
+
+const class Buffer
+{
+    colour = #0093F5;
+
+    void BlockCopy(Array src, int srcOffset, Array dst, int dstOffset, int count);
+    int ByteLength(Array array);
+    byte GetByte(Array array, int index);
+    void MemoryCopy(void* source, void* destination, long destinationSizeInBytes, long sourceBytesToCopy);
+    void SetByte(Array array, int index, byte value);
+};
+
+class IEnumerator
+{
+    colour = #0093F5;
+
+    const Object Current;
+
+    bool MoveNext();
+    void Reset();
+};
+
+class ICollection
+{
+    colour = #0093F5;
+
+    const int Count;
+    const bool IsSynchronized;
+    const Object SyncRoot;
+
+    void CopyTo(Array array, int index);
+    IEnumerator GetEnumerator();
+};
+
+struct DictionaryEntry
+{
+    Object Key;
+    Object Value;
+};
+
+class IDictionaryEnumerator
+{
+    colour = #0093F5;
+
+    const Object Current;
+    const DictionaryEntry Entry;
+    const Object Key;
+    const Object Value;
+
+    bool MoveNext();
+    void Reset();
+};
+
+class IDictionary
+{
+    colour = #0093F5;
+
+    const int Count;
+    const bool IsFixedSize;
+    const bool IsReadOnly;
+    const bool IsSynchronized;
+    const ICollection Keys;
+    const Object SyncRoot;
+    const ICollection Values;
+
+    void Add(Object key, Object value);
+    void Clear();
+    bool Contains(Object key);
+    void CopyTo(Array array, int index);
+    IDictionaryEnumerator GetEnumerator();
+    void Remove(Object key);
+};
+
+class MethodAttributes
+{
+
+};
+
+class MethodBase
+{
+    colour = #0093F5;
+
+    const MethodAttributes Attributes;
+    const CallingConventions CallingConvention;
+
+
+};
+
+class Exception
+{
+    colour = #0093F5;
+
+    const IDictionary Data;
+    string HelpLink;
+    int HResult;
+    const Exception InnerException;
+    const string Message;
+    string Source;
+    const string StackTrace;
+    const MethodBase TargetSite;
+};
+
+class AccessViolationException
+{
+    colour = #0093F5;
+
+    AccessViolationException();
+    AccessViolationException(string message);
+    AccessViolationException(string message, Exception innerException);
+
+    const IDictionary Data;
+    string HelpLink;
+    int HResult;
+    const Exception InnerException;
+    const string Message;
+    string Source;
+    const string StackTrace;
+    const MethodBase TargetSite;
+};
+
+class AppContext
+{
+    colour = #0093F5;
+
+    const string BaseDirectory;
+    const string TargetFrameworkName;
+
+    Object GetData(string name);
+    void SetData(string name, Object data);
+    void SetSwitch(string switchName, bool out_isEnabled);
+    bool TryGetSwitch(string switchName, bool out_isEnabled);
+};
+
+class Version
+{
+    colour = #0093F5;
+
+    const int Build;
+    const int Major;
+    const short MajorRevision;
+    const int Minor;
+    const short MinorRevision;
+    const int Revision;
+};
+
+class OperatingSystem
+{
+    colour = #0093F5;
+
+    const PlatformID Platform;
+    const string ServicePack;
+    const Version Version;
+};
+
+struct TimeSpan
+{
+    const int HoursPerDay;
+    const TimeSpan MaxValue;
+    const long MicrosecondsPerDay;
+    const long MicrosecondsPerHour;
+    const long MicrosecondsPerMillisecond;
+    const long MicrosecondsPerMinute;
+    const long MicrosecondsPerSecond;
+    const long MillisecondsPerDay;
+    const long MillisecondsPerHour;
+    const long MillisecondsPerMinute;
+    const long MillisecondsPerSecond;
+    const long MinutesPerDay;
+    const long MinutesPerHour;
+    const TimeSpan MinValue;
+    const long NanosecondsPerTick;
+    const long SecondsPerDay;
+    const long SecondsPerHour;
+    const long SecondsPerMinute;
+    const long TicksPerDay;
+    const long TicksPerHour;
+    const long TicksPerMicrosecond;
+    const long TicksPerMillisecond;
+    const long TicksPerMinute;
+    const long TicksPerSecond;
+    const TimeSpan Zero;
+
+    const int Days;
+    const int Hours;
+    const int Microseconds;
+    const int Milliseconds;
+    const int Minutes;
+    const int Nanoseconds;
+    const int Seconds;
+    const long Ticks;
+    const double TotalDays;
+    const double TotalHours;
+    const double TotalMicroseconds;
+    const double TotalMilliseconds;
+    const double TotalMinutes;
+    const double TotalNanoseconds;
+    const double TotalSeconds;
+};
+
+struct DateTime
+{
+    colour = #0093F5;
+
+    const DateTime MaxValue;
+    const DateTime MinValue;
+    const DateTime UnixEpoch;
+    const DateTime Date;
+    const int Day;
+    const DayOfWeek DayOfWeek;
+    const int DayOfYear;
+    const int Hour;
+    const DateTimeKind Kind;
+    const int Microsecond;
+    const int Millisecond;
+    const int Minute;
+    const int Month;
+    const int Nanosecond;
+    const DateTime Now;
+    const int Second;
+    const long Ticks;
+    const TimeSpan TimeOfDay;
+    const DateTime Today;
+    const DateTime UtcNow;
+    const int Year;
+};
+
+class Calendar
+{
+    colour = #0093F5;
+
+    const CalendarAlgorithmType AlgorithmType;
+    const int DaysInYearBeforeMinSupportedYear;
+    const bool IsReadOnly;
+    const DateTime MaxSupportedDateTime;
+    const DateTime MinSupportedDateTime;
+};
+
+class CultureInfo
+{
+    colour = #0093F5;
+
+    const Calendar Calendar;
+
+};
+
+const class StringComparer
+{
+    colour = #0093F5;
+
+    const StringComparer CurrentCulture;
+    const StringComparer CurrentCultureIgnoreCase;
+    const StringComparer InvariantCulture;
+    const StringComparer Ordinal;
+    const StringComparer OrdinalIgnoreCase;
+
+    int Compare(string x, string y);
+    StringComparer Create(CultureInfo culture, bool ignoreCase);
+    bool Equals(string x, string y);
+    StringComparer FromComparison(const StringComparison comparisonType);
+};
+
+string ToString(auto _x)
+{
+    x.ToString()
+}
+
+namespace Object
+{
+    bool equalsobj(Object objA, Object objB)
+    {
+        Object.Equals(objA, objB)
+    } // Equals (Object)
+
+    bool refequalsobj(Object objA, Object objB)
+    {
+        Object.ReferenceEquals(objA, objB);
+    } // Reference Equals (Object)
+};
+
+namespace Version
+{
+    Version versionparse(string input)
+    {
+        Version.Parse(input)
+    } // Parse (Version)
+
+    bool TryParse(string input, Version out_result)
+    {
+        Version.TryParse(input, out_result)
+    } // TryParse (Version)
+};
+
+namespace BitConverter
+{
+    byte[] GetBytes(auto value)
+    {
+        BitConverter.GetBytes(value)
+    } // GetBytes (BitConverter)
+
+    bool tobool(Array value)
+    {
+        BitConverter.ToBoolean(value)
+    } // ToBoolean (BitConverter)
+
+    char tochar(Array value)
+    {
+        BitConverter.ToChar(value)
+    } // ToChar (BitConverter)
+
+    double todouble(Array value)
+    {
+        BitConverter.ToDouble(value)
+    } // ToDouble (BitConverter)
+
+    Half tohalf(Array value)
+    {
+        BitConverter.ToHalf(value)
+    } // ToHalf (BitConverter)
+};

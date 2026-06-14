@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Diazo Prints</title>
+        <meta >
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/this.css" type="text/css">
+    </head>
+    <body>
+        <texttohtml></texttohtml>
+        <!-- Context Menu -->
+        <div id="contextMenu" class="container context-menu rounded-lg" style="display:none;">
+            <div class="row position-fixed z-5 px-2 py-2 w-500px rounded-lg" id="contextTop">
+                <div class="col-7">
+                    <input type="text" class="text-center form-control" id="contextSearch">
+                </div>
+                <div class="col-5 m-auto">
+                    <a>Context Sensitive?</a><input type="checkbox" class="ml-2" id="contextSensitive">
+                </div>
+            </div>
+            <div class="menu mt-5" id="contextGeneric">
+                <div class="row">
+                    <div class="col-2 m-auto">
+                        <button class="boolNode" id="noTest4-out"><i class="fa fa-circle-thin"></i></button>
+                    </div>
+                    <div class="col-10 text-left">
+                        <button type="button" class="btn px-5 text-white">Test1</button>
+                        <button class="striNode" id="noTest6-out"><i class="fa fa-circle-thin"></i></button>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-2 m-auto">
+                        <button class="striNode" id="noTest5-out"><i class="fa fa-circle-thin"></i></button>
+                    </div>
+                    <div class="col-10 text-left">
+                        <button type="button" class="btn px-5 text-white">Test2</button>
+                        <button class="striNode" id="noTest-out"><i class="fa fa-circle-thin"></i></button>
+                        <button class="intNode" id="noTest1-out"><i class="fa fa-circle-thin"></i></button>
+                        <button class="intNode" id="noTest2-out"><i class="fa fa-circle-thin"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Menu -->
+        <div id="searchMenu" class="context-menu rounded-lg" style="display: none"> 
+            <ul class="menu bg-dark" id="searchList">
+            </ul> 
+        </div>
+
+        <!-- Hint Popup -->
+        <div id="hintPopup" class="px-2 rounded-lg" style="display: none">
+            <h1></h1>
+            <p></p>
+        </div>
+        
+        <!-- The Modal -->
+        <div class="modal" id="editorModal">
+            <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+        
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title" id="editor_modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body text-left" id="editor_modal-body">
+
+                </div>
+        
+                <!-- Modal footer -->
+                <div class="container-fluid p-3">
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <button type="button" class="btn btn-bloop" id="editor_modalsubmit" data-dismiss="modal">Submit</button>
+                        </div>
+                        <div class="col-6 text-right">
+                            <button type="button" class="btn btn-zdanger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="custom_modal collapse" id="customModal">
+            <div class="container">
+                            <div class="row">
+                                <div class="col-12 px-5 pt-3 pb-2">
+                                    <h4 id="customModalTitle"></h4>
+                                    <p id="customModalText"></p>
+                                </div>
+                            </div>
+                            <div class="row" id="customModalBtns">
+                                <div class="col-6 px-0">
+                                    <button class="btn btn-block btn-bloop">Ok</button>
+                                </div>
+                                <div class="col-6 px-0">
+                                    <button class="btn btn-block btn-bloop">Cancel</button>
+                                </div>
+                            </div>
+            </div>
+        </div>
+
+        <!--
+        There's 2 separate canvases for lines 
+            - allLines is where pretty much all lines are drawn, it only updates when you move a node or pan the view
+            - blueLines is responsible for the line that follows the cursor when dragging from one nub to another
+        -->
+        <canvas width="1920" height="1080" class="stuck w-100 h-100" id="allLines"></canvas>
+        <canvas width="1920" height="1080" class="stuck w-100 h-100" id="blueLines"></canvas>
+
+        <div class="container-fluid stuck">
+            <div class="row">
+                <div class="col-10 p-0">
+                    <div class="vh-100 w-100" id="Graph">
+                        <div class="container-fluid vh-100 w-100 bg-none" id="LoadingScreen">
+                            <div class="row vh-40 bg-none">
+                            </div>
+                            <div class="row bg-none">
+                                <div class="col-12 bg-none">
+                                    <i class="fa fa-2x fa-circle-o-notch fa-spin"></i>
+                                    <h1 id="LoadingScreenDetail">Loading...</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 sidepanel">
+                    <div class="container-fluid">
+                        <div class="row mt-4 pc-only">
+                            <div class="col-12">
+                                <h1>Diazo Prints</h1>
+                                <a href="docs/#changes"><span id="editor_version"></span></a>
+                                <h4 id="editor_currentModuleText">JavaScript</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid editorbtns">
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_filemenu">
+                        <div class="row">
+                            <div class="col-10 p-0">
+                                <h4>File</h4>
+                            </div>
+                            <div class="col-2 p-0">
+                                <i class="fa fa-caret-square-o-down"></i>
+                            </div>
+                        </div>
+                        </button>
+                        <div class="row collapse" id="editor_filemenu">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-zdanger btn-block" id="editor_newbtn">New</button>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-bloop btn-block" id="editor_openbtn">Open Project</button>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-bloop btn-block" id="editor_savepbtn">Save Project</button>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-bloop btn-block" id="editor_exportselbtn">Export Selected</button>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-bloop btn-block" id="editor_exportallbtn">Export All</button>
+                            </div>
+                            <div class="col-12">
+                                <br>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_modules">
+                        <div class="row">
+                            <div class="col-10 p-0">
+                                <h4>Modules</h4>
+                            </div>
+                            <div class="col-2 p-0">
+                                <i class="fa fa-caret-square-o-down"></i>
+                            </div>
+                        </div>
+                        </button>
+                        <div class="row collapse px-4" id="editor_modules">
+
+                        </div>
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_typesmenu">
+                            <div class="row">
+                                <div class="col-10 p-0">
+                                    <h4>Types</h4>
+                                </div>
+                                <div class="col-2 p-0">
+                                    <i class="fa fa-caret-square-o-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="row collapse" id="editor_typesmenu">
+                            <div class="col-12">
+                                <div class="container-fluid">
+                                    <div class="row" id="zLegend">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_variablemenu">
+                        <div class="row">
+                            <div class="col-10 p-0">
+                                <h4>Variables</h4>
+                            </div>
+                            <div class="col-2 p-0">
+                                <i class="fa fa-caret-square-o-down"></i>
+                            </div>
+                        </div>
+                        </button>
+                        <div class="row collapse" id="editor_variablemenu">
+                            <div class="col-12">
+                                <div class="container-fluid" id="editorvars">
+
+                                </div>
+                                <button type="button" class="btn btn-bloop btn-block mt-4" id="editor_addVar">+</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_funcmenu">
+                            <div class="row">
+                                <div class="col-10 p-0">
+                                    <h4>Functions</h4>
+                                </div>
+                                <div class="col-2 p-0">
+                                    <i class="fa fa-caret-square-o-down"></i>
+                                </div>
+                            </div>
+                            </button>
+                            <div class="row collapse" id="editor_funcmenu">
+                                <div class="col-12">
+                                    <button type="button" id="editor_docfuncbtn" class="btn btn-bloop btn-block">Back to Document</button>
+                                    <span id="editorfuncs">
+
+                                    </span>
+                                    <button type="button" class="btn btn-bloop btn-block" id="editor_addFunc">+</button>
+                                </div>
+                            </div>
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_outputmenu">
+                            <div class="row">
+                                <div class="col-10 p-0">
+                                    <h4>Viewer</h4>
+                                </div>
+                                <div class="col-2 p-0">
+                                    <i class="fa fa-caret-square-o-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="row collapse" id="editor_outputmenu">
+                            <div class="col-12">
+                                <pre class="text-left bg-input w-100" id="nodecodeoutput"></pre>
+                                <button type="button" class="btn btn-bloop btn-block" id="editor_previewsel">Preview Selected</button>
+                                <button type="button" class="btn btn-bloop btn-block" id="editor_previewall">Preview All</button>
+                                <button type="button" class="btn btn-bloop btn-block" id="copyresult">Copy to Clipboard</button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-tab w-100 mt-4" data-toggle="collapse" data-target="#editor_settingspanel">
+                            <div class="row">
+                                <div class="col-10 p-0">
+                                    <h4>Settings</h4>
+                                </div>
+                                <div class="col-2 p-0">
+                                    <i class="fa fa-caret-square-o-down"></i>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="row collapse py-3" id="editor_settingspanel">
+                            <div class="col-12">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <p>Click and drag to connect nubs, click to disconnect</p>
+                                <p>Saves locally automatically.</p>
+                                <a href="docs/"><button type="button" class="btn btn-bloop btn-block">Documentation</button></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input id="openfiledialog" type="file" hidden>
+        <pre id="editor_settings" style="display:none"></pre>
+        <script src="js/undoredo.js"></script>
+        <script src="js/magic.js"></script>
+        <script src="js/nodelanguage.js"></script>
+        <script src="js/nodeapi.js"></script>
+        <script src="js/editor.js"></script>
+    </body>
+</html>

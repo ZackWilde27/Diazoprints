@@ -1,0 +1,80 @@
+// Node Code Module
+// Ironically my node language is so simple that it doesn't need the node language for any of the nodes
+
+typedef bool, b, circle-thin, circle, #FF0000, %, checkbox;
+typedef string, s, circle-thin, circle, #FF38D4, "%", text;
+typedef customstring, cs, circle-thin, circle, #FF38D4, %, ;
+
+class Settings
+{
+    doc-link=https://zackwilde.ca/blueprint/docs/nodelanguage.html/
+    separator=;\n
+    extension=nodelang
+    var-fmt=%name
+    var-decl=%name
+    var-sign=%name = %val
+    decl-sign=%name = %val
+    param-separator=, 
+    struct-new={%params}
+    array-separator=, 
+    bools=true|false
+}
+
+start exec Begin()
+{
+    %c0
+}
+
+exec True, exec Then If(exec _In, bool Condition)
+{
+if(Condition)
+{
+    %o0
+}
+%c1
+}
+
+custom Return Format, 1, return %1;, e.;s.Format;o.;,
+
+custom Get Parameter, 1, %0, i.cs.;o.;v.[%0.type].s.Type;v.[%0.isdef].b.Is Connected;v.[%0.keyword].s.Keyword;,
+
+exec True, exec Then IsConnected(exec _In, const customstring Name)
+{
+
+if (Name)
+{
+%o0
+}
+%c1
+
+} // Is Nub Connected
+
+_type4 string add(string _a, string _b)
+{
+    a + b
+} // Add (+)
+
+_type4 bool not(bool _a)
+{
+    !a
+} // Not (!)
+
+_type4 bool and(bool _a, bool _b)
+{
+    a && b
+} // And (&&)
+
+_type4 bool or(bool _a, bool _b)
+{
+    a || b
+} // Or (||)
+
+_type4 bool eq(auto _a, auto _b)
+{
+    a == b
+} // Equal (==)
+
+_type4 bool neq(auto _a, auto _b)
+{
+    a != b
+} // Not Equal (!=)

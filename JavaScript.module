@@ -1,0 +1,1102 @@
+Settings:
+doc-link=https://www.w3schools.com/jsref/
+separator=;\n
+extension=js
+var-fmt=%name
+var-decl=let %name
+var-sign=%name = %val
+decl-sign=let %name = %val
+param-separator=, 
+param-decl=%name
+param-format=%name
+function-format=function %name(%inputs) {\n%code\n}\n
+function-call=%name(%inputs)
+struct-new=new %name(%params)
+array-separator=, 
+bools=true|false
+
+Types:
+
+// Name, Letter Code, Font Awesome 4 Icon for unconnected, Font Awesome 4 Icon for connected, Colour, Output, Input Tag Type
+Boolean, b, circle-thin, circle, #FF0000, %, checkbox
+Number, f, circle-thin, circle, #7CFC00, %, number
+String, s, circle-thin, circle, #FF38D4, "%", text
+Array, a, square-o, square, #0093F5, ,
+RegExp, r, circle-thin, circle, #FFA21F, /%/, text
+Function, fn, circle-thin, circle, #4800FF, %, 
+
+// Types that are missing an input tag or output indicate that you can't create a constant, so it will be hidden in the commands menu
+Int8Array, i8a, square-o, square, #457E58, %, 
+Uint8Array, ui8a, square-o, square, #457E58, %, 
+Uint8ClampedArray, ui8ca, square-o, square, #457E58, %, 
+Int16Array, i16a, square-o, square, #457E58, %, 
+Uint16Array, ui16a, square-o, square, #457E58, %, 
+Int32Array, i32a, square-o, square, #457E58, %, 
+Uint32Array, ui32a, square-o, square, #457E58, %, 
+BigInt64Array, bi32a, square-o, square, #457E58, %, 
+BigUint64Array, bui32a, square-o, square, #457E58, %, 
+Float32Array, f32a, square-o, square, #7CFC00, %, 
+Float64Array, f64a, square-o, square, #7CFC00, %, 
+
+// Types with no icons will not show up in anything (commands menu, legend, or when selecting a type),
+// it allows you to create a specific input for a specific situation, such as a dropdown menu for all the types of errors in JavaScript
+Error Names, en, , , #FF0000, %, RangeError|ReferenceError|SyntaxError|TypeError|URIError
+
+// Structs are structured like so:
+// Name
+// Colour
+// Whether or not to create 'Break' and 'New' nodes
+// [
+//      property1_name, property1_type, property1_readwrite, property1_doc_link
+// ]
+// (
+//      method1_name, method1_io, method1_link
+// )
+// documentation link
+
+// readwrite is a string that determines whether a property can be written to or read from, or both.
+// r means it can only be read, w means it can only be written to, and rw means you can do both
+
+Structs:
+Attr
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    name, String, r,
+    value, String, rw,
+    specified, Boolean, r,
+]
+(
+)
+placeholder
+
+DOMRect
+#0093F5
+false
+%this.%name
+%this.%name(%params)
+[
+    bottom, Number, rw,
+    height, Number, rw,
+    left, Number, rw,
+    right, Number, rw,
+    top, Number, rw,
+    width, Number, rw,
+    x, Number, rw,
+    y, Number, rw,
+]
+(
+)
+placeholder
+
+HTMLCollection
+#0093F5
+false
+%this.%name
+%this.%name(%params)
+[
+    length, Number, r,
+]
+(
+    item, f.Index;o.;HTMLElement.Element;, met_htmlcollection_item.asp
+    namedItem, s.Id;o.;HTMLElement.Element;, met_htmlcollection_nameditem.asp
+)
+placeholder
+
+HTMLElement
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    accessKey, String, rw,
+    childElementCount, Number, r,
+    children, HTMLCollection, r,
+    classList, String, rw,
+    className, String, rw,
+    clientHeight, Number, r,
+    clientLeft, Number, r,
+    clientTop, Number, r,
+    clientWidth, Number, r,
+    contentEditable, Boolean, rw,
+    dir, String, rw,
+    firstChild, HTMLElement, r,
+    firstElementChild, HTMLElement, r,
+    id, String, rw,
+    innerHTML, String, rw,
+    innerText, String, rw,
+    isContentEditable, Boolean, r,
+    lang, String, rw,
+    lastChild, HTMLElement, r,
+    lastElementChild, HTMLElement, r,
+    namespaceURI, String, r,
+    nextSibling, HTMLElement, r,
+    nextElementSibling, HTMLElement, r,
+    nodeName, String, r,
+    nodeType, Number, r,
+    nodeValue, String, rw,
+    offsetHeight, Number, r,
+    offsetWidth, Number, r,
+    offsetLeft, Number, r,
+    offsetTop, Number, r,
+    outerHTML, String, rw,
+    outerText, String, rw,
+    ownerDocument, HTMLDocument, r,
+    parentElement, HTMLElement, r,
+    previousSibling, HTMLElement, r,
+    previousElementSibling, HTMLElement, r,
+    scrollHeight, Number, r,
+    scrollLeft, Number, rw,
+    scrollTop, Number, rw,
+    scrollWidth, Number, r,
+    style, CSSStyleDeclaration, r,
+    tabIndex, String, rw,
+    tagName, String, rw,
+    textContent, String, rw,
+    title, String, rw,
+]
+(
+    addEventListener, e.;s.Event;fn.Function;p.false.b.UseCapture;o.;e.;, met_element_addeventlistener.asp
+    appendChild, e.;HTMLElement.HTMLElement;o.;HTMLElement.Appended Node;, 
+    blur, e.;o.;e.;,
+    click, e.;o.;e.;, met_html_click.asp
+    cloneNode, p.b.Deep;o.;HTMLElement.Cloned Node;, met_node_clonenode.asp
+    closest, s.Selectors;o.;g.Object;, met_element_closest.asp
+    compareDocumentPosition, HTMLElement.Node;o.;f.Position;, met_node_comparedocumentposition.asp
+    contains, HTMLElement.Node;o.;b.;, met_node_contains.asp
+    focus, e.;o.;e.;,
+    getAttribute, s.Attribute;o.;s.;,
+    getAttributeNode, s.Attribute;o.;Attr.Attr;,
+    getBoundingClientRect, o.;DOMRect.Rect;,
+    getContext, p."2d".s.;o.;Context2D.Context2D;,
+    getElementsByClassName, s.Class;o.;HTMLCollection.Elements;,
+    getElementsByTagName, s.Tag;o.;HTMLCollection.Elements;,
+    hasAttribute, s.Attribute;o.;b.;,
+    hasAttributes, o.;b.;,
+    hasChildNodes, o.;b.;,
+    insertAdjacentElement, e.;s.Position;HTMLElement.Element;o.;e.;,
+    insertAdjacentHTML, e.;s.Position;s.HTML;o.;e.;,
+    insertAdjacentText, e.;s.Position;s.Text;o.;e.;,
+    insertBefore, e.;HTMLElement.New;HTMLElement.Existing;o.;e.;HTMLElement.Inserted Node;,
+    isDefaultNamespace, s.Namespace URI;o.;b.;,
+    isEqualNode, HTMLElement.Node;o.;b.;,
+    isSameNode, HTMLElement.Node;o.;b.;, met_node_issamenode.asp
+    matches, s.Selectors;o.;b.;, met_element_matches.asp
+    normalize, e.;o.;e.;, met_node_normalize.asp
+    querySelector, s.Selectors;o.;HTMLElement.Element;, met_element_queryselector.asp
+    querySelectorAll, s.Selectors;o.;a.Elements;, met_element_queryselectorall.as
+    remove, e.;o.;e.;, met_element_remove.asp
+    removeAttribute, e.;s.Name;o.;e.;, met_element_removeattribute.asp
+    removeAttributeNode, e.;Attr.NodeToRemove;o.;e.;Attr.RemovedNode;,
+    removeChild, e.;HTMLElement.NodeToRemove;o.;e.;HTMLElement.RemovedNode;, met_node_removechild.asp
+    removeEventListener, e.;s.Event;fn.Function;p.b.Use Capture;o.;e.;,
+    replaceChild, e.;HTMLElement.New Node;HTMLElement.Old Node;o.;e.;HTMLElement.Replaced Node;,
+    scrollIntoView, e.;p.b.Align;o.;e.;, met_element_scrollintoview.asp
+    setAttribute, e.;s.Name;s.Value;o.;e.;, met_element_setattribute.asp
+    setAttributeNode, e.;Attr.Node;o.;e.;Attr.Replaced Node;, met_element_setattributenode.asp
+)
+placeholder
+
+HTMLDocument
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    activeElement, HTMLElement, r,
+    adoptedStyleSheets, Array, r,
+    anchors, Array, r,
+    applets, Array, r,
+    baseURI, String, r,
+    body, HTMLElement, r,
+    cookie, String, r,
+    doctype, String, r,
+    documentElement, HTMLElement, r,
+    documentMode, String, r,
+    domain, String, r,
+    domConfig, String, r,
+    embeds, String, r,
+    forms, Array, r,
+    head, HTMLElement, r,
+    images, Array, r,
+    implementation, HTMLElement, r,
+    inputEncoding, String, r,
+    lastModified, String, r,
+    links, Array, r,
+    readyState, String, r,
+    referrer, String, r,
+    scripts, Array, r,
+    strictErrorChecking, Boolean, r,
+    title, HTMLElement, r,
+    URL, String, r,
+]
+(
+    getElementById, s.Id;o.;HTMLElement.Element;,
+)
+placeholder
+
+Node
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    baseURI, String, r,
+    firstChild, Node, r,
+    isConnected, Boolean, r,
+    lastChild, Node, r,
+    nextSibling, Node, r,
+    nodeName, String, r,
+    nodeType, Number, r,
+    nodeValue, Number, rw,
+    ownerDocument, HTMLDocument, r,
+    parentNode, Node, r,
+    parentElement, HTMLElement, r,
+    previousSibling, Node, r,
+    textContext, String, rw,
+]
+(
+)
+placeholder
+
+Math
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    E, Number, r,
+    LN10, Number, r,
+    LN2, Number, r,
+    LOG10E, Number, r,
+    LOG2E, Number, r,
+    PI, Number, r,
+    SQRT1_2, Number, r,
+    SQRT2, Number, r,
+]
+(
+    abs, f.;o.;f.;,
+    acos, f.;o.;f.;,
+    acosh, f.;o.;f.;,
+    asin, f.;o.;f.;,
+    asinh, f.;o.;f.;,
+    atan, f.;o.;f.;,
+    atan2, f.;o.;f.;,
+    atanh, f.;o.;f.;,
+    crbt, f.;o.;f.;,
+    ceil, f.;o.;f.;,
+    clz32, f.;o.;f.;,
+    cos, f.;o.;f.;,
+    cosh, f.;o.;f.;,
+    exp, f.;o.;f.;,
+    expm1, f.;o.;f.;,
+    floor, f.;o.;f.;,
+    fround, f.;o.;f.;,
+    log, f.;o.;f.;,
+    log10, f.;o.;f.;,
+    log1p, f.;o.;f.;,
+    log2, f.;o.;f.;,
+    max, f.;f.;o.;f.;,
+    min, f.;f.;o.;f.;,
+    pow, f.;f.;o.;f.;,
+    random, o.;f.;,
+    round, f.;o.;f.;,
+    sign, f.;o.;f.;,
+    sin, f.Radians;o.;f.;,
+    sinh, f.;o.;f.;,
+    sqrt, f.;o.;f.;,
+    tan, f.;o.;f.;,
+    tanh, f.;o.;f.;,
+    trunc, f.;o.;f.;,
+)
+placeholder
+
+console
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+]
+(
+    assert, e.;b.Expression;s.Message;o.;e.;, met_console_assert.asp
+    clear, e.;o.;e.;, met_console_clear.asp
+    count, e.;p."Default".s.Label;o.;e.;, met_console_count.asp
+    error, e.;g.Message;o.;e.;,
+    group, e.;s.Label;o.;e.;,
+    groupCollapsed, e.;p.undefined.s.Label;o.;e.;, met_console_groupcollapsed.asp
+    groupEnd, e.;o.;e.;,
+    info, e.;s.Message;o.;e.;, met_console_info.asp
+    log, e.;g.;o.;e.;,
+    table, e.;g.;o.;e.;,
+)
+placeholder
+
+localStorage
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+]
+(
+    getItem, s.Name;o.;s.;,
+    setItem, e.;s.Name;s.Value;o.;e.;,
+)
+placeholder
+
+sessionStorage
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+]
+(
+    getItem, s.Name;o.;s.;,
+    setItem, e.;s.Name;s.Value;o.;e.;,
+)
+placeholder
+
+location
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    hash, String, rw, prop_loc_hash.asp
+    host, String, rw, prop_loc_host.asp
+    hostname, String, rw, prop_loc_hostname.asp
+    href, String, rw, prop_loc_href.asp
+    origin, String, rw, prop_loc_origin.asp
+    pathname, String, rw, prop_loc_pathname.asp
+    port, String, rw, prop_loc_port.asp
+    protocol, String, rw, prop_loc_protocol.asp
+    search, String, rw, prop_loc_search.asp
+]
+(
+    assign, e.;s.newURL;o.;e.;, met_loc_assign.asp
+    reload, e.;o.;e.;, met_loc_reload.asp
+    replace, e.;s.newURL;o.;e.;, met_loc_replace.asp
+)
+obj_location.asp
+
+Screen
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    availHeight, Number, r, prop_screen_availheight.asp
+    availWidth, Number, r, prop_screen_availwidth.asp
+    colorDepth, Number, r, prop_screen_colordepth.asp
+    height, Number, r, prop_screen_height.asp
+    pixelDepth, Number, r, prop_screen_pixeldepth.asp
+    width, Number, r, prop_screen_width.asp
+]
+(
+)
+obj_screen.asp
+
+window
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    closed, Boolean, r,
+    console, console, r,
+    defaultStatus, auto, r,
+    document, HTMLDocument, r,
+    frameElement, HTMLElement, r,
+    frames, Array, r,
+    innerHeight, Number, r,
+    innerWidth, Number, r,
+    length, Number, r,
+    localStorage, localStorage, r,
+    location, location, r,
+    name, String, rw,
+    opener, window, r,
+    outerHeight, Number, r,
+    outerWidth, Number, r,
+    pageXOffset, Number, r,
+    pageYOffset, Number, r,
+    parent, window, r,
+    screen, Screen, r,
+    screenLeft, Number, r,
+    screenTop, Number, r,
+    screenX, Number, r,
+    screenY, Number, r,
+    sessionStorage, localStorage, r,
+    scrollX, Number, r,
+    scrollY, Number, r,
+    self, window, r,
+    top, window, r,
+]
+(
+    addEventListener, s.Event;p.false.b.Capture;o.;e.OnEvent;,
+    alert, e.;p."".s.Message;o.;e.;, met_win_alert.asp
+    atob, s.Encoded;o.;s.;, met_win_atob.asp
+    blur, e.;o.;e.;, met_win_blur.asp
+    btoa, s.String;o.;s.;, met_win_btoa.asp
+    clearInterval, e.;s.Interval Id;o.;e.;, met_win_clearinterval.asp
+    clearTimeout, e.;s.Timeout Id;o.;e.;, met_win_cleartimeout.asp
+    close, e.;o.;e.;, met_win_close.asp
+    confirm, s.Message;o.;b.User Clicked OK;,
+    focus, e.;o.;e.;,
+    getComputedStyle, HTMLElement.Element;HTMLElement.Pseudo Element;o.;CSSStyleDeclaration.CSSStyleDeclaration;,
+    getSelection, o.;g.Selection;,
+    matchMedia, s.Media Query;o.;g.MediaQueryList;,
+    moveBy, e.;f.X;f.Y;o.;e.;, met_win_moveby.asp
+    moveTo, e.;f.X;f.Y;o.;e.;, met_win_moveto.asp
+    open, p."".s.URL;p."_blank".s.Target;p."".a.Specs;o.;window.New Window;,
+    print, e.;o.;e.;,
+    prompt, .s.Text;s.Default Text;o.;s.Return Value;, met_win_prompt.asp
+    removeEventListener, e.;s.Event;fn.Function;p.b.Capture;o.;e.;, 
+    requestAnimationFrame, e.;s.Callback;o.;e.;f.Request Id;,
+    resizeBy, e.;f.Width;f.Height;o.;e.;, met_win_resizeby.asp
+    resizeTo, e.;f.Width;f.Height;o.;e.;, met_win_resizeto.asp
+    scrollBy, e.;f.X;f.Y;o.;e.;, met_win_scrollby.asp
+    scrollTo, e.;f.X;f.Y;o.;e.;, met_win_scrollto.asp
+    setInterval, e.;fn.Function;f.Milliseconds;a.g.Parameters;o.;f.Interval Id;, met_win_setinterval.asp
+    setTimeout, e.;fn.Function;f.Milliseconds;a.g.Parameters;o.;f.Timeout Id;, met_win_settimeout.asp
+    stop, e.;o.;e.;, met_win_stop.asp
+)
+obj_window.asp
+
+geo_coordinates
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    latitude, Number, r,
+    longitude, Number, r,
+    altitude, Number, r,
+    altitudeAccuracy, Number, r,
+    heading, Number, r,
+    speed, Number, r, 
+]
+(
+)
+prop_geo_coordinates.asp
+
+geolocation
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    coordinates, geo_coordinates, r, prop_geo_coordinates.asp
+]
+(
+)
+api_geolocation.asp
+
+navigator
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    cookieEnabled, Boolean, r, prop_nav_cookieenabled.asp
+    geolocation, geolocation, r, prop_nav_geolocation.asp
+    language, String, r, prop_nav_language.asp
+    onLine, Boolean, r, prop_nav_online.asp
+    userAgent, String, r, prop_nav_useragent.asp
+]
+(
+)
+obj_navigator.asp
+
+Date
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+]
+(
+    getDate, o.;f.;, jsref_getdate.asp
+    getDay, o.;f.;, jsref_getday.asp
+    getFullYear, o.;f.;, jsref_getfullyear.asp
+    getHours, o.;f.;, jsref_gethours.asp
+    getMilliseconds, o.;f.;, jsref_getmilliseconds.asp
+    getMinutes, o.;f.;, jsref_getminutes.asp
+    getSeconds, o.;f.;, jsref_getseconds.asp
+    getTime, o.;f.;, jsref_gettime.asp
+    getTimezoneOffset, o.;f.;, jsref_gettimezoneoffset.asp
+    getUTCDate, o.;f.;, jsref_getutcdate.asp
+    getUTCDay, o.;f.;, jsref_getutcday.asp
+    getUTCFullYear, o.;f.;, jsref_getutcfullyear.asp
+    getUTCHours, o.;f.;, jsref_getutchours.asp
+    getUTCMilliseconds, o.;f.;, jsref_getutcmilliseconds.asp
+    getUTCMinutes, o.;f.;, jsref_getutcminutes.asp
+    getUTCMonth, o.;f.;, jsref_getutcmonth.asp
+    getUTCSeconds, o.;f.;, jsref_getutcseconds.asp
+    now, o.;f.;, jsref_now.asp
+    parse, s.;o.;f.;, jsref_parse.asp
+    setDate, e.;o.;e.;f.;, jsref_setdate.asp
+    setFullYear, e.;f.Year;p.undefined.f.Month;p.undefined.f.Day;o.;e.;, jsref_setfullyear.asp
+    setHours, e.;f.Hours;p.0.f.Minutes;p.0.f.Seconds;p.0.f.Milliseconds;o.;e.;, jsref_sethours.asp
+    setMilliseconds, e.;f.Milliseconds;o.;e.;, jsref_setmilliseconds.asp
+    setMinutes, e.;f.Minutes;p.0.f.Seconds;p.0.f.Milliseconds;o.;e.;, jsref_setminutes.asp
+    setMonth, e.;f.Month;p.undefined.f.Month;o.;e.;, jsref_setmonth.asp
+)
+jsref_obj_date.asp
+
+JSON
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+]
+(
+    parse, s.;o.;g.Object;, 
+    stringify, g.Object;o.;s.;,
+)
+jsref_obj_json.asp
+
+Error
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+    name, String, rw, prop_error_name.asp
+    message, String, rw, prop_error_message.asp
+]
+(
+)
+jsref_obj_error.asp
+
+Promise
+#0093F5
+true
+%this.%name
+%this.%name(%params)
+[
+]
+(
+)
+js_promise.asp
+
+Set
+#0093F5
+false
+%this.%name
+%this.%name(%params)
+[
+]
+(
+    add, g.Value;o.;Set.Set;, jsref_set_add.asp
+    clear, e.;o.;e.;, jsref_set_clear.asp
+    delete, g.Value;o.;b.;, jsref_set_delete.asp
+    entries, o.;a.Iterator;, jsref_set_entries.asp
+    has, g.Value;o.;b.;, jsref_set_has.asp
+    keys, o.;a.Keys;, jsref_set_keys.asp
+    values, o.;a.Iterator;, jsref_set_values.asp
+)
+jsref_obj_set.asp
+
+CSSStyleDeclaration
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    alignContent, String, rw, prop_style_aligncontent.asp
+    alignItems, String, rw, prop_style_alignitems.asp
+    alignSelf, String, rw, prop_style_alignself.asp
+    animation, String, rw, prop_style_animation.asp
+    animationDelay, String, rw, prop_style_animationdelay.asp
+    animationDirection, String, rw, prop_style_animationdelay.asp
+    animationFillMode, String, rw, prop_style_animationfillmode.asp
+    animationIterationCount, String, rw, prop_style_animationiterationcount
+    animationName, String, rw, prop_style_animationname
+    animationTimingFunction, String, rw, prop_style_animationtimingfunction
+    animationPlayState, String, rw, prop_style_animationplaystate
+    background, String, rw, prop_style_background
+    backgroundAttachment, String, rw, prop_style_backgroundattachment
+    backgroundColor, String, rw, prop_style_backgroundcolor
+    backgroundImage, String, rw, prop_style_backgroundimage
+    backgroundPosition, String, rw, prop_style_backgroundposition
+    backgroundRepeat, String, rw, prop_style_backgroundrepeat
+    backgroundClip, String, rw, prop_style_backgroundclip
+    backgroundOrigin, String, rw, prop_style_backgroundorigin
+    backgroundSize, String, rw, prop_style_backgroundsize
+    backfaceVisibility, String, rw, prop_style_backfacevisibility
+    border, String, rw, prop_style_border
+    borderBottom, String, rw, prop_style_borderbottom
+    borderBottomColor, String, rw, prop_style_borderbottomcolor
+    borderBottomLeftRadius, String, rw, prop_style_borderbottomleftradius
+    borderBottomRightRadius, String, rw, prop_style_borderbottomrightradius
+    borderBottomStyle, String, rw, prop_style_borderbottomstyle
+    borderBottomWidth, String, rw, prop_style_borderbottomwidth
+    borderCollapse, String, rw, prop_style_bordercollapse
+    borderColor, String, rw, prop_style_bordercolor
+    borderImage, String, rw, prop_style_borderimage
+    borderImageOutset, String, rw, prop_style_borderimageoutset
+    borderImageRepeat, String, rw, prop_style_borderimagerepeat
+    borderImageSource, String, rw, prop_style_borderimagesource
+    borderImageWidth, String, rw, prop_style_borderimagewidth
+    borderLeft, String, rw, prop_style_borderleft
+    borderLeftColor, String, rw, prop_style_borderleftcolor
+    borderLeftStyle, String, rw, prop_style_borderleftstyle
+    borderLeftWidth, String, rw, prop_style_borderleftwidth
+    borderRadius, String, rw, prop_style_borderradius
+    borderRight, String, rw, prop_style_borderright
+    borderRightColor, String, rw, prop_style_borderrightcolor
+    borderRightStyle, String, rw, prop_style_borderrightstyle
+    borderRightWidth, String, rw, prop_style_borderrightwidth
+    borderSpacing, String, rw, prop_style_borderspacing
+    borderStyle, String, rw, prop_style_borderstyle
+    borderTop, String, rw, prop_style_bordertop
+    borderTopColor, String, rw, prop_style_bordertopcolor
+    borderTopLeftRadius, String, rw, prop_style_bordertopleftradius
+    borderTopRightRadius, String, rw, prop_style_bordertoprightradius
+    borderTopStyle, String, rw, prop_style_bordertopstyle
+    borderTopWidth, String, rw, prop_style_bordertopwidth
+    borderWidth, String, rw, prop_style_borderwidth
+    bottom, String, rw, prop_style_bottom
+    boxDecorationBreak, String, rw, prop_style_boxdecorationbreak
+    boxShadow, String, rw, prop_style_boxshadow
+    boxSizing, String, rw, prop_style_boxsizing
+    captionSide, String, rw, prop_style_captionside
+    caretColor, String, rw, prop_style_caretcolor
+    clear, String, rw, prop_style_clear
+    clip, String, rw, prop_style_clip
+    color, String, rw, prop_style_color
+    columnCount, String, rw, prop_style_columncount
+    columnFill, String, rw, prop_style_columnfill
+    columnGap, String, rw, prop_style_columngap
+    columnRule, String, rw, prop_style_columnrule
+    columnRuleColor, String, rw, prop_style_columnrulecolor
+    columnRuleStyle, String, rw, prop_style_columnrulestyle
+    columnRuleWidth, String, rw, prop_style_columnrulewidth
+    columns, String, rw, prop_style_columns
+    columnSpan, String, rw, prop_style_columnspan
+    columnWidth, String, rw, prop_style_columnwidth
+    content, String, rw, prop_style_content
+    counterIncrement, String, rw, prop_style_counterincrement
+    counterReset, String, rw, prop_style_counterreset
+    cursor, String, rw, prop_style_cursor
+    direction, String, rw, prop_style_direction
+    display, String, rw, prop_style_display
+    emptyCells, String, rw, prop_style_emptycells
+    filter, String, rw, prop_style_filter
+    flex, String, rw, prop_style_flex
+    flexBasis, String, rw, prop_style_flexbasis
+    flexDirection, String, rw, prop_style_flexdirection
+    flexFlow, String, rw, prop_style_flexflow
+    flexGrow, String, rw, prop_style_flexgrow
+    flexShrink, String, rw, prop_style_flexshrink
+    flexWrap, String, rw, prop_style_flexwrap
+    cssFloat, String, rw, prop_style_cssfloat
+    font, String, rw, prop_style_font
+    fontFamily, String, rw, prop_style_fontfamily
+    fontSize, String, rw, prop_style_fontsize
+    fontStyle, String, rw, prop_style_fontstyle
+    fontVariant, String, rw, prop_style_fontvariant
+    fontWeight, String, rw, prop_style_fontweight
+    fontSizeAdjust, String, rw, prop_style_fontsizeadjust
+    fontStretch, String, rw, prop_style_fontstretch
+    hangingPunctuation, String, rw, prop_style_hangingpunctuation
+    height, String, rw, prop_style_height
+    hyphens, String, rw, prop_style_hyphens
+    icon, String, rw, prop_style_icon
+    imageOrientation, String, rw, prop_style_imageorientation
+    isolation, String, rw, prop_style_isolation
+    justifyContent, String, rw, prop_style_justifycontent
+    left, String, rw, prop_style_left
+    letterSpacing, String, rw, prop_style_letterspacing
+    lineHeight, String, rw, prop_style_lineheight
+    listStyle, String, rw, prop_style_liststyle
+    listStyleImage, String, rw, prop_style_liststyleimage
+    listStylePosition, String, rw, prop_style_liststyleposition
+    listStyleType, String, rw, prop_style_liststyletype
+    margin, String, rw, prop_style_margin
+    marginBottom, String, rw, prop_style_marginbottom
+    marginLeft, String, rw, prop_style_marginleft
+    marginRight, String, rw, prop_style_marginright
+    marginTop, String, rw, prop_style_margintop
+    maxHeight, String, rw, prop_style_maxheight
+    maxWidth, String, rw, prop_style_maxwidth
+    minHeight, String, rw, prop_style_minheight
+    minWidth, String, rw, prop_style_minwidth
+    navDown, String, rw, prop_style_navdown
+    navIndex, String, rw, prop_style_navindex
+    navLeft, String, rw, prop_style_navleft
+    navRight, String, rw, prop_style_navright
+    navUp, String, rw, prop_style_navup
+    objectFit, String, rw, prop_style_objectfit
+    objectPosition, String, rw, prop_style_objectposition
+    opacity, String, rw, prop_style_opacity
+    order, String, rw, prop_style_order
+    orphans, String, rw, prop_style_orphans
+    outline, String, rw, prop_style_outline
+    outlineColor, String, rw, prop_style_outlinecolor
+    outlineOffset, String, rw, prop_style_outlineoffset
+    outlineStyle, String, rw, prop_style_outlinestyle
+    outlineWidth, String, rw, prop_style_outlinewidth
+    overflow, String, rw, prop_style_overflow
+    overflowX, String, rw, prop_style_overflowx
+    overflowY, String, rw, prop_style_overflowy
+    padding, String, rw, prop_style_padding
+    paddingBottom, String, rw, prop_style_paddingbottom
+    paddingLeft, String, rw, prop_style_paddingleft
+    paddingRight, String, rw, prop_style_paddingright
+    paddingTop, String, rw, prop_style_paddingtop
+    pageBreakAfter, String, rw, prop_style_pagebreakafter
+    pageBreakBefore, String, rw, prop_style_pagebreakbefore
+    pageBreakInside, String, rw, prop_style_pagebreakinside
+    perspective, String, rw, prop_style_perspective
+    perspectiveOrigin, String, rw, prop_style_perspectiveorigin
+    position, String, rw, prop_style_position
+    quotes, String, rw, prop_style_quotes
+    resize, String, rw, prop_style_resize
+    right, String, rw, prop_style_right
+    scrollBehaviour, String, rw, prop_style_scrollbehaviour
+    tableLayout, String, rw, prop_style_tablelayout
+    tabSize, String, rw, prop_style_tabsize
+    textAlign, String, rw, prop_style_textalign
+    textAlignLast, String, rw, prop_style_textalignlast
+    textDecoration, String, rw, prop_style_textdecoration
+    textDecorationColor, String, rw, prop_style_textdecorationcolor
+    textDecorationLine, String, rw, prop_style_textdecorationline
+    textDecorationStyle, String, rw, prop_style_textdecorationstyle
+    textIndent, String, rw, prop_style_textindent
+    textJustify, String, rw, prop_style_textjustify
+    textOverflow, String, rw, prop_style_textoverflow
+    textShadow, String, rw, prop_style_textshadow
+    textTransform, String, rw, prop_style_texttransform
+    top, String, rw, prop_style_top
+    transform, String, rw, prop_style_transform
+    transformOrigin, String, rw, prop_style_transformorigin
+    transformStyle, String, rw, prop_style_transformstyle
+    transition, String, rw, prop_style_transition
+    transitionProperty, String, rw, prop_style_transitionproperty
+    transitionDuration, String, rw, prop_style_transitionduration
+    transitionTimingFunction, String, rw, prop_style_transitiontimingfunction
+    transitionDelay, String, rw, prop_style_transitiondelay
+    unicodeBidi, String, rw, prop_style_unicodebidi
+    userSelect, String, rw, prop_style_userselect
+    verticalAlign, String, rw, prop_style_verticalalign
+    visibility, String, rw, prop_style_visibility
+    whiteSpace, String, rw, prop_style_whitespace
+    width, String, rw, prop_style_width
+    wordBreak, String, rw, prop_style_wordbreak
+    wordSpacing, String, rw, prop_style_wordspacing
+    wordWrap, String, rw, prop_style_wordwrap
+    widows, String, rw, prop_style_widows
+    zIndex, String, rw, prop_style_zindex
+]
+(
+)
+dom_obj_style.asp
+
+Context2D
+#0093F5
+none
+%this.%name
+%this.%name(%params)
+[
+    fillStyle, auto, rw,
+    strokeStyle, auto, rw,
+    lineCap, String, rw,
+    lineJoin, String, rw,
+    lineWidth, Number, rw,
+    miterLimit, Number, rw,
+    shadowBlur, Number, rw,
+    shadowColor, auto, rw,
+    shadowOffsetX, Number, rw,
+    shadowOffsetY, Number, rw,
+    font, String, rw,
+    direction, String, rw,
+    textAlign, String, rw,
+    textBaseline, String, rw,
+]
+(
+    beginPath, e.;o.;e.;,
+    moveTo, e.;f.X;f.Y;o.;e.;,
+    lineTo, e.;f.X;f.Y;o.;e.;,
+    bezierCurveTo, e.;f.Cp1x;f.Cp1y;f.Cp2x;f.Cp2y;f.X;f.Y;o.;e.;,
+    arcTo, e.;f.X1;f.Y1;f.X2;f.Y2;f.R;o.;e.;,
+    quadraticCurveTo, e.;f.Cpx;f.Cpy;f.X;f.Y;o.;e.;,
+    closePath, e.;o.;e.;,
+    stroke, e.;o.;e.;,
+    clip, e.;o.;e.;,
+    fill, e.;o.;e.;,
+    isPointInPath, f.X;f.Y;o.;b.;,
+    arc, e.;f.X;f.Y;f.R;f.sAngle;f.eAngle;b.Counterclockwise;o.;e.;,
+    rect, e.;f.X;f.Y;f.Width;f.Height;o.;e.;,
+    fillRect, e.;f.X;f.Y;f.Width;f.Height;o.;e.;, canvas_fillrect.asp
+    strokeRect, e.;f.X;f.Y;f.Width;f.Height;o.;e.;, canvas_strokerect.asp
+    clearRect, e.;f.X;f.Y;f.Width;f.Height;o.;e.;,
+    fillText, e.; s.Text; f.X; f.Y; o.; e.;,
+    strokeText, e.; s.Text; f.X; f.Y; o.; e.;,
+)
+api_canvas.asp
+
+StartingNodes:
+Begin, 1, %functions\n%c0, o.;e.;,
+
+Nodes:
+
+
+
+// Display Name, Type, Code, IO, reference-link
+
+// Type
+// 0 = execution node (the first input and output are execution nodes)
+// 1 = basic node
+// 2 = micro node (same as basic node, but smaller)
+// 3 = An input node, it means there's an input tag somewhere on the node 
+// 4 = macro node (same as micro node, but only shows the symbol)
+// 5 = programmable node (same as basic node, except it interprets the code as Node Language to determine the output)
+
+// Code
+// The format for the node's inputs.
+// %0 is replaced with the first input, %1 with the second, and so on. the order is based on the order in the IO.
+// for example a python print node would look like "print(%0)",
+
+
+// IO
+// letterCode.InputName;
+// letterCode will determine the colour of the node, defined under Types
+// o.; separates the inputs from the outputs, so a complete node would look like
+// b.Condition;o.;b.Result;
+
+// You can prefix with another letter and dot to add a modifier, such as n.b.Condition
+// - n
+//  The nub will not be visible, but will contribute to the gradient
+// - p
+//  The nub is optional, this one needs a default value, so it's structured like p.defaultvalue.type.name, such as p.3.f.Number;
+// - c
+//  Custom nub. The name will be the only thing put in the nub's spot.
+// - i
+//  Instead of a nub, use the input tag for that type. i.b.; for example will create a checkbox, since I defined that as the input for bools.
+
+// reference-link will be appended to the end of the documentation link to take users to the appropriate page for each function.
+//Colour, 3, "%", c.s.<input type='color'>;o.;s.;,
+
+Make Statement, 0, %0, e.;g.;o.;e.;, 
+Custom, 3, %, i.s.;o.;g.;,
+Set By Reference, 0, %0 = %1, e.;g.Ref;g.Value;o.;e.;,
+
+// Node Language is a lot easier to use in header file modules
+If, 5, if (!False) { return "if (%1)\n{\n%o0\n}\n%c2"; } if (!True) { return "if (!%1)\n{\n%o1\n}\n%c2"; } return "if (%1)\n{\n%o0\n}\nelse\n{\n%o1\n}\n%c2";, e.;b.Condition;o.;e.True;e.False;e.Then;, jsref_if.asp
+For, 1, for (%s0; %1; %s2)\n{\n%o1\n}\n%c3, e.;b.Condition;o.;e.Preparation;e.Loop;e.Increment;e.Then;, jsref_for.asp
+For (UE), 1, for (%n = %1; %n != %2; %n += %3)\n{\n%o0\n}\n%c2, e.;f.Start;f.End;p.1.f.Increment;o.;e.Loop Body;r.f.Current;e.Then;,
+For In, 1, for (%n in %1)\n{\n%o0\n}\n%c2, e.;g.;o.;e.Loop;r.s.Property;e.Then;, jsref_forin.asp
+For Of, 1, for (%n of %1)\n{\n%o0\n}\n%c2, e.;a.;o.;e.Loop;r.g.Item;e.Then;, jsref_forof.asp
+For Each, 1, %1.forEach(function (editor_reserved_currentValue, editor_reserved_index, editor_reserved_arr) {\n%o0\n});\n%c4, e.;a.;o.;e.Loop;v.editor_reserved_currentValue.g.Value;v.editor_reserved_index.f.Index;v.editor_reserved_arr.a.Array;e.Then;, jsref_foreach.asp
+While, 1, while (%1)\n{\n%o0\n}\n%c1, e.;b.Condition;o.;e.Loop;e.Then;, jsref_while.asp
+Do While, 1, do\n{\n%o0\n} while (%1)\n%c1, e.;b.Condition;o.;e.Loop;e.Then;, jsref_dowhile.asp
+
+Local Function (No Params), 1, function() {\n%o1\n}, o.;fn.reference;e.Begin;,
+Local Function (1 Param), 1, function(x) {\n%o1\n}, o.;fn.reference;e.Begin;v.x.g.X;,
+Local Function (2 Params), 1, function(a, b) {\n%o1\n}, o.;fn.reference;e.Begin;v.a.g.A;v.b.g.B;,
+
+Break, 1, break;\n, e.;o.;,
+Continue, 1, continue;\n, e.;o.;,
+Return, 5, if (!Value) { return "return;"; } return "return %1;";, e.;p..g.Value;o.;,
+
+Get (Array), 2, %0[%1], a.;f.;o.;g.;,
+
+Spread (...), 1, ...%0, a.Iterable;o.;g.;,
+
+Debugger, 1, debugger;\n%c0, e.;o.;e.;,
+
+Try, 1, try\n{\n%o0\n}\ncatch(err)\n{\n%o1\n}\n%c3, e.;o.;e.Try;e.On Catch;v.err.Error.err;e.Then;, 
+Throw, 1, throw %1;\n, e.;Error.Error;o.;, jsref_throw.asp
+
+Await, 1, await %0, Promise.Promise;o.;g.;,
+
+// Comparisons
+Equal (==), 4, (%0 == %1), g.;g.;o.;b.;,
+Strictly Equal (===), 4, (%0 === %1), g.;g.;o.;b.;,
+Not Equal (!=), 4, (%0 != %1), g.;g.;o.;b.;,
+Strictly Not Equal (!==), 4, (%0 !== %1), g.;g.;o.;b.;,
+Greater Than (&gt;), 4, (%0 > %1), f.;f.;o.;b.;,
+Less Than (&lt;), 4, (%0 < %1), f.;f.;o.;b.;,
+Greater Than Or Equal (&gt;=), 4, (%0 >= %1), f.;f.;o.;b.;,
+Less Than Or Equal (&lt;=), 4, (%0 <= %1), f.;f.;o.;b.;,
+
+In, 2, (%0 in %1), s.;g.;o.;b.;,
+
+Is Not Empty, 2, %0, s.;o.;b.;,
+Is Empty, 2, !%0, s.;o.;b.;,
+Is Not Zero, 2, %0, f.;o.;b.;,
+Is Zero, 2, !%0, f.;o.;b.;,
+
+// Conversions
+Parse Int, 1, parseInt(%0, %1), s.;i.f.Radix;o.;f.;, jsref_parseint.asp
+Parse Float, 1, parseFloat(%0), s.;o.;f.;, jsref_parsefloat.asp
+To String, 1, %0.toString(), g.;o.;s.;, jsref_toString.asp
+
+// Booleans
+Not (!), 4, (!%0), b.;o.;b.;, 
+And (&amp;&amp;), 4, (%0 && %1), b.;b.;o.;b.;, 
+Or (||), 4, (%0 || %1), b.;b.;o.;b.;, 
+
+
+// Bitwise
+Not (~), 4, (~%0), f.;o.;f.;,
+And (&amp;), 4, (%0 & %1), f.;f.;o.;f.;, 
+Or (|), 4, (%0 | %1), f.;f.;o.;f.;,
+Xor (^), 4, (%0 ^ %1), f.;f.;o.;f.;, 
+Left Shift (&lt;&lt;), 4, (%0 << %1), f.;f.;o.;f.;,
+Right Shift (&gt;&gt;), 4, (%0 >> %1), f.;f.;o.;f.;,
+Unsigned Right Shift (&gt;&gt;&gt;), 4, (%0 >>> %1), f.;f.;o.;f.;,
+
+// Math
+Add (+), 4, (%0 + %1), g.;g.;o.;g.;, 
+Subtract (-), 4, (%0 - %1), f.;f.;o.;f.;, 
+Multiply (*), 4, (%0 * %1), f.;f.;o.;f.;, 
+Divide (/), 4, (%0 / %1), f.;f.;o.;f.;, 
+Modulo (%), 4, (%0 % %1), f.;f.;o.;f.;,
+Power (**), 4, (%0 ** %1), f.;f.;o.;f.;,
+Post Increment (x++), 4, %0++, f.;o.;f.;,
+Post Decrement (x--), 4, %0--, f.;o.;f.;,
+Pre Increment (++x), 4, ++%0, f.;o.;f.;,
+Pre Decrement (--x), 4, --%0, f.;o.;f.;,
+Negate, 2, -%0, f.;o.;f.;,
+
+Select (?), 1, (%2 ? %0 : %1), g.A;g.B;b.Pick A;o.;g.;,
+
+Make Array, 1, [%0], a.g.;o.;a.;,
+
+Get Infinity, 1, Infinity, o.;f.;, jsref_infinity.asp
+Get NaN, 1, NaN, o.;f.;, jsref_nan.asp
+Get undefined, 1, undefined, o.;g.;, jsref_undefined.asp
+Get EPSILON, 1, Number.EPSILON, o.;f.;, jsref_number_epsilon.asp
+Get NEGATIVE_INFINITY, 1, Number.NEGATIVE_INFINITY, o.;f.;, jsref_negative_infinity.asp
+Get POSITIVE_INFINITY, 1, Number.POSITIVE_INFINITY, o.;f.;, jsref_positive_infinity.asp
+Get MAX_VALUE, 1, Number.MAX_VALUE, o.;f.;, jsref_max_value.asp
+Get MIN_VALUE, 1, Number.MIN_VALUE, o.;f.;, jsref_min_value.asp
+
+typeof, 1, typeof %0, g.;o.;s.;, js/js_typeof.asp
+
+Get constructor, 1, %0.constructor, g.;o.;fn.;,
+Get prototype, 1, %0.prototype, g.;o.;g.;,
+valueOf, 1, %0.valueOf(), g.;o.;g.;,
+
+// Strings
+at (String), 1, %0.at(%1), s.;f.Index;o.;s.Char;, jsref_string_at.asp
+charAt, 1, %0.charAt(%1), s.;f.Index;o.;s.Char;, jsref_charat.asp
+charCodeAt, 1, %0.charCodeAt(%1), s.;f.Index;o.;f.Code;,
+codePointAt, 1, %0.codePointAt(%1), s.;f.Index;o.;f.Unicode Char;, jsref_codepointat.asp
+concat (String), 1, %0.concat(%1), s.;a.s.;o.;s.;, jsref_concat_string
+endsWith, 1, %0.endsWith(%1), s.;s.;o.;b.;, jsref_endswith
+fromCharCode, 1, String.fromCharCode(%0), f.char code;o.;s.;, jsref_fromcharcode.asp
+includes (String),  1, %0.includes(%1), s.;s.Substring;o.;b.;, jsref_includes.asp
+indexOf (String),  5, if (!Start) { return "%0.indexOf(%1)"; } return "%0.indexOf(%1, %2)";, s.;s.Substring;p.0.f.Start;o.;f.Index;, jsref_indexof.asp
+lastIndexOf (String), 1, %0.lastIndexOf(%1), s.;s.Substring;o.;f.Index;, jsref_lastindexof.asp
+Get length (String),  1, %0.length, s.;o.;f.;, jsref_length_string
+localeCompare, 1, %0.localeCompare(%1), s.;s.;o.;f.Sort Order;, jsref_localecompare.asp
+
+padEnd, 1, %0.padEnd(%1, %2), s.;f.Length;s.Padding;o.;s.;, jsref_string_padend.asp
+padStart, 1, %0.padStart(%1, %2), s.;f.Length;s.Padding;o.;s.;, jsref_string_padstart.asp
+repeat, 1, %0.repeat(%1), s.;f.Count;o.;s.;, jsref_repeat
+replace,  1, %0.replace(%1, %2), s.;s.Replace;s.With;o.;s.;, jsref_string_replace
+replaceAll,  1, %0.replaceAll(%1, %2), s.;s.Replace;s.With;o.;s.;, jsref_string_replaceAll
+
+slice (String),  1, %0.slice(%1, %2), s.;f.Start;f.End;o.;s.;, jsref_slice_string.asp
+split,  1, %0.split(%1), s.;s.Separator;o.;a.Array;, 
+startsWith, 1, %0.startsWith(%1, %2), s.;s.Substring;p.0.f.Start;o.;b.;, jsref_startswith.asp
+substr,  1, %0.substr(%1, %2), s.;f.Start;f.Length;o.;s.;, jsref_substr.asp
+substring,  5, if (!End) { return "%0.substring(%1)"; } return "%0.substring(%1, %2)", s.;f.Start;p.undefined.f.End;o.;s.;, jsref_substring.asp
+toLocaleLowerCase, 1, %0.toLocaleLowerCase(), s.;o.;s.;, jsref_tolocalelowercase.asp
+toLocaleUpperCase, 1, %0.toLocaleUpperCase(), s.;o.;s.;, jsref_tolocaleuppercase.asp
+toLowerCase, 1, %0.toLowerCase(), s.;o.;s.;, jsref_tolowercase.asp
+toUpperCase, 1, %0.toUpperCase(), s.;o.;s.;, jsref_touppercase.asp
+trim, 1, %0.trim(), s.;o.;s.;, jsref_trim_string.asp
+trimEnd, 1, %0.trimEnd(), s.;o.;s.;, jsref_string_trim_end.asp
+trimStart, 1, %0.trimStart(), s.;o.;s.;, jsref_string_trim_start.asp
+
+decodeURI, 1, decodeURI(%0), s.;o.;s.;, jsref_decodeuri.asp
+encodeURI, 1, encodeURI(%0), s.;o.;s.;, jsref_encodeuri.asp
+decodeURIComponent, 1, decodeURIComponent(%0), s.URI;o.;s.;, jsref_decodeuricomponent.asp
+encodeURIComponent, 1, encodeURIComponent(%0), s.URI;o.;s.;, jsref_encodeuricomponent.asp
+eval, 1, eval(%0), s.Code;o.;g.Result;, jsref_eval.asp
+isFinite, 1, isFinite(%0), g.;o.;b.;, jsref_isfinite.asp
+isFinite (Number), 1, Number.isFinite(%0), f.;o.;b.;, jsref_isfinite.asp
+
+isSafeInteger (Number), 1, Number.isSafeInteger(%0), f.;o.;b.;, jsref_issafeinteger.asp 
+isNaN, 1, isNaN(%0), g.;o.;b.;, jsref_isnan.asp
+
+
+// Arrays
+at (Array),  1, %0.at(%1), a.;f.Index;o.;g.Item;, jsref_array_at.asp
+concat (Array), 1, %0.concat(%1), a.;a.a.;o.;a.;, jsref_concat_array.asp
+copy Within, 0, %0.copyWithin(%1, %2), e.;a.Array;f.End;f.Start;o.;e.;, jsref_copywithin.asp
+entries, 1, %0.entries(), a.;o.;a.;, jsref_entries.asp
+every, 1, %0.every(%1), a.;fn.Function;o.;b.;, jsref_every.asp
+fill, 0, %0.fill(%1, %2, %3), e.;a.;g.Value;f.Start;f.End;o.;e.;, jsref_fill.asp
+filter, 1, %0.filter(%1), a.;fn.Function;o.;a.;, jsref_filter.asp
+find, 1, %0.find(%1), a.;fn.Function;o.;a.;, jsref_find.asp
+findIndex, 1, %0.findIndex(%1), a.;fn.Function;o.;f.Index;, jsref_findindex.asp
+findLast, 1, %0.findLast(%1), a.;fn.Function;o.;g.Value;, jsref_array_findlast.asp
+findLastIndex, 0, %0.findLastIndex(%1), a.;fn.Function;o.;f.Index;, jsref_findlastindex.asp
+flat (Array), 1, %0.flat(%1), a.;f.Depth;o.;a.;, jsref_array_flat.asp
+flatMap (Array), 1, %0.flatMap(%1, %2), a.;fn.Function;p.undefined.g.This Value;o.;a.;, jsref_array_flatmap.asp
+Array From, 1, Array.from(%0), a.g.;o.;a.;, jsref_from.asp
+includes (Array), 1, %0.includes(%1), a.;g.Item;o.;b.;, jsref_includes_array.asp
+indexOf (Array),  5, if (!Start) { return "%0.indexOf(%1)"; } return "%0.indexOf(%1, %2)";, a.;g.Item;p.undefined.f.Start;o.;f.Index;, jsref_indexof_array.asp
+isArray, 1, Array.isArray(%0), g.;o.;b.;, isarray
+join, 1, %0.join(%1), a.;s.Separator;o.;s.;, jsref_join.asp
+keys, 1, %0.keys(), a.;o.;a.Keys;, jsref_array_keys
+lastIndexOf (Array), 1, %0.lastIndexOf(%1), a.;g.Item;p..f.Start;o.;f.Index;, jsref_lastindexof_array.asp
+length (Array), 1, %0.length, a.;o.;f.;, jsref_length_array.asp
+map, 1, %0.map(%1, %2), a.;fn.Function;p.undefined.g.This Value;o.;a.;, jsref_map.asp
+Array Of, 1, Array.of(%0), a.g.Items;o.;a.;, jsref_array_of.asp
+pop, 1, %0.pop(), a.;o.;g.Removed Item;, jsref_pop.asp
+push, 1, %0.push(%1), a.;g.Item;o.;f.New Length;, jsref_push.asp
+reduce, 1, %0.reduce(%1), a.;fn.Function;o.;f.Difference;, jsref_reduce.asp
+reduceRight, %0.reduceRight(%1), 1, a.;fn.Function;o.;f.Difference;, jsref_reduceright.asp
+reverse,  0, %0.reverse(), e.;a.;o.;e.;, jsref_reverse.asp
+shift, 1, %0.shift(), a.;o.;g.Removed Item;, jsref_shift.asp
+slice (Array), 5, if (!End) { return "%0.slice(%1)";} return "%0.slice(%1, %2)";, a.;p.0.f.Start;p.undefined.f.End;o.;a.New Array;, jsref_slice_array.asp
+some, 1, %0.some(%1, %2), a.;fn.Function;p.undefined.g.This;o.;b.;, jsref_some.asp
+sort, 0, %0.sort(%1), e.;a.;fn.SortFunction;o.;e.;, jsref_sort.asp
+splice, 1, %0.splice(%1, %2, %3), a.;f.Index;p.undefined.f.Count;a.g.Replacements;o.;a.Removed Items;, jsref_splice
+toReversed, 1, %0.toReversed(), a.;o.;a.Reversed Array;, jsref_array_toreversed.asp
+toSorted, 1, %0.toSorted(), a.;p..fn.Compare Function;o.;a.Sorted Array;, jsref_array_tosorted.asp
+with, 1, %0.with(%1, %2), a.;f.Index;g.New Item;o.;a.;, jsref_array_with.asp
+
+// Web API
+fetch, 1, fetch(%0), s.Filename;o.;Promise.Promise;, jsref_fetch.asp
+
+assign (Object), 1, Object.assign(%0, %1), g.Target;g.Source;o.;g.Target;,
+
+Get this, 1, this, o.;g.;,
+Get document, 1, document, o.;HTMLDocument.;,
+
+// The Category keyword allows you to add or change to a specific tab to create nodes.
+// in this case I'm using it to add more nodes to structs, but it could be used to create tabs without needing a struct
+Category: Promise
+all (Promise), 1, Promise.all(%0), a.List of Promises;o.;Promise.;, jsref_promise_all.asp
+allSettled (Promise), 1, Promise.allSettled(%0), a.List of Promises;o.;Promise.;, jsref_promise_allsettled.asp
+any (Promise), 1, Promise.any(%0), a.List of Promises;o.;Promise.;, jsref_promise_any.asp
+race (Promise), 1, Promise.race(%0), a.List of Promises;o.;Promise.;, jsref_promise_race.asp
+reject (Promise), 1, Promise.reject(%0), s.Message;o.;Promise.;, jsref_promise_reject.asp
+resolve (Promise), 1, Promise.resolve(%0), s.Message;o.;Promise.;, jsref_promise_resolve.asp
+catch (Promise), 1, %1.catch(function(message) {\n%o1\n});\n%c0, e.;Promise.Promise;o.;e.;e.On Rejected;v.message.g.Message;, jsref_promise_catch.asp
+
+Category: RegExp
+search (RegExp), 1, %0.search(%1), s.;r.RegEx;o.;f.Index;, search.asp
+replace (RegExp), 1, %0.replace(%1, %2), s.;r.Replace;s.With;o.;s.;;, search.asp
+match (RegExp), 1, %0.match(%1), s.;r.RegEx;o.;g.Array or Null;, match.asp
+matchAll, 1, %0.matchAll(%1), s.;r.RegEx;o.;a.;, match.asp
+exec, 1, %0.exec(%1), r.RegEx;s.Text;o.;g.Array or Null;, exec.asp
+test (RegExp), 1, %0.test(%1), r.RegEx;s.Text;o.;b.;, test.asp
+To Case Insensitive (RegExp), 1, %0i, r.RegExp;o.;r.;,
+To Global (RegExp), 1, %0g, r.RegExp;o.;r.;,
+To Multiline (RegExp), 1, %0m, r.RegExp;o.;r.;,
+
+Category: Context2D
+measureText (Context2D), 1, %0.measureText(%1).width, Context2D.Context2D;s.Text;o.;f.Width;,

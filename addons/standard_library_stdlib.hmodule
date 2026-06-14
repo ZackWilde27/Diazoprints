@@ -1,0 +1,78 @@
+// stdlib (C Standard Library)
+
+typedef jmp_buf, jb, circle-thin, circle, #0093F5, %,;
+typedef intmax_t, imt, circle-thin, circle, #457E58, %, number;
+
+struct Settings
+{
+    addon-decl=#include <stdlib.h>\n
+};
+
+void abort(); // link=w/c/program/abort
+void exit(int exit_code); // link=w/c/program/exit
+void quick_exit(int exit_code); // link=w/c/program/quick_exit
+void _Exit(int exit_code); // link=w/c/program/_Exit
+int atexit(Function func); // link=w/c/program/atexit
+int at_quick_exit(Function func); // link=w/c/program/at_quick_exit
+
+int GetEXIT_SUCCESS()
+{
+    EXIT_SUCCESS
+} // Get EXIT_SUCCESS
+
+int GetEXIT_FAILURE()
+{
+    EXIT_FAILURE
+} // Get EXIT_FAILURE
+
+int system(char* command);
+char* getenv(char* name);
+errno_t getenv_s(size_t* len, char* value, rsize_t valuesz, char* name);
+size_t memalignment(void* p);
+
+int rand(); // link=w/c/numeric/random/rand
+void srand(unsigned int seed); // link=w/c/numeric/random/srand
+int Getrandmax()
+{
+    RAND_MAX
+} // Get RAND_MAX link=w/c/numeric/random/RAND_MAX
+
+int setjmp(jmp_buf env);
+void longjmp(jmp_buf env, int status);
+
+void* malloc(size_t size);
+void* calloc(size_t num, size_t size);
+void* realloc(void* ptr, size_t new_size);
+void free(void* ptr);
+void free_sized(void* ptr, size_t size);
+void free_aligned_sized(void* ptr, size_t alignment, size_t size);
+void* aligned_alloc(size_t alignment, size_t size);
+
+int abs(int n); // link=w/c/numeric/math/abs
+long labs(long n); // link=w/c/numeric/math/abs
+intmax_t imaxabs(intmax_t n); // link=w/c/numeric/math/abs
+
+double atof(char* str); // link=w/c/string/byte/atof
+int atoi(char* str); // link=w/c/string/byte/atoi
+long atol(char* str); // link=w/c/string/byte/atoi
+long long atoll(char* str); // link=w/c/string/byte/atoi
+long strtol(char* str, char** str_end, int base); // link=w/c/string/byte/strtol
+long long strtoll(char* str, char** str_end, int base); // link=w/c/string/byte/strtol
+unsigned long strtoul(char* str, char** str_end, int base); // link=w/c/string/byte/strtoul
+unsigned long long strtoull(char* str, char** str_end, int base); // link=w/c/string/byte/strtoul
+float strtof(char* str, char** str_end); // link=w/c/string/byte/strtof
+double strtod(char* str, char** str_end); // link=w/c/string/byte/strtof
+long double strtold(char* str, char** str_end); // link=w/c/string/byte/strtof
+
+void qsort(void* ptr, size_t count, size_t size, Function comp); // link=w/c/algorithm/qsort
+errno_t qsort_s(void* ptr, rsize_t count, rsize_t size, Function comp, void* context); // link=w/c/algorithm/qsort
+
+int mblen(char* s, size_t n);// link=w/c/string/multibyte/mblen
+int mbtowc(wchar_t* pwc, char* s, size_t n); // link=w/c/string/multibyte/mbtowc
+int wctomb(char* s, wchar_t wc); // link=w/c/string/multibyte/wctomb
+errno_t wctomb_s(int* status, char* s, rsize_t ssz, wchar_t wc); // link=w/c/string/multibyte/wctomb
+size_t mbstowcs(wchar_t* dst, char* src, size_t len); // link=w/c/string/multibyte/mbstowcs
+errno_t mbstowcs_s(size_t* retval, wchar_t* dst, rsize_t dstsz, char* src, rsize_t len); // link=w/c/string/multibyte/mbstowcs
+
+size_t wcstombs(char* dst, wchar_t* src, size_t len); // link=w/c/string/multibyte/wcstombs
+errno_t wcstombs_s(size_t* retval, char* dst, rsize_t dstsz, wchar_t* src, rsize_t len); // link=w/c/string/multibyte/wcstombs

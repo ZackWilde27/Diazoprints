@@ -1,0 +1,69 @@
+// System.Text (.NET API)
+
+
+struct Settings
+{
+    addon-decl=using System.Text;\n
+};
+
+// I just realized how many built-in classes .NET has, I can try to do as much as I can but this is going to take absolutely forever on my own.
+
+class DecoderFallbackBuffer
+{
+    colour = #0093F5;
+    const int Remaining;
+
+    bool Fallback(byte[] bytesUnknown, int index);
+    bool MovePrevious();
+    void Reset();
+};
+
+class DecoderFallback
+{
+    colour = #0093F5;
+
+    const DecoderFallback ExceptionFallback;
+    const int MaxCharCount;
+    const DecoderFallback ReplacementFallback;
+
+    DecoderFallbackBuffer CreateFallbackBuffer();
+};
+
+const class Encoding
+{
+    colour = #0093F5;
+
+    const Encoding ASCII;
+    const Encoding BigEndianUnicode;
+    const string BodyName;
+    const int CodePage;
+    DecoderFallback DecoderFallback;
+};
+
+namespace TextWriter
+{
+    Encoding getEncoding(); // Get Encoding (TextWriter)
+}
+
+namespace Console
+{
+    Encoding getInputEncoding(Console Console=Console)
+    {
+        Console.InputEncoding
+    } // Get Input Encoding (Console)
+
+    void setInputEncoding(Console Console=Console, Encoding _x)
+    {
+        Console.InputEncoding = x
+    } // Set Input Encoding (Console)
+
+    Encoding getOutputEncoding(Console Console=Console)
+    {
+        Console.OutputEncoding
+    } // Get Output Encoding (Console)
+
+    void setOutputEncoding(Console Console=Console, Encoding _x)
+    {
+        Console.OutputEncoding = x
+    } // Set Output Encoding (Console)
+}
