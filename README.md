@@ -17,4 +17,4 @@ I have realized that a project like this cannot be fully completed on my own, at
 <br>
 
 ## Documentation
-Documentation for using the app and adding modules/addons can be found [here](https://zackwilde.ca/diazoprints/docs), I am planning on porting that over to this repo at some point
+Documentation for using the app and adding modules/addons can be found on my website [here](https://zackwilde.ca/diazoprints/docs), or in the wiki section [here](https://github.com/ZackWilde27/Diazoprints/wiki)
