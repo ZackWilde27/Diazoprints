@@ -6,7 +6,7 @@ At the moment it supports writing C, C#, JavaScript, PHP, Python, and Structured
 
 Modules can be made to add support for any additional languages, or add libraries for the existing languages
 
-You can use the code editor right now [here](https://zackwilde.ca/diazoprints), hosted on my website. The reason I'm putting the source code on GitHub is below
+You can use the code editor right now [here](https://zackwilde.ca/diazoprints) (As long as my server isn't down, that is), hosted on my website. The reason I'm putting the source code on GitHub is below
 
 <br>
 
